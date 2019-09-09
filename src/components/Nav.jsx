@@ -4,7 +4,7 @@ class Nav extends Component{
     render() {
         return (
             <div>
-                <div className="row ">
+                <div className="row z-depth-2">
                     <nav className="col indigo lighten-2">
                         <div class="nav-wrapper indigo lighten-2">
                         <a href="/" class="brand-logo">Home</a>

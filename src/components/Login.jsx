@@ -5,7 +5,7 @@ class Login extends Component{
             <div className="container row">
                 <div className="border col s4 offset-s4">
                     <div>
-                        <h3 className="center">Sign In</h3>
+                        <h3 className="center grey-text text-darken-2">Sign In</h3>
                         <div className="">
                             <div class="input-field col s12">
                                 <input id="username" type="text"/>
@@ -18,6 +18,9 @@ class Login extends Component{
                         </div>
                         <div className="center">
                             <button className="waves-effect waves-light btn indigo lighten-2">Sign In</button>
+                        </div>
+                        <div className="center-align">
+                            <p>Don't have an account? <a className="indigo-text text-lighten-1" href="/register">Register</a></p>
                         </div>
                     </div>
                 </div>
