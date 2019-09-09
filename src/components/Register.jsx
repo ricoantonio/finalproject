@@ -37,7 +37,7 @@ class Register extends Component{
                                 <button className="waves-effect waves-light btn indigo lighten-2">Register</button>
                             </div>
                             <div className="center-align">
-                                <p>Do you have an account? <a className="indigo-text text-lighten-1" href="/login">Sign in</a></p>
+                                <p className="center grey-text text-darken-2">Do you have an account? <a className="indigo-text text-lighten-1" href="/login">Sign in</a></p>
                             </div>
                         </div>
                     </div>

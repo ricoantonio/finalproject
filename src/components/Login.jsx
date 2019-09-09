@@ -20,7 +20,7 @@ class Login extends Component{
                             <button className="waves-effect waves-light btn indigo lighten-2">Sign In</button>
                         </div>
                         <div className="center-align">
-                            <p>Don't have an account? <a className="indigo-text text-lighten-1" href="/register">Register</a></p>
+                            <p className="center grey-text text-darken-2">Don't have an account? <a className="indigo-text text-lighten-1" href="/register">Register</a></p>
                         </div>
                     </div>
                 </div>
