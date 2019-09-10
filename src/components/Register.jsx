@@ -6,7 +6,10 @@ import React, { Component } from 'react'
 class Register extends Component{
     render() {
         return (
-            <div className="container">
+            <div className="container" style={{marginTop:"3%"}}>
+                <div className="center-align">
+                    <a className="center-align" href="/">logo saya</a>
+                </div>
                 <div className="row">
                     <div className="border col s6 offset-s3">
                         <div>

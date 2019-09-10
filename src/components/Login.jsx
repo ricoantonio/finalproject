@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 class Login extends Component{
     render() {
         return (
-            <div className="container row">
+            <div className="container row" style={{marginTop:"3%"}}>
+                <div className="center-align">
+                    <a className="center-align" href="/">logo saya</a>
+                </div>
                 <div className="border col s4 offset-s4">
                     <div>
                         <h3 className="center grey-text text-darken-2">Sign In</h3>
