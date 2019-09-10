@@ -6,7 +6,6 @@ class Home extends Component{
         return (
             <div>
                 <Nav/>
-                <img src={Mixlabs} alt=""/>
             </div>
         )
     }
