@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import Nav from './Nav'
+import Mixlabs from '../MixLabs.svg'
 class Home extends Component{
     render() {
         return (
             <div>
                 <Nav/>
-                <h1 className="center-align">Home</h1>
+                <img src={Mixlabs} alt=""/>
             </div>
         )
     }

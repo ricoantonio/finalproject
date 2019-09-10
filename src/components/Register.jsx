@@ -1,19 +1,20 @@
 import React, { Component } from 'react'
-
+import Logo from "../logo1.svg"
+import {Link} from 'react-router-dom'
 
 
 
 class Register extends Component{
     render() {
         return (
-            <div className="container" style={{marginTop:"3%"}}>
+            <div className="container"> 
                 <div className="center-align">
-                    <a className="center-align" href="/">logo saya</a>
+                    <Link className="center-align" to="/"><img className="logo" src={Logo} alt="Mix Labs"/></Link>
                 </div>
                 <div className="row">
                     <div className="border col s6 offset-s3">
-                        <div>
-                            <h3 className="center grey-text text-darken-2">Register</h3>
+                        <div> 
+                            <h5 className="center grey-text text-darken-2" style={{marginTop:"0px"}}>Register</h5>
                             <div className="">
                                 <div class="input-field col s6">
                                     <input id="firstname" type="text"/>
@@ -37,10 +38,10 @@ class Register extends Component{
                                 </div>
                             </div>
                             <div className="center">
-                                <button className="waves-effect waves-light btn indigo lighten-2">Register</button>
+                                <button className="waves-effect waves-light btn indigo lighten-2" style={{marginTop:"8%"}}>Register</button>
                             </div>
                             <div className="center-align">
-                                <p className="center grey-text text-darken-2">Do you have an account? <a className="indigo-text text-lighten-1" href="/login">Sign in</a></p>
+                                <p className="center grey-text text-darken-2">Do you have an account? <Link className="indigo-text text-lighten-1" to="/login">Sign in</Link></p>
                             </div>
                         </div>
                     </div>

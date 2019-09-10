@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Mixlabs from '../MixLabs.svg'
+import {Link} from 'react-router-dom'
 
 class Nav extends Component{
     render() {
@@ -7,11 +9,11 @@ class Nav extends Component{
                 <div className="row z-depth-2">
                     <nav className="col indigo lighten-2">
                         <div class="nav-wrapper indigo lighten-2">
-                        <a href="/" class="brand-logo">Logo saya</a>
+                        <Link to="/" class="brand-logo"><img src={Mixlabs} style={{height:"25px"}} alt="Mix Labs"/></Link>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             <li><input className="white-text" type="text" placeholder="Search.." /></li>
-                            <li><a className="waves-effect waves-light" href="/register">Register</a></li>
-                            <li><a className="waves-effect waves-light" href="/login">Sign In</a></li>
+                            <li><Link className="waves-effect waves-light" to="/register">Register</Link></li>
+                            <li><Link className="waves-effect waves-light" to="/login">Sign In</Link></li>
                         </ul>
                         </div>
                     </nav>
