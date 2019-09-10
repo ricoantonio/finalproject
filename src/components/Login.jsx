@@ -24,7 +24,7 @@ class Login extends Component{
                                 </div>
                             </div>
                             <div className="center">
-                                <button className="waves-effect waves-light btn indigo lighten-2" style={{marginTop:"8%"}}>Sign In</button>
+                                <button className="waves-effect waves-light btn indigo lighten-2" style={{marginTop:"5%"}}>Sign In</button>
                             </div>
                             <div className="center-align">
                                 <p className="center grey-text text-darken-2">Don't have an account? <Link className="indigo-text text-lighten-1" to="/register">Register</Link></p>
