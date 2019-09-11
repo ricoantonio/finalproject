@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Labs from '../LABSwhite.svg'
 import {Link} from 'react-router-dom'
-
+import Sidenav from './Sidenav'
 class Nav extends Component{
     render() {
         return (
@@ -9,12 +9,13 @@ class Nav extends Component{
                 <div className="row z-depth-2">
                     <nav className="col indigo lighten-2">
                         <div class="nav-wrapper indigo lighten-2">
-                        <Link to="/" class="brand-logo"><img src={Labs} style={{height:"25px"}} alt="Mix Labs"/></Link>
+                        <Link to="/" class="brand-logo center"><img className="" src={Labs} style={{height:"25px"}} alt="LABS"/></Link>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li><input className="white-text" type="text" placeholder="Search.." /></li>
+                            {/* <li><input className="white-text" type="text" placeholder="Search.." /></li> */}
                             <li><Link className="waves-effect waves-light" to="/register">Register</Link></li>
                             <li><Link className="waves-effect waves-light" to="/login">Sign In</Link></li>
                         </ul>
+                        <Sidenav/>
                         </div>
                     </nav>
                 </div>

@@ -9,7 +9,7 @@ class Register extends Component{
         return (
             <div className="container"> 
                 <div className="center-align">
-                    <Link className="center-align" to="/"><img className="logo" src={Logo} alt="Mix Labs"/></Link>
+                    <Link className="center-align" to="/"><img className="logo" src={Logo} alt="LABS"/></Link>
                 </div>
                 <div className="row">
                     <div className="border col s6 offset-s3">

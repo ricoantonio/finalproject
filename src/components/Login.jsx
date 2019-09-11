@@ -8,7 +8,7 @@ class Login extends Component{
             <div>
                 <div className="container row">
                     <div className="center-align">
-                        <Link className="center-align" to="/"><img className="logo" src={Logo} alt="Mix Labs"/></Link>
+                        <Link className="center-align" to="/"><img className="logo" src={Logo} alt="LABS"/></Link>
                     </div>
                     <div className="border col s4 offset-s4">
                         <div>
