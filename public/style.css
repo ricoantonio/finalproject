@@ -2,3 +2,12 @@
     width: 60%;
     margin-top: 2%
 }
+
+.side{
+    height: auto !important;
+    min-height: 100%;
+}
+.sideText{
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: rgb(119, 119, 119)
+}

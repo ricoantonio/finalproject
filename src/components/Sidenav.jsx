@@ -1,31 +1,15 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { Fragment } from 'react';
 import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import {Link} from 'react-router-dom'
+import Logo from "../logo1.svg"
+import Anime from "../Anime.svg"
+import Movie from "../Movie.svg"
+import KoreanDrama from "../KoreanDrama.svg"
 
-const useStyles = makeStyles({
-  list: {
-    width: 250,
-  },
-  fullList: {
-    width: 'auto',
-  },
-});
 
 export default function TemporaryDrawer() {
-  const classes = useStyles();
   const [state, setState] = React.useState({
-    top: false,
     left: false,
-    bottom: false,
-    right: false,
   });
 
   const toggleDrawer = (side, open) => event => {
@@ -37,30 +21,31 @@ export default function TemporaryDrawer() {
   };
 
   const sideList = side => (
-    <div
-      className={classes.list}
-      role="presentation"
+    <Fragment>
+      <div className="side">
+      <img src={Logo} alt="" style={{marginTop:"8%"}} />
+      <div
+      style={{width:500}}
       onClick={toggleDrawer(side, false)}
-      onKeyDown={toggleDrawer(side, false)}
-    >
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-    </div>
+      onKeyDown={toggleDrawer(side, false)}>
+          <Link>
+          <div className="center" style={{marginTop:"10%"}}>
+            <h3 className="sideText">Anime</h3>
+          </div>
+          </Link>
+          <Link>
+          <div className="center" style={{marginTop:"10%"}}>
+            <h3 className="sideText">Movie</h3>
+          </div>
+          </Link>
+          <Link>
+          <div className="center" style={{marginTop:"10%"}}>
+            <h3 className="sideText">Korean Drama</h3>
+          </div>
+          </Link>
+      </div>
+      </div>
+    </Fragment>
   );
 
   return (
