@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import {Link} from 'react-router-dom'
 import Logo from "../logo1.svg"
+import { Divider } from '@material-ui/core';
 
 
 export default function TemporaryDrawer() {
@@ -20,24 +21,27 @@ export default function TemporaryDrawer() {
   const sideList = side => (
     <Fragment>
       <div className="side">
-        <img src={Logo} alt="" style={{marginTop:"8%"}} />
+        <div className="">
+          <Link to="/"><img src={Logo} alt="" style={{marginTop:"3%", marginBottom:"1%"}} /></Link>
+        </div>
+        <Divider/>
         <div
         style={{width:500}}
         onClick={toggleDrawer(side, false)}
         onKeyDown={toggleDrawer(side, false)}>
-          <Link to="/anime">
+          <Link to="/anime" >
             <div className="center zoom" style={{marginTop:"5%",marginBottom:"5%"}}>
-              <h3 className="sideText zoomText">Anime</h3>
+              <h4 className="sideText zoomText">Anime</h4>
             </div>
           </Link>
           <Link to="/koreanvariety">
             <div className="center zoom" style={{marginTop:"5%",marginBottom:"5%"}}>
-              <h3 className="sideText zoomText">Korean Variety</h3>
+              <h4 className="sideText zoomText">Korean Variety</h4>
             </div>
           </Link>
           <Link to="/koreandrama">
             <div className="center zoom" style={{marginTop:"5%",marginBottom:"5%"}}>
-              <h3 className="sideText zoomText">Korean Drama</h3>
+              <h4 className="sideText zoomText">Korean Drama</h4>
             </div>
           </Link>
         </div>
