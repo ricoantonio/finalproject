@@ -2,9 +2,6 @@ import React, { Fragment } from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import {Link} from 'react-router-dom'
 import Logo from "../logo1.svg"
-import Anime from "../Anime.svg"
-import Movie from "../Movie.svg"
-import KoreanDrama from "../KoreanDrama.svg"
 
 
 export default function TemporaryDrawer() {
@@ -23,39 +20,39 @@ export default function TemporaryDrawer() {
   const sideList = side => (
     <Fragment>
       <div className="side">
-      <img src={Logo} alt="" style={{marginTop:"8%"}} />
-      <div
-      style={{width:500}}
-      onClick={toggleDrawer(side, false)}
-      onKeyDown={toggleDrawer(side, false)}>
-          <Link>
-          <div className="center" style={{marginTop:"10%"}}>
-            <h3 className="sideText">Anime</h3>
-          </div>
+        <img src={Logo} alt="" style={{marginTop:"8%"}} />
+        <div
+        style={{width:500}}
+        onClick={toggleDrawer(side, false)}
+        onKeyDown={toggleDrawer(side, false)}>
+          <Link to="/animehome">
+            <div className="center zoom" style={{marginTop:"10%"}}>
+              <h3 className="sideText zoomText">Anime</h3>
+            </div>
           </Link>
           <Link>
-          <div className="center" style={{marginTop:"10%"}}>
-            <h3 className="sideText">Movie</h3>
-          </div>
+            <div className="center zoom" style={{marginTop:"10%"}}>
+              <h3 className="sideText zoomText">Korean Variety</h3>
+            </div>
           </Link>
           <Link>
-          <div className="center" style={{marginTop:"10%"}}>
-            <h3 className="sideText">Korean Drama</h3>
-          </div>
+            <div className="center zoom" style={{marginTop:"10%"}}>
+              <h3 className="sideText zoomText">Korean Drama</h3>
+            </div>
           </Link>
-      </div>
+        </div>
       </div>
     </Fragment>
   );
 
   return (
     <div>
-        <a onClick={toggleDrawer('left', true)} className="btn-floating btn-large waves-effect waves-light indigo lighten-2 z-depth-0">
-            <i className="material-icons">dehaze</i>
-        </a>
-        <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
-            {sideList('left')}
-        </Drawer>
+      <a onClick={toggleDrawer('left', true)} className="btn-floating btn-large waves-effect waves-light indigo lighten-2 z-depth-0">
+        <i className="material-icons">more_vert</i>
+      </a>
+      <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
+        {sideList('left')}
+      </Drawer>
     </div>
   );
 }

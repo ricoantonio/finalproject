@@ -6,8 +6,27 @@
 .side{
     height: auto !important;
     min-height: 100%;
+    overflow-x:hidden;
 }
 .sideText{
     font-family: 'Open Sans Condensed', sans-serif;
     color: rgb(119, 119, 119)
+}
+
+.zoom {
+    transition: transform .1s; /* Animation */
+    margin: 0 auto;
+}
+
+.zoom:hover {
+    transform: scale(1.5);
+}
+
+.zoomText {
+    transition: transform .1s; /* Animation */
+    margin: 0 auto;
+}
+
+.zoomText:hover {
+    color: #7986cb;
 }
