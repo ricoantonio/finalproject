@@ -5,6 +5,8 @@ import Login from './Login'
 import Register from './Register'
 import Home from './Home'
 import AnimeHome from './AnimeHome'
+import DramaHome from './DramaHome'
+import VarietyHome from './VarietyHome'
 
 
 class App extends Component{
@@ -15,7 +17,9 @@ class App extends Component{
                     <Route path="/"exact component={Home}/>
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Register}/>
-                    <Route path="/animehome" component={AnimeHome}/>
+                    <Route path="/anime" component={AnimeHome}/>
+                    <Route path="/koreandrama" component={DramaHome}/>
+                    <Route path="/koreanvariety" component={VarietyHome}/>
 
                 </BrowserRouter>
             </div>

@@ -25,18 +25,18 @@ export default function TemporaryDrawer() {
         style={{width:500}}
         onClick={toggleDrawer(side, false)}
         onKeyDown={toggleDrawer(side, false)}>
-          <Link to="/animehome">
-            <div className="center zoom" style={{marginTop:"10%"}}>
+          <Link to="/anime">
+            <div className="center zoom" style={{marginTop:"5%",marginBottom:"5%"}}>
               <h3 className="sideText zoomText">Anime</h3>
             </div>
           </Link>
-          <Link>
-            <div className="center zoom" style={{marginTop:"10%"}}>
+          <Link to="/koreanvariety">
+            <div className="center zoom" style={{marginTop:"5%",marginBottom:"5%"}}>
               <h3 className="sideText zoomText">Korean Variety</h3>
             </div>
           </Link>
-          <Link>
-            <div className="center zoom" style={{marginTop:"10%"}}>
+          <Link to="/koreandrama">
+            <div className="center zoom" style={{marginTop:"5%",marginBottom:"5%"}}>
               <h3 className="sideText zoomText">Korean Drama</h3>
             </div>
           </Link>
