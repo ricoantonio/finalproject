@@ -21,10 +21,6 @@
     overflow-x:hidden;
 }
 
-.img-this-week{
-
-}
-
 .zoom {
     transition: transform .1s; /* Animation */
     margin: 0 auto;
