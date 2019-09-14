@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Logo from "../logo1.svg"
+import Logo from ".././Webpic/logo1.svg"
 import {Link} from 'react-router-dom'
 
 
@@ -17,7 +17,7 @@ class Register extends Component{
                             <h5 className="center grey-text text-darken-2" style={{marginTop:"0px"}}>Register</h5>
                             <div className="">
                                 <div class="input-field col s6">
-                                    <input id="firstname" type="text"/>
+                                    <input className="underlineColor" id="firstname" type="text"/>
                                     <label for="firstname">First Name</label>
                                 </div>
                                 <div class="input-field col s6">

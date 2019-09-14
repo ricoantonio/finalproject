@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import {Link} from 'react-router-dom'
-import Logo from "../logo1.svg"
+import Logo from ".././Webpic/logo1.svg"
 import { Divider } from '@material-ui/core';
 
 

@@ -8,12 +8,21 @@
     min-height: 100%;
     overflow-x:hidden;
 }
+
 .sideText{
     font-family: 'Open Sans Condensed', sans-serif;
     color: rgb(119, 119, 119);
     padding-top: 3%;
     padding-bottom: 3%;
     
+}
+
+.no-x-scroll{
+    overflow-x:hidden;
+}
+
+.img-this-week{
+
 }
 
 .zoom {
@@ -37,4 +46,12 @@
 
 .delay{
     transition-delay: 2s;
+}
+
+.not-square{
+    border-radius: 50px !important
+}
+
+.noStyle{
+    all:unset !important;
 }
