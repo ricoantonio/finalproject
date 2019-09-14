@@ -7,9 +7,10 @@ class Home extends Component{
         return (
             <div>
                 <Nav/>
-                
-                <BestThisWeek/>
-              
+                <div>
+                    <h3>BEST THIS WEEK</h3>
+                    <BestThisWeek/>
+                </div>
             </div>
         )
     }

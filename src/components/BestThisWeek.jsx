@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import Slider from 'react-slick'
+import runningman from '../Webpic/runningman.jpg'
+import hoteldelluna2 from '../Webpic/hoteldelluna2.jpg'
+import onepiece from '../Webpic/onepiece.jpg'
+
 
 class BestThisWeek extends Component{
     render() {
@@ -7,36 +11,29 @@ class BestThisWeek extends Component{
             dots: true,
             infinite: true,
             fade: true,
-            speed: 500,
+            speed: 1000,
             slidesToShow: 1,
             slidesToScroll: 1,
-            autoplaySpeed:10000,
+            autoplaySpeed:5000,
             autoplay: true,
         };
         return (
-               <div className="center-align container">
+               <div className="center-align" style={{height:"400px"}}>
                     <Slider {...settings} >
-                    {/* <div className="">
-                        <img 
-                        style={{height:"400px"}}
-                        className="center-align"
-                        src="https://channel-korea.com/wp-content/uploads/2018/09/%E1%84%85%E1%85%A5%E1%86%AB%E1%84%82%E1%85%B5%E1%86%BC%E1%84%86%E1%85%A2%E1%86%AB-521.jpg" 
-                        alt=""/>
-                    </div> */}
-                    <div>
-                        <h3>2</h3>
+                    <div className="center-align">
+                        <a href="">
+                            <img className="center-img" src={runningman} alt=""/>
+                        </a>
                     </div>
-                    <div>
-                        <h3>3</h3>
+                    <div className="center-align">
+                        <a href="">
+                            <img className="center-img" src={hoteldelluna2} alt=""/>
+                        </a>
                     </div>
-                    <div>
-                        <h3>4</h3>
-                    </div>
-                    <div>
-                        <h3>5</h3>
-                    </div>
-                    <div className="center">
-                        <h3>6</h3>
+                    <div className="center-align">
+                        <a href="">
+                            <img className="center-img" src={onepiece} alt=""/>
+                        </a>
                     </div>
                 </Slider>
                </div>
