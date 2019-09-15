@@ -22,12 +22,14 @@
 }
 
 .zoom {
-    transition: transform .1s; /* Animation */
+    transition: transform .2s; /* Animation */
     margin: 0 auto;
 }
 
 .zoom:hover {
-    transform: scale(1.8);
+    transform: scale(1.5);
+    margin-top: 5%;
+    margin-bottom: 5%
 }
 
 .zoomText {
