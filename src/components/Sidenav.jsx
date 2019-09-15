@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import {Link} from 'react-router-dom'
-import Logo from ".././Webpic/logo1.svg"
+import BogoWhite from '.././Webpic/BOGOlogoWhite.svg'
 import { Divider } from '@material-ui/core';
 
 
@@ -20,9 +20,9 @@ export default function TemporaryDrawer() {
 
   const sideList = side => (
     <Fragment>
-      <div className="side">
+      <div className="side black">
         <div className="">
-          <Link to="/"><img src={Logo} alt="" style={{marginTop:"3%", marginBottom:"1%"}} /></Link>
+          <Link to="/"><img src={BogoWhite} alt="BOGO" style={{marginTop:"3%", marginBottom:"1%"}} /></Link>
         </div>
         <Divider/>
         <div
@@ -51,7 +51,7 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      <a onClick={toggleDrawer('left', true)} className="btn-floating btn-large waves-effect waves-light indigo lighten-2 z-depth-0">
+      <a onClick={toggleDrawer('left', true)} className="btn-floating btn-large waves-effect waves-light black z-depth-0">
         <i className="material-icons">more_vert</i>
       </a>
       <Drawer open={state.left} onClose={toggleDrawer('left', false)}>

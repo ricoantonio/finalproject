@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Labs from '.././Webpic/LABSwhite.svg'
+import BogoWhite from '.././Webpic/BOGOlogoWhite.svg'
 import {Link} from 'react-router-dom'
 import Sidenav from './Sidenav'
 
@@ -10,16 +10,16 @@ class Nav extends Component{
         return (
             <div>
                 <div className="z-depth-2">
-                    <nav className="indigo lighten-2">
-                        <div class="nav-wrapper indigo lighten-2">
-                        <Link to="/" class="brand-logo center"><img className="" src={Labs} style={{height:"25px"}} alt="LABS"/></Link>
+                    <nav>
+                        <div class="nav-wrapper black">
+                        <Link to="/" class="brand-logo center"><img className="" src={BogoWhite} style={{height:"28px"}} alt="BOGO"/></Link>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             {/* <li><input className="white-text" type="text" placeholder="Search.." /></li> */}
                             <li id="searchBar">
-                                <div className="indigo lighten-0 not-square btn">
+                                <div className="white not-square btn">
                                     {/* <span style={{fontSize:"13px"}}>search</span> */}
                                     <div>
-                                        <input className="noStyle" type="text" placeholder="Search..."/>
+                                        <input className="noStyle black-text" type="text" placeholder="Search..."/>
                                     </div>
                                 </div>
                                     <i className="material-icons left" style={{fontSize:"200%",marginRight:0,marginTop:"1%"}}>search</i>

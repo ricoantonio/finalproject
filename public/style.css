@@ -1,5 +1,5 @@
 .logo {
-    width: 60%;
+    width: 40%;
     margin-top: 2%
 }
 
@@ -11,7 +11,7 @@
 
 .sideText{
     font-family: 'Open Sans Condensed', sans-serif;
-    color: rgb(119, 119, 119);
+    color: white;
     padding-top: 3%;
     padding-bottom: 3%;
     
@@ -27,7 +27,7 @@
 }
 
 .zoom:hover {
-    transform: scale(1.5);
+    transform: scale(1.8);
 }
 
 .zoomText {
@@ -36,8 +36,9 @@
 }
 
 .zoomText:hover {
-    color: #7986cb;
-    background-color:#f5f5f5;
+    color:black;
+    background-color:white;
+    
 }
 
 .delay{
