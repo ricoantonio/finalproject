@@ -15,6 +15,12 @@ class Nav extends Component{
                         <Link to="/" class="brand-logo center"><img className="" src={BogoWhite} style={{height:"29px"}} alt="BOGO"/></Link>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             {/* <li><input className="white-text" type="text" placeholder="Search.." /></li> */}
+                            <li><Link className="waves-effect waves-light" to="/register">Register</Link></li>
+                            <li><Link className="waves-effect waves-light" to="/login">Sign In</Link></li>
+                        </ul>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <span style={{marginLeft:10,marginRight:0}}>|</span>
+                            {/* <li><input className="white-text" type="text" placeholder="Search.." /></li> */}
                             <li id="searchBar">
                                 <div className="white not-square btn">
                                     {/* <span style={{fontSize:"13px"}}>search</span> */}
@@ -24,8 +30,6 @@ class Nav extends Component{
                                 </div>
                                     <i className="material-icons left" style={{fontSize:"200%",marginRight:0,marginTop:"1%"}}>search</i>
                             </li>
-                            <li><Link className="waves-effect waves-light" to="/register">Register</Link></li>
-                            <li><Link className="waves-effect waves-light" to="/login">Sign In</Link></li>
                         </ul>
                         <Sidenav/>
                         </div>
