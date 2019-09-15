@@ -26,21 +26,21 @@ export default function TemporaryDrawer() {
         </div>
         <Divider/>
         <div
-        style={{width:500}}
+        style={{width:400}}
         onClick={toggleDrawer(side, false)}
         onKeyDown={toggleDrawer(side, false)}>
           <Link to="/anime" >
-            <div className="center zoom" style={{marginTop:"5%",marginBottom:"5%"}}>
+            <div className="center zoom" style={{marginTop:"10%"}}>
               <h4 className="sideText zoomText">Anime</h4>
             </div>
           </Link>
           <Link to="/koreanvariety">
-            <div className="center zoom" style={{marginTop:"5%",marginBottom:"5%"}}>
+            <div className="center zoom" style={{marginTop:"10%"}}>
               <h4 className="sideText zoomText">Korean Variety</h4>
             </div>
           </Link>
           <Link to="/koreandrama">
-            <div className="center zoom" style={{marginTop:"5%",marginBottom:"5%"}}>
+            <div className="center zoom" style={{marginTop:"10%"}}>
               <h4 className="sideText zoomText">Korean Drama</h4>
             </div>
           </Link>

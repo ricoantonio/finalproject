@@ -15,11 +15,11 @@ class Login extends Component{
                             <h5 className="center" style={{marginTop:"0px"}}>Sign In</h5>
                             <div className="">
                                 <div class="input-field col s12">
-                                    <input id="username" type="text"/>
-                                    <label for="username">Username</label>
+                                    <input className="teal-text" id="username" type="text"/>
+                                    <label for="username">E-mail</label>
                                 </div>
                                 <div class="input-field col s12">
-                                    <input id="password" type="password"/>
+                                    <input className="teal-text" id="password" type="password"/>
                                     <label for="password">Password</label>
                                 </div>
                             </div>
