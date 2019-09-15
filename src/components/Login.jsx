@@ -15,11 +15,11 @@ class Login extends Component{
                             <h5 className="center" style={{marginTop:"0px"}}>Sign In</h5>
                             <div className="">
                                 <div class="input-field col s12">
-                                    <input className="teal-text" id="username" type="text"/>
+                                    <input className="teal-text text-darken-1" id="username" type="text"/>
                                     <label for="username">E-mail</label>
                                 </div>
                                 <div class="input-field col s12">
-                                    <input className="teal-text" id="password" type="password"/>
+                                    <input className="teal-text text-darken-1" id="password" type="password"/>
                                     <label for="password">Password</label>
                                 </div>
                             </div>
@@ -27,7 +27,7 @@ class Login extends Component{
                                 <button className="waves-effect waves-light btn black not-square" style={{marginTop:"5%"}}>Sign In</button>
                             </div>
                             <div className="center-align">
-                                <p>Don't have an account? <Link className="teal-text" to="/register">Register</Link></p>
+                                <p>Don't have an account? <Link className="teal-text text-darken-1" to="/register">Register</Link></p>
                             </div>
                         </div>
                     </div>

@@ -17,23 +17,23 @@ class Register extends Component{
                             <h5 className="center" style={{marginTop:"0px"}}>Register</h5>
                             <div className="">
                                 <div class="input-field col s6">
-                                    <input className="teal-text" id="firstname" type="text"/>
+                                    <input className="teal-text text-darken-1" id="firstname" type="text"/>
                                     <label for="firstname">First Name</label>
                                 </div>
                                 <div class="input-field col s6">
-                                    <input className="teal-text" id="lastname" type="text"/>
+                                    <input className="teal-text text-darken-1" id="lastname" type="text"/>
                                     <label for="lastname">Last Name</label>
                                 </div>
                                 <div class="input-field col s12">
-                                    <input className="teal-text" id="email" type="text"/>
+                                    <input className="teal-text text-darken-1" id="email" type="text"/>
                                     <label for="email">E-mail</label>
                                 </div>
                                 <div class="input-field col s6">
-                                    <input className="teal-text" id="password" type="password"/>
+                                    <input className="teal-text text-darken-1" id="password" type="password"/>
                                     <label for="password">Password</label>
                                 </div>
                                 <div class="input-field col s6">
-                                    <input className="teal-text" id="confirm" type="password"/>
+                                    <input className="teal-text text-darken-1" id="confirm" type="password"/>
                                     <label for="confirm">Confirm</label>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@ class Register extends Component{
                                 <button className="waves-effect waves-light btn black not-square" style={{marginTop:"5%"}}>Register</button>
                             </div>
                             <div className="center-align">
-                                <p>Do you have an account? <Link className="teal-text" to="/login">Sign in</Link></p>
+                                <p>Do you have an account? <Link className="teal-text text-darken-1" to="/login">Sign in</Link></p>
                             </div>
                         </div>
                     </div>

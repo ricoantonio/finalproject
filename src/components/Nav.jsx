@@ -25,7 +25,7 @@ class Nav extends Component{
                                 <div className="white not-square btn">
                                     {/* <span style={{fontSize:"13px"}}>search</span> */}
                                     <div>
-                                        <input className="noStyle teal-text" type="text" placeholder="Search..."/>
+                                        <input className="noStyle teal-tex text-darken-1t" type="text" placeholder="Search..."/>
                                     </div>
                                 </div>
                                     <i className="material-icons left" style={{fontSize:"200%",marginRight:0,marginTop:"1%"}}>search</i>
