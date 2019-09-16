@@ -8,7 +8,7 @@ class Nav extends Component{
 
     render() {
         return (
-            <div>
+            <div style={{margin:0}}>
                 <div className="z-depth-2">
                     <nav>
                         <div class="nav-wrapper black">
