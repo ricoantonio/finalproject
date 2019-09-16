@@ -42,6 +42,15 @@
     background-color:white;
     
 }
+.navMenu {
+    transition: transform .1s; /* Animation */
+    margin: 0 auto;
+}
+
+.navMenu:hover {
+    background-color:#212121 ;
+    
+}
 
 .delay{
     transition-delay: 2s;

@@ -12,7 +12,7 @@ class Login extends Component{
                     </div>
                     <div className="border col s4 offset-s4">
                         <div>
-                            <h5 className="center" style={{marginTop:"0px"}}>Sign In</h5>
+                            <h5  className="center" style={{marginTop:"0px"}}>Sign In</h5>
                             <div className="">
                                 <div class="input-field col s12">
                                     <input className="teal-text text-darken-1" id="username" type="text"/>

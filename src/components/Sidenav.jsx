@@ -21,7 +21,7 @@ export default function TemporaryDrawer() {
   const sideList = side => (
     <Fragment>
       <div className="side black">
-        <div className="">
+        <div className="" >
           <Link to="/"><img src={BogoWhite} alt="BOGO" style={{marginTop:"3%", marginBottom:"1%"}} /></Link>
         </div>
         <Divider/>
@@ -51,8 +51,8 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      <a onClick={toggleDrawer('left', true)} className="btn-floating btn-large waves-effect waves-light black z-depth-0">
-        <i className="material-icons">more_vert</i>
+      <a onClick={toggleDrawer('left', true)} className="btn-floating btn-large waves-effect waves-light black" >
+        <i className="material-icons navMenu">menu</i>
       </a>
       <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
         {sideList('left')}

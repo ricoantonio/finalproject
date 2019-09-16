@@ -8,18 +8,17 @@ class Nav extends Component{
 
     render() {
         return (
-            <div style={{margin:0}}>
+            <div className="navbar-fixed" style={{margin:0}}>
                 <div className="z-depth-2">
                     <nav>
                         <div class="nav-wrapper black">
                         <Link to="/" class="brand-logo center"><img className="" src={BogoWhite} style={{height:"29px"}} alt="BOGO"/></Link>
                         <ul id="nav-mobile" class="right">
-                            {/* <li><input className="white-text" type="text" placeholder="Search.." /></li> */}
-                            <li  style={{marginBottom:0}}><Link className=""  style={{marginBottom:0}} to="/register">Register</Link></li>
-                            <li  style={{margintop:0}}><Link className="" to="/login">Sign In</Link></li>
+                            <li  style={{marginBottom:0}}><Link className="navMenu"  style={{marginBottom:0}} to="/register">Register</Link></li>
+                            <li  style={{margintop:0}}><Link className="navMenu" to="/login">Sign In</Link></li>
                         </ul>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <span style={{marginLeft:10,marginRight:0}}>|</span>
+                        <span style={{marginLeft:10,marginRight:10}}>|</span>
                             <li id="searchBar">
                                 <div className="white not-square btn">
                                     <div>
