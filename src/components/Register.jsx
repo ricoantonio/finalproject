@@ -38,7 +38,7 @@ class Register extends Component{
                                 </div>
                             </div>
                             <div className="center">
-                                <button className="waves-effect waves-light btn black not-square" style={{marginTop:"5%"}}>Register</button>
+                                <button className="waves-effect waves-light btn black not-square btn-large" style={{marginTop:"5%"}}>Register</button>
                             </div>
                             <div className="center-align">
                                 <p>Do you have an account? <Link className="teal-text text-darken-1" to="/login">Sign in</Link></p>
