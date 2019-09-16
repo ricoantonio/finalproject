@@ -23,32 +23,32 @@ class BestThisWeek extends Component{
         return (
                <div className="center-align" style={{marginTop:"1%", marginBottom:"1%"}}>
                     <Slider {...settings} >
-                    <div className="">
+                    <div className="black">
                         <a href="">
                             <img className="center-img z-depth-0 " src={runningman} alt="running man"/>
                         </a>
                     </div>
-                    <div className="">
+                    <div className="black">
                         <a href="">
                             <img className="center-img z-depth-0 " src={hoteldelluna2} alt="hotel del luna"/>
                         </a>
                     </div>
-                    <div className="">
+                    <div className="black">
                         <a href="">
                             <img className="center-img z-depth-0 " src={onepiece} alt="one piece"/>
                         </a>
                     </div>
-                    <div className="">
+                    <div className="black">
                         <a href="">
                             <img className="center-img z-depth-0 " src={knowingbros} alt="knowing brother"/>
                         </a>
                     </div>
-                    <div className="">
+                    <div className="black">
                         <a href="">
                             <img className="center-img z-depth-0 " src={docjohn} alt="doctor john"/>
                         </a>
                     </div>
-                    <div className="">
+                    <div className="black">
                         <a href="">
                             <img className="center-img z-depth-0 " src={myheroacademia} alt="myhero academia"/>
                         </a>
