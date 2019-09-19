@@ -21,7 +21,7 @@ class BestThisWeek extends Component{
             autoplay: true,
         };
         return (
-               <div className="center-align" style={{marginTop:"1%", marginBottom:0}}>
+               <div className="center-align" style={{marginTop:0, marginBottom:0}}>
                     <Slider {...settings} >
                     <div className="black">
                         <a href="/">
