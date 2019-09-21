@@ -17,24 +17,19 @@ class Register extends Component{
                             <h5 className="center" style={{marginTop:"0px"}}>Register</h5>
                             <div className="">
                                 <div class="input-field col s6">
-                                    <input className="teal-text text-darken-1" id="firstname" type="text"/>
-                                    <label for="firstname">First Name</label>
+                                    <input className="teal-text text-darken-1" id="firstname" type="text"  placeholder='First Name'/>
                                 </div>
                                 <div class="input-field col s6">
-                                    <input className="teal-text text-darken-1" id="lastname" type="text"/>
-                                    <label for="lastname">Last Name</label>
+                                    <input className="teal-text text-darken-1" id="lastname" type="text" placeholder='Last Name'/>
                                 </div>
                                 <div class="input-field col s12">
-                                    <input className="teal-text text-darken-1" id="email" type="text"/>
-                                    <label for="email">E-mail</label>
+                                    <input className="teal-text text-darken-1" id="email" type="text" placeholder='E-mail'/>
                                 </div>
                                 <div class="input-field col s6">
-                                    <input className="teal-text text-darken-1" id="password" type="password"/>
-                                    <label for="password">Password</label>
+                                    <input className="teal-text text-darken-1" id="password" type="password" placeholder='Password'/>
                                 </div>
                                 <div class="input-field col s6">
-                                    <input className="teal-text text-darken-1" id="confirm" type="password"/>
-                                    <label for="confirm">Confirm</label>
+                                    <input className="teal-text text-darken-1" id="confirm" type="password" placeholder='Confirm Password'/>
                                 </div>
                             </div>
                             <div className="center">
