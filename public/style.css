@@ -64,11 +64,17 @@
     all:unset !important;
 }
 
+.centerbtn{
+    margin-top: auto;
+    margin-bottom: auto
+}
+
 .center-img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 500px; 
+    height: 50%;
+    width: 100%; 
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */

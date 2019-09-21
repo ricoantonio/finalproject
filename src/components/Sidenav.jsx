@@ -51,8 +51,8 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      <a onClick={toggleDrawer('left', true)} className="btn-floating btn-large waves-effect waves-light black" >
-        <i className="material-icons navMenu">menu</i>
+      <a onClick={toggleDrawer('left', true)} className="btn-floating btn-large centerbtn waves-effect waves-light black" >
+        <i className="material-icons navMenu">more_horiz</i>
       </a>
       <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
         {sideList('left')}

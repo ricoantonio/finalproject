@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Slider from 'react-slick'
 import runningman from '../Webpic/runningman.png'
-import hoteldelluna2 from '../Webpic/hoteldelluna2.jpg'
+import hoteldelluna from '../Webpic/hoteldelluna.png'
 import onepiece from '../Webpic/onepiece1.jpg'
 import knowingbros from '../Webpic/knowingbros.jpeg'
 import docjohn from '../Webpic/docjohn.jpg'
@@ -12,9 +12,9 @@ class BestThisWeek extends Component{
 
     render() {
         var settings = {
-            // dots:true,
+            dots:true,
             infinite: true,
-            fade: true,
+            // fade: true,
             speed: 1000,
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -33,10 +33,10 @@ class BestThisWeek extends Component{
                     </div>
                     <div className="transparent">
                         <a href="/">
-                            <img className="center-img z-depth-0 " src={hoteldelluna2} alt="hotel del luna"/>
+                            <img className="center-img z-depth-0 " src={hoteldelluna} alt="hotel del luna"/>
                         </a>
                     </div>
-                    <div className="transparent">
+                    {/* <div className="transparent">
                         <a href="/">
                             <img className="center-img z-depth-0 " src={onepiece} alt="one piece"/>
                         </a>
@@ -55,7 +55,7 @@ class BestThisWeek extends Component{
                         <a href="/">
                             <img className="center-img z-depth-0 " src={myheroacademia} alt="myhero academia"/>
                         </a>
-                    </div>
+                    </div> */}
                     </Slider>
                </div>
                

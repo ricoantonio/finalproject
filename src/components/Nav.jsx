@@ -12,13 +12,8 @@ class Nav extends Component{
                 <div className="z-depth-0">
                     <nav>
                         <div class="nav-wrapper black">
-                        <Link to="/" class="brand-logo center"><img className="" src={BogoWhite} style={{height:"29px"}} alt="BOGO"/></Link>
-                        <ul id="nav-mobile" class="right">
-                            <li  style={{marginBottom:0}}><Link className="navMenu"  style={{marginBottom:0}} to="/register">Register</Link></li>
-                            <li  style={{margintop:0}}><Link className="navMenu" to="/login">Sign In</Link></li>
-                        </ul>
+                        <Link to="/" class="brand-logo left"><img className="" src={BogoWhite} style={{height:"29px", marginLeft:"70%",marginTop:"20%"}} alt="BOGO"/></Link>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <span style={{marginLeft:10,marginRight:10}}>|</span>
                             <li id="searchBar">
                                 <div className="white not-square btn">
                                     <div>
@@ -27,6 +22,8 @@ class Nav extends Component{
                                 </div>
                                     <i className="material-icons left valign-wrapper" style={{fontSize:"200%",marginRight:0,marginTop:0,paddingTop:3}}>search</i>
                             </li>
+                            <li  style={{marginBottom:0}}><Link className="navMenu"  style={{marginBottom:0}} to="/register">Register</Link></li>
+                            <li  style={{margintop:0}}><Link className="navMenu" to="/login">Sign In</Link></li>
                         </ul>
                         <Sidenav/>
                         </div>
