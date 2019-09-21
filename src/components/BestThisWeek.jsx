@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Slider from 'react-slick'
-import runningman from '../Webpic/runningman.jpg'
+import runningman from '../Webpic/runningman.png'
 import hoteldelluna2 from '../Webpic/hoteldelluna2.jpg'
 import onepiece from '../Webpic/onepiece1.jpg'
 import knowingbros from '../Webpic/knowingbros.jpeg'
@@ -18,14 +18,14 @@ class BestThisWeek extends Component{
             speed: 1000,
             slidesToShow: 1,
             slidesToScroll: 1,
-            autoplaySpeed:5000,
+            autoplaySpeed:10000,
             autoplay: true,
             pauseOnHover:false,
             arrows:false,     
         };
         return (
-               <div className="center-align row" style={{marginTop:0, marginBottom:0}}  >
-                    <Slider {...settings} className="col s8 offset-s2">
+               <div className="center-align" style={{marginTop:0, marginBottom:0}}  >
+                    <Slider {...settings} className="">
                     <div className="transparent">
                         <a href="/">
                             <img className="center-img z-depth-0 " src={runningman} alt="running man"/>

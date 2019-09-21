@@ -9,7 +9,7 @@ class Nav extends Component{
     render() {
         return (
             <div className="navbar-fixed" style={{margin:0}}>
-                <div className="z-depth-2">
+                <div className="z-depth-0">
                     <nav>
                         <div class="nav-wrapper black">
                         <Link to="/" class="brand-logo center"><img className="" src={BogoWhite} style={{height:"29px"}} alt="BOGO"/></Link>
