@@ -48,7 +48,7 @@
 }
 
 .navMenu:hover {
-    background-color:#212121 ;
+    color:#bdbdbd ;
     
 }
 
@@ -97,4 +97,8 @@
 
 .input-field input[type=password]:focus + label {
     color: #000 !important;
+}
+
+.top{
+    vertical-align: top
 }
