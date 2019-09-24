@@ -22,10 +22,17 @@ class Nav extends Component{
                         <i className="material-icons black-text left top" style={{fontSize:"200%",marginRight:0,marginTop:0,paddingTop:0}}>search</i>
                         </span> */}
 
+
+                            {/* <div class="input-field inline" style={{height:"80%"}}>
+                                <input className="not-square white-text grey darken-3" id="search" type="search" required/>
+                                <label class="label-icon" for="search"><i class="material-icons white-text" style={{marginBottom:"3%"}}>search</i></label>
+                            </div> */}
+
+
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li>
+                            {/* <li>
                                 <a class="waves-effect waves-black btn not-square white black-text"><i class="material-icons left" style={{paddingTop:1,marginRight:1}}>search</i>search</a>
-                            </li>
+                            </li> */}
                             
                             <li  style={{marginBottom:0}}><Link className="navMenu"  style={{marginBottom:0}} to="/register">Register</Link></li>
                             <li  style={{margintop:0}}><Link className="navMenu" to="/login">Sign In</Link></li>
