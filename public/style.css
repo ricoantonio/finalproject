@@ -25,7 +25,6 @@
     transition: transform .2s; /* Animation */
     margin: 0 auto;
 }
-
 .zoom:hover {
     transform: scale(1.5);
     margin-top: 5%;
@@ -40,14 +39,30 @@
 .zoomText:hover {
     color:black;
     background-color:white;
-    
 }
+
 .navMenu {
     transition: transform .1s; /* Animation */
     margin: 0 auto;
 }
-
 .navMenu:hover {
+    background-color:#424242 ;
+    
+}
+.navMenu2 {
+    transition: transform .1s; /* Animation */
+    color: #bdbdbd;
+    margin: 0 auto;
+}
+.navMenu2:hover {
+    color:white ;
+    
+}
+.navSearch {
+    transition: transform .1s; /* Animation */
+    margin: 0 auto;
+}
+.navSearch:hover {
     color:#bdbdbd ;
     
 }
@@ -97,8 +112,4 @@
 
 .input-field input[type=password]:focus + label {
     color: #000 !important;
-}
-
-.top{
-    vertical-align: top
 }

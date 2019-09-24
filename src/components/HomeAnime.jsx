@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import Nav from './Nav'
 
-class VarietyHome extends Component{
+class HomeAnime extends Component{
     render() {
         return (
             <div>
                 <Nav/>
-                <h1>Korean Variety Home</h1>
+                <h1>Anime Home</h1>
             </div>
         )
     }
 }
-export default VarietyHome
+export default HomeAnime

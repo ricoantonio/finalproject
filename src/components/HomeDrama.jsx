@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Nav from './Nav'
 
-class DramaHome extends Component{
+class HomeDrama extends Component{
     render() {
         return (
             <div>
@@ -11,4 +11,4 @@ class DramaHome extends Component{
         )
     }
 }
-export default DramaHome
+export default HomeDrama
