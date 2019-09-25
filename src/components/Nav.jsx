@@ -23,19 +23,19 @@ class Nav extends Component{
                         </span> */}
 
 
-                            {/* <div class="input-field inline" style={{height:"80%"}}>
-                                <input className="not-square white-text grey darken-3" id="search" type="search" required/>
-                                <label class="label-icon" for="search"><i class="material-icons white-text" style={{marginBottom:"3%"}}>search</i></label>
-                            </div> */}
 
 
-                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <ul id="nav-mobile" class="right hide-on-med-and-down" style={{width:'50%'}}>
                             {/* <li>
                                 <a class="waves-effect waves-black btn not-square white black-text"><i class="material-icons left" style={{paddingTop:1,marginRight:1}}>search</i>search</a>
                             </li> */}
+                            <div class="input-field inline-block left" style={{width:"70%",height:45,paddingTop:"1%"}} >
+                                <input className="not-square white-text grey darken-3" id="search" type="search" required/>
+                                <label class="label-icon" for="search"><i class="material-icons white-text" style={{marginBottom:"3%"}}>search</i></label>
+                            </div>
                             
-                            <li  style={{marginBottom:0}}><Link className="navMenu"  style={{marginBottom:0}} to="/register">Register</Link></li>
-                            <li  style={{margintop:0}}><Link className="navMenu" to="/login">Sign In</Link></li>
+                            <li className="right" style={{margintop:0}}><Link className="navMenu" to="/login">Sign In</Link></li>
+                            <li className="right"  style={{marginBottom:0}}><Link className="navMenu"  style={{marginBottom:0}} to="/register">Register</Link></li>
                         </ul>
                         {/* <Sidenav/> */}
                         </div>
