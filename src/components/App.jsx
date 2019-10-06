@@ -22,7 +22,6 @@ class App extends Component{
                     <Route path="/drama" component={HomeDrama}/>
                     <Route path="/variety" component={HomeVariety}/>
                     <Route path="/movie" component={HomeMovie}/>
-
                 </BrowserRouter>
             </div>
         )

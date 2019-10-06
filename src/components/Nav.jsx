@@ -25,12 +25,12 @@ class Nav extends Component{
 
 
 
-                        <ul id="nav-mobile" class="right hide-on-med-and-down" style={{width:'50%'}}>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down" style={{width:'40%'}}>
                             {/* <li>
                                 <a class="waves-effect waves-black btn not-square white black-text"><i class="material-icons left" style={{paddingTop:1,marginRight:1}}>search</i>search</a>
                             </li> */}
-                            <div class="input-field inline-block left" style={{width:"70%",height:45,paddingTop:"1.2%"}} >
-                                <input className="not-square white-text grey darken-3" id="search" type="search" required/>
+                            <div class="input-field inline-block left" style={{width:"60%",height:45,paddingTop:"1.2%"}} >
+                                <input className="not-square white-text grey darken-2" id="search" type="search" placeholder='Search..' required/>
                                 <label class="label-icon" for="search"><i class="material-icons white-text" style={{marginBottom:"3%"}}>search</i></label>
                             </div>
                             
