@@ -24,7 +24,7 @@ class BestThisWeek extends Component{
             arrows:false,     
         };
         return (
-               <div className="center-align" style={{marginTop:"3%", marginBottom:0}}  >
+               <div className="center-align" style={{marginTop:0, marginBottom:0}}  >
                     <Slider {...settings} className="">
                     <div className="transparent">
                         <a href="/">

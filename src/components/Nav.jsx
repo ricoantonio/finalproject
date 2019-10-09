@@ -22,9 +22,6 @@ class Nav extends Component{
                         <i className="material-icons black-text left top" style={{fontSize:"200%",marginRight:0,marginTop:0,paddingTop:0}}>search</i>
                         </span> */}
 
-
-
-
                         <ul id="nav-mobile" class="right hide-on-med-and-down" style={{width:'40%'}}>
                             {/* <li>
                                 <a class="waves-effect waves-black btn not-square white black-text"><i class="material-icons left" style={{paddingTop:1,marginRight:1}}>search</i>search</a>
