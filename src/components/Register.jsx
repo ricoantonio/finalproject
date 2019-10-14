@@ -22,17 +22,17 @@ class Register extends Component{
         if(!this.state.name){
             return(
                 <div class="input-field col s12">
-                    <input onChange={e=>this.setState({name:e.target.value})} className="teal-text text-darken-1 inline" id="firstname" type="text"  placeholder='Your Name'/>
-                    <span className="red-text" style={{fontSize:"12px"}}>Enter Your Name</span>
-                    <i className="material-icons left red-text">error</i>
+                    <input onChange={e=>this.setState({name:e.target.value})} style={{fontSize:"28px"}} className="teal-text text-darken-1 inline" id="firstname" type="text"  placeholder='Your Name'/>
+                    <span className=" red-text text-darken-3" style={{fontSize:"12px"}}><b>Enter Your Name</b> </span>
+                    <i className="material-icons left  red-text text-darken-3">error</i>
                 </div>
             )
         }else{
             return(
                 <div class="input-field col s12">
-                    <input onChange={e=>this.setState({name:e.target.value})} className="teal-text text-darken-1" id="firstname" type="text"  placeholder='Your Name'/>
-                    <span className="green-text" style={{fontSize:"12px"}}>Enter Your Name</span>
-                    <i className="material-icons left green-text">check</i>
+                    <input onChange={e=>this.setState({name:e.target.value})} style={{fontSize:"28px"}} className="teal-text text-darken-1" id="firstname" type="text"  placeholder='Your Name'/>
+                    <span className="teal-text" style={{fontSize:"12px"}}><b>Enter Your Name</b></span>
+                    <i className="material-icons left teal-text">check</i>
                 </div>
             )
         }
@@ -41,25 +41,25 @@ class Register extends Component{
         if(!this.state.email){
             return(
                 <div class="input-field col s12">
-                    <input onChange={e=>this.setState({email:e.target.value})} className="teal-text text-darken-1 inline" id="email" type="text"  placeholder='Email'/>
-                    <span className="red-text" style={{fontSize:"12px"}}>Enter Email</span>
-                    <i className="material-icons left red-text">error</i>
+                    <input onChange={e=>this.setState({email:e.target.value})} style={{fontSize:"28px"}} className="teal-text text-darken-1 inline" id="email" type="text"  placeholder='Email'/>
+                    <span className="red-text text-darken-3" style={{fontSize:"12px"}}><b>Enter Email</b> </span>
+                    <i className="material-icons left red-text text-darken-3">error</i>
                 </div>
             )
         }if (this.state.usertaken){
             return(
                 <div class="input-field col s12">
-                    <input onChange={e=>this.setState({email:e.target.value,usertaken:0})} className="teal-text text-darken-1 inline" id="email" type="text"  placeholder='Email'/>
-                    <span className="red-text" style={{fontSize:"12px"}}>Email Alredy Taken </span>
-                    <i className="material-icons left red-text">error</i>
+                    <input onChange={e=>this.setState({email:e.target.value,usertaken:0})} style={{fontSize:"28px"}} className="teal-text text-darken-1 inline" id="email" type="text"  placeholder='Email'/>
+                    <span className="red-text text-darken-3" style={{fontSize:"12px"}}><b>Email Alredy Taken </b></span>
+                    <i className="material-icons left red-text text-darken-3">error</i>
                 </div>
             )
         }else{
             return(
                 <div class="input-field col s12">
-                    <input onChange={e=>this.setState({email:e.target.value})} className="teal-text text-darken-1" id="email" type="text"  placeholder='Email'/>
-                    <span className="green-text" style={{fontSize:"12px"}}>Enter Email</span>
-                    <i className="material-icons left green-text">check</i>
+                    <input onChange={e=>this.setState({email:e.target.value})} style={{fontSize:"28px"}} className="teal-text text-darken-1" id="email" type="text"  placeholder='Email'/>
+                    <span className="teal-text" style={{fontSize:"12px"}}><b>Enter Email</b></span>
+                    <i className="material-icons left teal-text">check</i>
                 </div>
             )
         }
@@ -69,16 +69,16 @@ class Register extends Component{
             return(
                 <div class="input-field col s6">
                     <input onChange={e=>this.setState({password:e.target.value})} className="teal-text text-darken-1 inline" id="password" type="password"  placeholder='Password '/>
-                    <span className="red-text" style={{fontSize:"12px"}}>Enter Password</span>
-                    <i className="material-icons left red-text">error</i>
+                    <span className="red-text text-darken-3" style={{fontSize:"12px"}}><b>Enter Password</b></span>
+                    <i className="material-icons left red-text text-darken-3">error</i>
                 </div>
             )
         }else{
             return(
                 <div class="input-field col s6">
                     <input onChange={e=>this.setState({password:e.target.value})} className="teal-text text-darken-1" id="password" type="password"  placeholder='Password '/>
-                    <span className="green-text" style={{fontSize:"12px"}}>Enter Password</span>
-                    <i className="material-icons left green-text">check</i>
+                    <span className="teal-text" style={{fontSize:"12px"}}><b>Enter Password</b></span>
+                    <i className="material-icons left teal-text">check</i>
                 </div>
 
             )
@@ -90,24 +90,24 @@ class Register extends Component{
             return(
                 <div class="input-field col s6">
                     <input onChange={e=>this.setState({confirmpass:e.target.value})} className="teal-text text-darken-1 inline" id="confirm" type="password"  placeholder='Confirm Password '/>
-                    <span className="red-text" style={{fontSize:"12px"}}>Enter Confirm Password</span>
-                    <i className="material-icons left red-text">error</i>
+                    <span className="red-text text-darken-3" style={{fontSize:"12px"}}><b>Enter Confirm Password</b></span>
+                    <i className="material-icons left red-text text-darken-3">error</i>
                 </div>
             )
         }if(this.state.password===this.state.confirmpass){
             return(
                 <div class="input-field col s6">
                     <input onChange={e=>this.setState({confirmpass:e.target.value})} className="teal-text text-darken-1 inline" id="confirm" type="password"  placeholder='Confirm Password '/>
-                    <span className="green-text" style={{fontSize:"12px"}}>Confirm Password Match</span>
-                    <i className="material-icons left green-text">done_all</i>
+                    <span className="teal-text" style={{fontSize:"12px"}}><b>Confirm Password Match</b></span>
+                    <i className="material-icons left teal-text">done_all</i>
                 </div>
             )
         }else{
             return(
                 <div class="input-field col s6">
                     <input onChange={e=>this.setState({confirmpass:e.target.value})} className="teal-text text-darken-1" id="confirm" type="password"  placeholder='Confirm Password '/>
-                    <span className="red-text" style={{fontSize:"12px"}}>Confirm Password Does't Match</span>
-                    <i className="material-icons left red-text">error</i>
+                    <span className="red-text text-darken-3" style={{fontSize:"12px"}}><b>Confirm Password Does't Match</b></span>
+                    <i className="material-icons left red-text text-darken-3">error</i>
                 </div>
             )
         }
@@ -158,10 +158,10 @@ class Register extends Component{
                                 <h5 className="center" style={{marginTop:"0px"}}>Register</h5>
                                 <div className="">
                                     <div class="input-field col s12">
-                                        <input onChange={e=>this.setState({name:e.target.value})} className="teal-text text-darken-1" id="name" type="text" placeholder='Your Name'/>
+                                        <input onChange={e=>this.setState({name:e.target.value})} style={{fontSize:"20px"}} className="teal-text text-darken-1" id="name" type="text" placeholder='Your Name'/>
                                     </div>
                                     <div class="input-field col s12">
-                                        <input onChange={e=>this.setState({email:e.target.value})} className="teal-text text-darken-1" id="email" type="text" placeholder='E-mail'/>
+                                        <input onChange={e=>this.setState({email:e.target.value})} style={{fontSize:"20px"}} className="teal-text text-darken-1" id="email" type="text" placeholder='E-mail'/>
                                     </div>
                                     <div class="input-field col s6">
                                         <input onChange={e=>this.setState({password:e.target.value})} className="teal-text text-darken-1" id="password" type="password" placeholder='Password'/>
