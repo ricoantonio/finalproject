@@ -3,52 +3,35 @@ import Bogo from '.././Webpic/BOGOlogo.svg'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 
-
+const urlApi = 'http://localhost:2019'
 
 class Register extends Component{
 
     state={
-        firstname:'',
-        lastname:'',
+        name:'',
         email:'',
         password:'',
         confirmpass:'',
-        onRegisterClick:0
+        onRegisterClick:0,
+        usertaken:0
     }   
 
-    checkFirstname=()=>{
-        if(!this.state.firstname){
+    
+
+    checkName=()=>{
+        if(!this.state.name){
             return(
-                <div class="input-field col s6">
-                    <input onChange={e=>this.setState({firstname:e.target.value})} className="teal-text text-darken-1 inline" id="firstname" type="text"  placeholder='First Name'/>
-                    <span className="red-text" style={{fontSize:"12px"}}>Enter First Name</span>
+                <div class="input-field col s12">
+                    <input onChange={e=>this.setState({name:e.target.value})} className="teal-text text-darken-1 inline" id="firstname" type="text"  placeholder='Your Name'/>
+                    <span className="red-text" style={{fontSize:"12px"}}>Enter Your Name</span>
                     <i className="material-icons left red-text">error</i>
                 </div>
             )
         }else{
             return(
-                <div class="input-field col s6">
-                    <input onChange={e=>this.setState({firstname:e.target.value})} className="teal-text text-darken-1" id="firstname" type="text"  placeholder='First Name'/>
-                    <span className="green-text" style={{fontSize:"12px"}}>Enter First Name</span>
-                    <i className="material-icons left green-text">check</i>
-                </div>
-            )
-        }
-    }
-    checkLastname=()=>{
-        if(!this.state.lastname){
-            return(
-                <div class="input-field col s6">
-                    <input onChange={e=>this.setState({lastname:e.target.value})} className="teal-text text-darken-1 inline" id="lastname" type="text"  placeholder='Last Name'/>
-                    <span className="red-text" style={{fontSize:"12px"}}>Enter Last Name</span>
-                    <i className="material-icons left red-text">error</i>
-                </div>
-            )
-        }else{
-            return(
-                <div class="input-field col s6">
-                    <input onChange={e=>this.setState({lastname:e.target.value})} className="teal-text text-darken-1" id="lastname" type="text"  placeholder='Last Name'/>
-                    <span className="green-text" style={{fontSize:"12px"}}>Enter Last Name</span>
+                <div class="input-field col s12">
+                    <input onChange={e=>this.setState({name:e.target.value})} className="teal-text text-darken-1" id="firstname" type="text"  placeholder='Your Name'/>
+                    <span className="green-text" style={{fontSize:"12px"}}>Enter Your Name</span>
                     <i className="material-icons left green-text">check</i>
                 </div>
             )
@@ -60,6 +43,14 @@ class Register extends Component{
                 <div class="input-field col s12">
                     <input onChange={e=>this.setState({email:e.target.value})} className="teal-text text-darken-1 inline" id="email" type="text"  placeholder='Email'/>
                     <span className="red-text" style={{fontSize:"12px"}}>Enter Email</span>
+                    <i className="material-icons left red-text">error</i>
+                </div>
+            )
+        }if (this.state.usertaken){
+            return(
+                <div class="input-field col s12">
+                    <input onChange={e=>this.setState({email:e.target.value,usertaken:0})} className="teal-text text-darken-1 inline" id="email" type="text"  placeholder='Email'/>
+                    <span className="red-text" style={{fontSize:"12px"}}>Email Alredy Taken </span>
                     <i className="material-icons left red-text">error</i>
                 </div>
             )
@@ -89,6 +80,7 @@ class Register extends Component{
                     <span className="green-text" style={{fontSize:"12px"}}>Enter Password</span>
                     <i className="material-icons left green-text">check</i>
                 </div>
+
             )
         }
     }
@@ -102,12 +94,20 @@ class Register extends Component{
                     <i className="material-icons left red-text">error</i>
                 </div>
             )
+        }if(this.state.password===this.state.confirmpass){
+            return(
+                <div class="input-field col s6">
+                    <input onChange={e=>this.setState({confirmpass:e.target.value})} className="teal-text text-darken-1 inline" id="confirm" type="password"  placeholder='Confirm Password '/>
+                    <span className="green-text" style={{fontSize:"12px"}}>Confirm Password Match</span>
+                    <i className="material-icons left green-text">done_all</i>
+                </div>
+            )
         }else{
             return(
                 <div class="input-field col s6">
                     <input onChange={e=>this.setState({confirmpass:e.target.value})} className="teal-text text-darken-1" id="confirm" type="password"  placeholder='Confirm Password '/>
-                    <span className="green-text" style={{fontSize:"12px"}}>Enter Confirm Password</span>
-                    <i className="material-icons left green-text">check</i>
+                    <span className="red-text" style={{fontSize:"12px"}}>Confirm Password Does't Match</span>
+                    <i className="material-icons left red-text">error</i>
                 </div>
             )
         }
@@ -115,7 +115,33 @@ class Register extends Component{
     
 
     onRegister=()=>{
-        this.setState({onRegisterClick:1})
+        if (!this.state.name||
+            !this.state.email||
+            !this.state.password||
+            !this.state.confirmpass||
+            this.state.password!==this.state.confirmpass||
+            this.state.usertaken
+        ){
+            this.setState({onRegisterClick:1})
+            
+        }else{
+            this.setState({onRegisterClick:1})
+            
+            axios.post(urlApi+'/auth/register',{
+                    firstname:this.state.firstname,
+                    lastname:this.state.lastname,
+                    email:this.state.email,
+                    password:this.state.password
+            }).then((res)=>{
+                if (res.data.status=='201'){
+                    // done
+                }else if (res.data.status=='400'){
+                    //taken
+                    this.setState({usertaken:1})
+                }
+            })
+          
+        }
         
     }
 
@@ -131,11 +157,8 @@ class Register extends Component{
                             <div> 
                                 <h5 className="center" style={{marginTop:"0px"}}>Register</h5>
                                 <div className="">
-                                    <div class="input-field col s6">
-                                        <input onChange={e=>this.setState({firstname:e.target.value})} className="teal-text text-darken-1" id="firstname" type="text"  placeholder='First Name'/>
-                                    </div>
-                                    <div class="input-field col s6">
-                                        <input onChange={e=>this.setState({lastname:e.target.value})} className="teal-text text-darken-1" id="lastname" type="text" placeholder='Last Name'/>
+                                    <div class="input-field col s12">
+                                        <input onChange={e=>this.setState({name:e.target.value})} className="teal-text text-darken-1" id="name" type="text" placeholder='Your Name'/>
                                     </div>
                                     <div class="input-field col s12">
                                         <input onChange={e=>this.setState({email:e.target.value})} className="teal-text text-darken-1" id="email" type="text" placeholder='E-mail'/>
@@ -169,8 +192,7 @@ class Register extends Component{
                             <div> 
                                 <h5 className="center" style={{marginTop:"0px"}}>Register</h5>
                                 <div className="">
-                                        {this.checkFirstname()}
-                                        {this.checkLastname()}
+                                        {this.checkName()}
                                         {this.checkEmail()}
                                         {this.checkPassword()}
                                         {this.checkConfirmPassword()}
