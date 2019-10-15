@@ -27,12 +27,12 @@ class Nav extends Component{
                                 <a class="waves-effect waves-black btn not-square white black-text"><i class="material-icons left" style={{paddingTop:1,marginRight:1}}>search</i>search</a>
                             </li> */}
                             <div class="input-field inline-block left" style={{width:"60%",height:45,paddingTop:"1.2%"}} >
-                                <input className="not-square white-text grey darken-2" id="search" type="search" placeholder='Search..' required/>
+                                <input className="not-square white-text grey darken-2" id="search" type="search" placeholder='' required/>
                                 <label class="label-icon" for="search"><i class="material-icons white-text" style={{marginBottom:"3%"}}>search</i></label>
                             </div>
                             
-                            <li className="right" style={{margintop:0}}><Link className="navMenu" to="/login"><b>Sign In</b></Link></li>
-                            <li className="right"  style={{marginBottom:0}}><Link className="navMenu"  style={{marginBottom:0}} to="/register">Register</Link></li>
+                            <li className="right" style={{margintop:0}}><Link className="navMenu" to="/login"><b>SIGN IN</b></Link></li>
+                            <li className="right"  style={{marginBottom:0}}><Link className="navMenu"  style={{marginBottom:0}} to="/register">REGISTER</Link></li>
                         </ul>
                         {/* <Sidenav/> */}
                         </div>
