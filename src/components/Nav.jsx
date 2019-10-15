@@ -31,7 +31,7 @@ class Nav extends Component{
                                 <label class="label-icon" for="search"><i class="material-icons white-text" style={{marginBottom:"3%"}}>search</i></label>
                             </div>
                             
-                            <li className="right" style={{margintop:0}}><Link className="navMenu" to="/login">Sign In</Link></li>
+                            <li className="right" style={{margintop:0}}><Link className="navMenu" to="/login"><b>Sign In</b></Link></li>
                             <li className="right"  style={{marginBottom:0}}><Link className="navMenu"  style={{marginBottom:0}} to="/register">Register</Link></li>
                         </ul>
                         {/* <Sidenav/> */}

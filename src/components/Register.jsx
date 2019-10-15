@@ -22,7 +22,7 @@ class Register extends Component{
         if(!this.state.name){
             return(
                 <div class="input-field col s12">
-                    <input onChange={e=>this.setState({name:e.target.value})} style={{fontSize:"28px"}} className="teal-text text-darken-1 inline" id="firstname" type="text"  placeholder='Your Name'/>
+                    <input onChange={e=>this.setState({name:e.target.value})} style={{fontSize:"20px"}} className="teal-text text-darken-1 inline" id="firstname" type="text"  placeholder='Your Name'/>
                     <span className=" red-text text-darken-3" style={{fontSize:"12px"}}><b>Enter Your Name</b> </span>
                     <i className="material-icons left  red-text text-darken-3">error</i>
                 </div>
@@ -30,7 +30,7 @@ class Register extends Component{
         }else{
             return(
                 <div class="input-field col s12">
-                    <input onChange={e=>this.setState({name:e.target.value})} style={{fontSize:"28px"}} className="teal-text text-darken-1" id="firstname" type="text"  placeholder='Your Name'/>
+                    <input onChange={e=>this.setState({name:e.target.value})} style={{fontSize:"20px"}} className="teal-text text-darken-1" id="firstname" type="text"  placeholder='Your Name'/>
                     <span className="teal-text" style={{fontSize:"12px"}}><b>Enter Your Name</b></span>
                     <i className="material-icons left teal-text">check</i>
                 </div>
@@ -41,7 +41,7 @@ class Register extends Component{
         if(!this.state.email){
             return(
                 <div class="input-field col s12">
-                    <input onChange={e=>this.setState({email:e.target.value})} style={{fontSize:"28px"}} className="teal-text text-darken-1 inline" id="email" type="text"  placeholder='Email'/>
+                    <input onChange={e=>this.setState({email:e.target.value})} style={{fontSize:"20px"}} className="teal-text text-darken-1 inline" id="email" type="text"  placeholder='E-mail'/>
                     <span className="red-text text-darken-3" style={{fontSize:"12px"}}><b>Enter Email</b> </span>
                     <i className="material-icons left red-text text-darken-3">error</i>
                 </div>
@@ -49,7 +49,7 @@ class Register extends Component{
         }if (this.state.usertaken){
             return(
                 <div class="input-field col s12">
-                    <input onChange={e=>this.setState({email:e.target.value,usertaken:0})} style={{fontSize:"28px"}} className="teal-text text-darken-1 inline" id="email" type="text"  placeholder='Email'/>
+                    <input onChange={e=>this.setState({email:e.target.value,usertaken:0})} style={{fontSize:"20px"}} className="teal-text text-darken-1 inline" id="email" type="text"  placeholder='E-mail'/>
                     <span className="red-text text-darken-3" style={{fontSize:"12px"}}><b>Email Alredy Taken </b></span>
                     <i className="material-icons left red-text text-darken-3">error</i>
                 </div>
@@ -57,7 +57,7 @@ class Register extends Component{
         }else{
             return(
                 <div class="input-field col s12">
-                    <input onChange={e=>this.setState({email:e.target.value})} style={{fontSize:"28px"}} className="teal-text text-darken-1" id="email" type="text"  placeholder='Email'/>
+                    <input onChange={e=>this.setState({email:e.target.value})} style={{fontSize:"20px"}} className="teal-text text-darken-1" id="email" type="text"  placeholder='Email'/>
                     <span className="teal-text" style={{fontSize:"12px"}}><b>Enter Email</b></span>
                     <i className="material-icons left teal-text">check</i>
                 </div>
