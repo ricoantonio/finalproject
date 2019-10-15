@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Route,BrowserRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 import Login from './Login'
 import Register from './Register'
@@ -9,8 +10,32 @@ import HomeDrama from './HomeDrama'
 import HomeVariety from './HomeVariety'
 import HomeMovie from './HomeMovie'
 
+const keepLogin =(objUser)=>{
+    return{
+        type:"LOGIN_SUCCESS",
+        payload:{
+            id:objUser.id,
+            email: objUser.email
+        }
+    }
+}
 
 class App extends Component{
+    state={
+        check:false
+    }
+
+    componentDidMount() {
+        // check LocalStorage
+        let userStorage=JSON.parse(localStorage.getItem("userData"))
+        
+        if (userStorage){
+            //kirim ke redux
+            this.props.keepLogin(userStorage)
+        } 
+
+        this.setState({check: true})
+    }
     render() {
         return (
             <div>
@@ -28,4 +53,4 @@ class App extends Component{
     }
 }
 
-export default App
+export default connect(null,{keepLogin})(App)

@@ -5,6 +5,7 @@ import axios from 'axios'
 import { connect } from "react-redux";
 import {onLoginUser} from '../action/index'
 
+import Home from './Home' 
 
 const urlApi = 'http://localhost:2019'
 
@@ -34,36 +35,6 @@ class Login extends Component{
             
             // memanggil action creator 'onLoginUser'
             this.props.onLoginUser(email,password)
-
-            // axios.get(urlApi + '/auth/login', {
-            //     params: {
-            //         email: this.state.email,
-            //         password: this.state.password
-            //     }
-            // })
-            // .then(res => {
-            //     console.log(res.data)
-            //     // 401 wrong pass
-            //     // 404 user not found
-            //     if(res.data.status=='404'){
-            //         this.setState({noUser:1})
-            //     }else if(res.data.status=='401'){
-            //         this.setState({wrongPass:1})
-            //     }else if(res.data.status=='200'){
-            //         // success
-            //         return{
-
-            //             type :"LOGIN_SUCCESS",
-            //             payload:{
-            //                 id,email
-            //             }
-            //         }
-            //     }
-            // })
-            // .catch(err => {
-            //     console.log(err)
-            // })
-          
         }
     }
 
@@ -110,7 +81,7 @@ class Login extends Component{
         }
     }
 
-    render() {
+    renderLogin=()=>{
         if(this.state.onLoginClick==0){
             return (
                 <div>
@@ -167,13 +138,26 @@ class Login extends Component{
             )
         }
     }
+    
+    render() {
+        if(this.props.email){
+            return (
+                <Home/>
+            )
+        }else{
+            return(
+                this.renderLogin()
+            )
+        }
+    }
 }
 
 
 const mapStateToProps=state=>{
     return {
-      id: state.auth.id,
-      error:state.auth.error
+      email: state.auth.email,
+      errPass:state.auth.errPass,
+      errUser:state.auth.errUser
     }
 }
 
