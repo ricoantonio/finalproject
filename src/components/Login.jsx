@@ -1,17 +1,70 @@
 import React, { Component } from 'react'
 import Bogo from '.././Webpic/BOGOlogo.svg'
 import {Link} from 'react-router-dom'
+import axios from 'axios'
+import { connect } from "react-redux";
+import {onLoginUser} from '../action/index'
+
+
+const urlApi = 'http://localhost:2019'
 
 class Login extends Component{
     
     state={
         onLoginClick:0,
         email:'',
-        password:''
+        password:'',
+        name:'',
+        noUser:0,
+        wrongPass:0
     }
 
     onLogin=()=>{
-        this.setState({onLoginClick:1})
+        if (
+            !this.state.email||
+            !this.state.password
+        ){
+            this.setState({onLoginClick:1})
+        }else{
+            this.setState({onRegisterClick:1})
+            
+            // mangambil data dari textbox 
+            let email = this.state.email
+            let password = this.state.password
+            
+            // memanggil action creator 'onLoginUser'
+            this.props.onLoginUser(email,password)
+
+            // axios.get(urlApi + '/auth/login', {
+            //     params: {
+            //         email: this.state.email,
+            //         password: this.state.password
+            //     }
+            // })
+            // .then(res => {
+            //     console.log(res.data)
+            //     // 401 wrong pass
+            //     // 404 user not found
+            //     if(res.data.status=='404'){
+            //         this.setState({noUser:1})
+            //     }else if(res.data.status=='401'){
+            //         this.setState({wrongPass:1})
+            //     }else if(res.data.status=='200'){
+            //         // success
+            //         return{
+
+            //             type :"LOGIN_SUCCESS",
+            //             payload:{
+            //                 id,email
+            //             }
+            //         }
+            //     }
+            // })
+            // .catch(err => {
+            //     console.log(err)
+            // })
+          
+        }
     }
 
     checkEmail=()=>{
@@ -33,7 +86,6 @@ class Login extends Component{
                 </div>
             )
         }
-
     }
 
     checkPassword=()=>{
@@ -116,4 +168,14 @@ class Login extends Component{
         }
     }
 }
-export default Login
+
+
+const mapStateToProps=state=>{
+    return {
+      id: state.auth.id,
+      error:state.auth.error
+    }
+}
+
+
+export default connect(mapStateToProps,{onLoginUser})(Login)
