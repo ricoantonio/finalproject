@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import Bogo from '.././Webpic/BOGOlogo.svg'
-import {Link} from 'react-router-dom'
+import {Link,Redirect} from 'react-router-dom'
 import axios from 'axios'
+import { connect } from "react-redux";
+
 
 const urlApi = 'http://localhost:2019'
 
@@ -15,8 +17,6 @@ class Register extends Component{
         onRegisterClick:0,
         usertaken:0
     }   
-
-    
 
     checkName=()=>{
         if(!this.state.name){
@@ -145,7 +145,7 @@ class Register extends Component{
         
     }
 
-    render() {
+    renderRegis=()=>{
         if(this.state.onRegisterClick==0){
             return (
                 <div className="container"> 
@@ -210,5 +210,25 @@ class Register extends Component{
             )
         }
     }
+    render() {
+       if(this.props.email){
+           return(
+               <Redirect to='/'/>
+           )
+       }else{
+           return(
+               this.renderRegis()
+           )
+       }
+    }
 }
-export default Register
+
+
+const mapStateToProps=state=>{
+    return {
+      email: state.auth.email
+    }
+}
+
+
+export default connect(mapStateToProps)(Register)

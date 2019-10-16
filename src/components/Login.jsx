@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import Bogo from '.././Webpic/BOGOlogo.svg'
-import {Link} from 'react-router-dom'
+import {Link,Redirect} from 'react-router-dom'
 import axios from 'axios'
 import { connect } from "react-redux";
 import {onLoginUser} from '../action/index'
+import {onLoginClick} from '../action/index'
 
 import Home from './Home' 
 
@@ -15,19 +16,20 @@ class Login extends Component{
         onLoginClick:0,
         email:'',
         password:'',
-        name:'',
-        noUser:0,
-        wrongPass:0
+        name:''
     }
 
     onLogin=()=>{
+
+        this.props.onLoginClick()
         if (
             !this.state.email||
             !this.state.password
         ){
             this.setState({onLoginClick:1})
         }else{
-            this.setState({onRegisterClick:1})
+
+            this.setState({onLoginClick:1})
             
             // mangambil data dari textbox 
             let email = this.state.email
@@ -36,6 +38,7 @@ class Login extends Component{
             // memanggil action creator 'onLoginUser'
             this.props.onLoginUser(email,password)
         }
+        
     }
 
     checkEmail=()=>{
@@ -45,7 +48,7 @@ class Login extends Component{
         if(!this.state.email){
             return(
                 <div class="input-field col s12">
-                    <input onChange={e=>this.setState({email:e.target.value})} style={{fontSize:"20px"}} className="teal-text text-darken-1" id="email" type="text"  placeholder='E-mail'/>
+                    <input onChange={e=>this.setState({email:e.target.value})} style={{fontSize:"20px"}} value={this.state.email} className="teal-text text-darken-1" id="email" type="text"  placeholder='E-mail'/>
                     <span className="red-text text-darken-3" style={{fontSize:"12px"}}><b>Enter Email</b> </span>
                     <i className="material-icons left red-text text-darken-3">error</i>
                 </div>
@@ -53,7 +56,7 @@ class Login extends Component{
         }else{
             return(
                 <div class="input-field col s12">
-                    <input onChange={e=>this.setState({email:e.target.value})} style={{fontSize:"20px"}} className="teal-text text-darken-1" id="email" type="text"  placeholder='E-mail'/>
+                    <input onChange={e=>this.setState({email:e.target.value})} style={{fontSize:"20px"}} value={this.state.email} className="teal-text text-darken-1" id="email" type="text"  placeholder='E-mail'/>
                 </div>
             )
         }
@@ -66,7 +69,7 @@ class Login extends Component{
         if(!this.state.password){
             return(
                 <div class="input-field col s12">
-                    <input onChange={e=>this.setState({password:e.target.value})} style={{fontSize:"20px"}} className="teal-text text-darken-1 inline" id="password" type="password"  placeholder='Password '/>
+                    <input onChange={e=>this.setState({password:e.target.value})} style={{fontSize:"20px"}} value={this.state.password} className="teal-text text-darken-1 inline" id="password" type="password"  placeholder='Password '/>
                     <span className="red-text text-darken-3" style={{fontSize:"12px"}}><b>Enter Password</b></span>
                     <i className="material-icons left red-text text-darken-3">error</i>
                 </div>
@@ -74,7 +77,7 @@ class Login extends Component{
         }else{
             return(
                 <div class="input-field col s12">
-                    <input onChange={e=>this.setState({password:e.target.value})} style={{fontSize:"20px"}} className="teal-text text-darken-1" id="password" type="password"  placeholder='Password '/>
+                    <input onChange={e=>this.setState({password:e.target.value})} value={this.state.password} style={{fontSize:"20px"}} className="teal-text text-darken-1" id="password" type="password"  placeholder='Password '/>
                 </div>
 
             )
@@ -99,6 +102,62 @@ class Login extends Component{
                                     <div class="input-field col s12">
                                         <input  onChange={e=>this.setState({password:e.target.value})} style={{fontSize:"20px"}} className="teal-text text-darken-1" id="password" type="password" placeholder='Password' />
                                     </div>
+                                </div>
+                                <div className="center">
+                                    <button onClick={this.onLogin} className="waves-effect waves-light btn black not-square btn-large" style={{marginTop:"5%"}}>Sign In</button>
+                                </div>
+                                <div className="center-align">
+                                    <p>Don't have an account? <Link className="teal-text text-darken-1" to="/register">Register</Link></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )
+        }if(this.props.errPass){
+            return (
+                <div>
+                    <div className="container row">
+                        <div className="center-align">
+                            <Link className="center-align" to="/"><img className="logo" src={Bogo} alt="LABS"/></Link>
+                        </div>
+                        <div className="border col s4 offset-s4">
+                            <div>
+                                <h5  className="center" style={{marginTop:"0px"}}>Sign In</h5>
+                                <div className="red-text text-darken-3" style={{marginTop:"10%",marginBottom:"5%"}}> 
+                                    <b>WRONG PASSWORD</b> <i className="material-icons left">cancel</i>
+                                </div>
+                                <div className="">
+                                    {this.checkEmail()}
+                                    {this.checkPassword()}
+                                </div>
+                                <div className="center">
+                                    <button onClick={this.onLogin} className="waves-effect waves-light btn black not-square btn-large" style={{marginTop:"5%"}}>Sign In</button>
+                                </div>
+                                <div className="center-align">
+                                    <p>Don't have an account? <Link className="teal-text text-darken-1" to="/register">Register</Link></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )
+        }if(this.props.errUser){
+            return (
+                <div>
+                    <div className="container row">
+                        <div className="center-align">
+                            <Link className="center-align" to="/"><img className="logo" src={Bogo} alt="LABS"/></Link>
+                        </div>
+                        <div className="border col s4 offset-s4">
+                            <div>
+                                <h5  className="center" style={{marginTop:"0px"}}>Sign In</h5>
+                                <div className="red-text text-darken-3" style={{marginTop:"10%",marginBottom:"5%"}}> 
+                                    <b>USER NOT FOUND</b> <i className="material-icons left">cancel</i>
+                                </div>
+                                <div className="">
+                                    {this.checkEmail()}
+                                    {this.checkPassword()}
                                 </div>
                                 <div className="center">
                                     <button onClick={this.onLogin} className="waves-effect waves-light btn black not-square btn-large" style={{marginTop:"5%"}}>Sign In</button>
@@ -142,7 +201,7 @@ class Login extends Component{
     render() {
         if(this.props.email){
             return (
-                <Home/>
+                <Redirect to='/'/>
             )
         }else{
             return(
@@ -155,6 +214,7 @@ class Login extends Component{
 
 const mapStateToProps=state=>{
     return {
+      id: state.auth.id,
       email: state.auth.email,
       errPass:state.auth.errPass,
       errUser:state.auth.errUser
@@ -162,4 +222,4 @@ const mapStateToProps=state=>{
 }
 
 
-export default connect(mapStateToProps,{onLoginUser})(Login)
+export default connect(mapStateToProps,{onLoginUser,onLoginClick})(Login)

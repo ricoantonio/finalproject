@@ -9,6 +9,7 @@ import HomeAnime from './HomeAnime'
 import HomeDrama from './HomeDrama'
 import HomeVariety from './HomeVariety'
 import HomeMovie from './HomeMovie'
+import MyAccount from './MyAccount'
 
 const keepLogin =(objUser)=>{
     return{
@@ -37,8 +38,8 @@ class App extends Component{
         this.setState({check: true})
     }
     render() {
-        return (
-            <div>
+        if(this.state.check){
+            return (
                 <BrowserRouter>
                     <Route path="/"exact component={Home}/>
                     <Route path="/login" component={Login}/>
@@ -47,9 +48,15 @@ class App extends Component{
                     <Route path="/drama" component={HomeDrama}/>
                     <Route path="/variety" component={HomeVariety}/>
                     <Route path="/movie" component={HomeMovie}/>
+                    <Route path="/myaccount" component={MyAccount}/>
                 </BrowserRouter>
-            </div>
-        )
+     
+            )
+        }else{
+           return(
+            <p>Loading</p>
+           )
+        }
     }
 }
 

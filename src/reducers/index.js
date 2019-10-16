@@ -15,14 +15,17 @@ const AuthReducer=(state=init, action)=>{
             return {...state, id: action.payload.id, email: action.payload.email}
 
         case 'LOGIN_ERROR_WRONG_PASS':
-            return {...state, errPass:true}
+            return {...state, errPass:true,errUser:false}
 
         case 'LOGIN_ERROR_NOT_FOUND':
-            return {...state, errUser:true}
+            return {...state, errUser:true,errPass:false}
             
         // Hilangkan id dan username
         case "LOGOUT_SUCCESS":
             return {...state, id:"", email:""}
+
+        case "LOGIN_CLICK":
+            return {...state, errPass:false, errUser:false}
 
         default:
             return state;
