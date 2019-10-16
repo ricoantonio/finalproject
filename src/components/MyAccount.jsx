@@ -42,9 +42,15 @@ export class MyAccount extends Component {
 
   render() {
     if(this.props.email){
-      return(
-        this.renderMy()
-      )
+      if(this.state.loading){
+        return(
+          this.renderMy()
+        )
+      }else{
+        return(
+          <p>Loading</p>
+        )
+      }
     }else{
       return (
         <Redirect to='/'/>
