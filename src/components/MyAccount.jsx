@@ -6,6 +6,7 @@ import {onLogoutUser} from '../action/index'
 import Axios from 'axios';
 import {Link,Redirect} from 'react-router-dom'
 
+import Nav from './Nav'
 const urlApi = 'http://localhost:2019'
 
 export class MyAccount extends Component {
@@ -32,10 +33,17 @@ export class MyAccount extends Component {
   }
     
   renderMy=()=>{
+   let {name,email,plan,id}=this.state.data
+
     return(
-      <div className="container">
-        <h1>HI! {this.state.data.name}</h1>
-     
+      <div>
+        <Nav/>
+        <div className="container">
+          <h3>Hi! {name}</h3>
+          <h5>ID : #{id}</h5>
+          <h5>PLAN : {plan=='free'?'FREE':'PREMIUM'}</h5>
+          <h5>Email : {email}</h5>
+        </div>
       </div>
     )
   }
