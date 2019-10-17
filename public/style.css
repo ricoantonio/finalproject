@@ -12,8 +12,6 @@
 .sideText{
     font-family: 'Open Sans Condensed', sans-serif;
     color: white;
-    padding-top: 3%;
-    padding-bottom: 3%;
     
 }
 
@@ -127,3 +125,15 @@
     border: solid gray !important;
 }
 
+.trial-banner{
+    background-image: url('./minimalistic-1571321826838-6043.jpg');
+    background-size: auto;
+}
+
+
+.btn-trial {
+    transition: transform 0.1s; /* Animation */
+}
+.btn-trial:hover {
+    margin-top: -3px;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Nav from './Nav'
+import Footer from './Footer'
 
 class HomeDrama extends Component{
     render() {
@@ -7,6 +8,7 @@ class HomeDrama extends Component{
             <div>
                 <Nav/>
                 <h1>Korean Drama Home</h1>
+                <Footer/>
             </div>
         )
     }

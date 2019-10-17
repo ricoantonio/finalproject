@@ -173,9 +173,10 @@ class Register extends Component{
                                 <div className="center">
                                     <button onClick={this.onRegister} className="waves-effect waves-light btn black not-square btn-large" style={{marginTop:"5%"}}>Register</button>
                                 </div>
-                                <div className="center-align">
+                                <div className="center-align" >
                                     <p>Do you have an account? <Link className="teal-text text-darken-1" to="/login">Sign in</Link></p>
                                 </div>
+                                <p className="center" style={{fontSize:"12px"}}>By clicking "Register", you agree to the <a href="" className="teal-text text-darken-1">Terms of Service</a> and <a href="" className="teal-text text-darken-1">Privacy Policy</a>.</p>
                             </div>
                         </div>
                     </div>
@@ -203,6 +204,7 @@ class Register extends Component{
                                 <div className="center-align">
                                     <p>Do you have an account? <Link className="teal-text text-darken-1" to="/login">Sign in</Link></p>
                                 </div>
+                                <p className="center" style={{fontSize:"12px"}}>By clicking "Register", you agree to the <a href="" className="teal-text text-darken-1">Terms of Service</a> and <a href="" className="teal-text text-darken-1">Privacy Policy</a>.</p>
                             </div>
                         </div>
                     </div>
