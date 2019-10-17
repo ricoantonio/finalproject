@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem'
 import {connect} from 'react-redux'
 import {onLogoutUser} from '../action/index'
 import Axios from 'axios';
-import {Link,Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 
 import Nav from './Nav'
 const urlApi = 'http://localhost:2019'
@@ -39,10 +37,20 @@ export class MyAccount extends Component {
       <div>
         <Nav/>
         <div className="container">
-          <h3>Hi! {name}</h3>
-          <h5>ID : #{id}</h5>
-          <h5>PLAN : {plan=='free'?'FREE':'PREMIUM'}</h5>
-          <h5>Email : {email}</h5>
+          <div style={{marginTop:"2%"}}>
+            <span style={{fontSize:"30px"}}>My Account</span>
+            <div class="input-field inline-block right" style={{width:"20%", marginRight:28}} >
+                <input className="not-square promocode center" id="search" style={{height:"30px", fontSize:"18px", paddingLeft:10, paddingRight:10}} type="search" placeholder='Enter Promo Code' required/>
+            </div>
+            {/* <span className="right" style={{fontSize:"30px"}}>#{id}</span> */}
+          </div>
+          <div className="card large z-depth-3 not-square" style={{marginTop:"2%"}}>
+            <div style={{padding:"4%"}}>
+              <h4>Hi! {name}</h4>
+              <h5>Email : {email}</h5>
+              <h5>Plan : {plan=='free'?'FREE':'PREMIUM'}</h5>
+            </div>
+          </div>
         </div>
       </div>
     )

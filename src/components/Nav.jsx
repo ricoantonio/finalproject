@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import Profile from './Profile'
-import Sidenav from './Sidenav'
 
 class Nav extends Component{
     
@@ -29,7 +28,7 @@ class Nav extends Component{
                                 {/* <li>
                                     <a class="waves-effect waves-black btn not-square white black-text"><i class="material-icons left" style={{paddingTop:1,marginRight:1}}>search</i>search</a>
                                 </li> */}
-                                <div class="input-field inline-block left" style={{width:"60%",height:45,paddingTop:"1.2%"}} >
+                                <div class="input-field inline-block left" style={{width:"60%",height:45,paddingTop:"1%"}} >
                                     <input className="not-square white-text grey darken-2" id="search" type="search" placeholder='' required/>
                                     <label class="label-icon" for="search"><i class="material-icons white-text" style={{marginBottom:"3%"}}>search</i></label>
                                 </div>

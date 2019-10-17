@@ -21,6 +21,10 @@
     overflow-x:hidden;
 }
 
+.no-y-scroll{
+    overflow-y:hidden;
+}
+
 .zoom {
     transition: transform .2s; /* Animation */
     margin: 0 auto;
@@ -119,5 +123,7 @@
     color: #000 !important;
 }
 
-
+.promocode {
+    border: solid gray !important;
+}
 

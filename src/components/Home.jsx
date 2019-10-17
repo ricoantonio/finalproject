@@ -1,19 +1,17 @@
 import React, { Component } from 'react'
 import Nav from './Nav'
 import BestThisWeek from './BestThisWeek'
+import Footer from './Footer'
 
 class Home extends Component{
     render() {
         return (
-            <div className="black">
+            <div className="">
                 <Nav/>
                 <BestThisWeek/>
-                <div className="black" style={{marginTop:0, height:"500px"}}>
-                    <button className="btn-large right" style={{marginRight:"10%",marginTop:"20%"}}>Try For Free</button>
+                <div className="" style={{marginTop:0,height:"500px"}}>
                 </div>
-                <div style={{marginTop:"5%"}}>
-
-                </div>
+                <Footer/>
             </div>
         )
     }

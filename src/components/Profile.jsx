@@ -65,7 +65,7 @@ export class Profile extends Component {
         </div>
       </div>
         <Link to='/myaccount'><MenuItem className="black-text">My Account</MenuItem></Link>
-        <MenuItem onClick={this.props.onLogoutUser} href="/">Logout</MenuItem>
+        <MenuItem onClick={this.props.onLogoutUser} href="/">Log Out</MenuItem>
       </Menu>
     </div>
     )
@@ -78,7 +78,7 @@ export class Profile extends Component {
       )
     }else{
       return(
-        <p>Loading</p>
+        <a onClick={this.handleClick}><i className="material-icons right" style={{marginLeft:10,fontSize:"30px"}}>account_circle</i></a>  
       )
     }
   }
