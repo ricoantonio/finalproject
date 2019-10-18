@@ -28,9 +28,7 @@
     margin: 0 auto;
 }
 .zoom:hover {
-    transform: scale(1.5);
-    margin-top: 5%;
-    margin-bottom: 5%
+    transform: scale(1.2);
 }
 
 .zoomText {
@@ -132,8 +130,28 @@
 
 
 .btn-trial {
-    transition: transform 0.1s; /* Animation */
+    position: relative;
+    top: 0;
+    transition: top 0.1s ease-in-out;
 }
+
 .btn-trial:hover {
-    margin-top: -3px;
+    top: -5px;
+}
+
+.bgaccount {
+    /* The image used */
+    background-image: url("./Snowy-Mint-Gradient-Wallpaper.jpg");
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.full{
+    height: 100%
 }
