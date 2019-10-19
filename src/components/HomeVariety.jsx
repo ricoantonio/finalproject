@@ -7,7 +7,7 @@ class HomeVariety extends Component{
         return (
             <div>
                 <Nav/>
-                <h1>Korean Variety Home</h1>
+                <h1 className="sideText black-text center">Korean Variety</h1>
                 <Footer/>
             </div>
         )

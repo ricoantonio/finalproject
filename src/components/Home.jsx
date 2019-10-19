@@ -3,6 +3,7 @@ import Nav from './Nav'
 import BestThisWeek from './BestThisWeek'
 import Footer from './Footer'
 import Plans from './Plans'
+import MovieDisplay from './MovieDisplay'
 
 class Home extends Component{
     render() {
@@ -18,9 +19,7 @@ class Home extends Component{
                     <span className="grey-text text-lighten-1" style={{fontSize:"12px"}}>New subscribers only.</span>
                 </div>
                 <BestThisWeek/>
-                <div className="" style={{marginTop:0,height:"500px"}}/> 
                 <Plans/>
-                <div className="" style={{marginTop:0,height:"500px"}}/>
                 <Footer/>
             </div>
         )

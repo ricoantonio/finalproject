@@ -44,7 +44,7 @@ export class MyAccount extends Component {
             </div>
             {/* <span className="right" style={{fontSize:"30px"}}>#{id}</span> */}
           </div>
-          <div className="card large z-depth-3 not-square" style={{marginTop:"2%"}}>
+          <div className="card large z-depth-3 not-square promocode" style={{marginTop:"2%"}}>
             <div style={{padding:"4%"}}>
               <h4>Hi! {name}</h4>
               <h5>Email : {email}</h5>

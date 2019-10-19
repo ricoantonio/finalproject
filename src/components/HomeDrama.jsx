@@ -7,7 +7,7 @@ class HomeDrama extends Component{
         return (
             <div>
                 <Nav/>
-                <h1>Korean Drama Home</h1>
+                <h1 className="sideText black-text center">Korean Drama </h1>
                 <Footer/>
             </div>
         )

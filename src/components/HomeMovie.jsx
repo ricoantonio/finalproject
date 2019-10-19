@@ -7,7 +7,7 @@ class HomeMovie extends Component{
         return (
             <div>
                 <Nav/>
-                <h1>Movie Home</h1>
+                <h1 className="sideText black-text center">Movie </h1>
                 <Footer/>
             </div>
         )

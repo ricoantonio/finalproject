@@ -25,7 +25,7 @@ class BestThisWeek extends Component{
         };
         return (
                <div className="center-align" style={{marginTop:0, marginBottom:0}}  >
-                    <Slider {...settings} className="">
+                    <Slider {...settings} className="black">
                     <div className="transparent">
                         <a href="/">
                             <img className="center-img z-depth-0 " src={runningman} alt="running man"/>
