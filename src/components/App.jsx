@@ -10,6 +10,7 @@ import HomeDrama from './HomeDrama'
 import HomeVariety from './HomeVariety'
 import HomeMovie from './HomeMovie'
 import MyAccount from './MyAccount'
+import MovieDetail from './MovieDetal'
 
 const keepLogin =(objUser)=>{
     return{
@@ -49,6 +50,7 @@ class App extends Component{
                     <Route path="/variety" component={HomeVariety}/>
                     <Route path="/movie" component={HomeMovie}/>
                     <Route path="/myaccount" component={MyAccount}/>
+                    <Route path="/movie-detail/:link" component={MovieDetail}/>
                 </BrowserRouter>
      
             )
