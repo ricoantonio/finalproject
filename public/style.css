@@ -74,6 +74,9 @@
 .not-square{
     border-radius: 50px !important
 }
+.not-square2{
+    border-radius: 25px !important
+}
 
 .noStyle{
     all:unset !important;
@@ -154,4 +157,43 @@
 
 .full{
     height: 100%
+}
+
+.poster {
+    position: relative;
+    width: 50%;
+}
+
+.image-poster {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.middle-poster {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.poster:hover .image-poster {
+    opacity: 0.3;
+}
+
+.poster:hover .middle-poster {
+    opacity: 1;
+}
+
+.text-poster {
+    color:black;
+    margin-top: auto;
+    margin-bottom: auto;
 }

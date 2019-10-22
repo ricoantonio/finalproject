@@ -30,18 +30,26 @@ class HomeMovie extends Component{
           
     }
     
+
+
     renderData=()=>{
         return this.state.data.map(val=>{
             var link='/movie-detail/'+`${val.link}`
             return(
-
-                <div className="col s2" style={{height:"100%"}}>
-                    <Link to={link}>
-                        <img style={{width:"100%", height:"350px"}} src={urlApi+'/posters/'+val.pic} alt=""/>
-                    </Link>
-                    <div  className="center black-text" style={{marginTop:0, height:'80px'}}>
-                        <p style={{marginBottom:0, marginTop:0}}>{val.title}</p>
-                        <p style={{marginTop:0, marginTop:0}}>({val.year})</p>
+                <div className="col s2" style={{height:"100%", marginBottom:"2%"}}>
+                    <div className="poster" style={{width:"100%"}}>
+                        <Link to={link} onClick={this.onClick}>
+                            <img className="not-square2 image-poster" style={{width:"100%", height:"350px"}} src={urlApi+'/posters/'+val.pic} alt=""/>
+                        </Link>
+                        <div className="middle-poster">
+                            <div className="text-poster">
+                                <i className="material-icons" style={{fontSize:"60px"}}>play_circle_outline</i>
+                            </div>
+                        </div>
+                    </div>
+                    <div  className="center black-text" style={{marginTop:0, height:'80px',marginLeft:"8%",marginRight:"8%", padding:"2%"}}>
+                        <p style={{marginBottom:0, marginTop:0}}><b>{val.title}</b></p>
+                        <p style={{marginTop:0, marginBottom:0}}>({val.year})</p>
                     </div>
                 </div>  
             )

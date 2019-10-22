@@ -41,7 +41,7 @@ export class MovieDetal extends Component {
                         <div className="col s2">
                             <img style={{width:"100%"}} src={urlApi+'/posters/'+this.state.data.pic} alt=""/>
                         </div>
-                        <div className="col s9">
+                        <div className="col s4">
                             <p>{this.state.data.desc}</p>
                         </div>
                     </div>
