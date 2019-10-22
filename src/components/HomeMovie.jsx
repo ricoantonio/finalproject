@@ -35,11 +35,11 @@ class HomeMovie extends Component{
             var link='/movie-detail/'+`${val.link}`
             return(
                 <Link to={link}>
-                    <div className="col s2">
-                        <img style={{width:"100%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
-                        <div  className="center black-text">
-                            <p>{val.title}</p>
-                            <p>({val.year})</p>
+                    <div className="col s2" style={{height:"100%"}}>
+                        <img style={{width:"100%", height:"350px"}} src={urlApi+'/posters/'+val.pic} alt=""/>
+                        <div  className="center black-text" style={{marginTop:0, height:'80px'}}>
+                            <p style={{marginBottom:0, marginTop:0}}>{val.title}</p>
+                            <p style={{marginTop:0, marginTop:0}}>({val.year})</p>
                         </div>
                     </div>
                 </Link>

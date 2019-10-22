@@ -36,9 +36,9 @@ export class MovieDetal extends Component {
                     <ReactPlayer url={urlApi+'/movies/'+this.state.data.filename} width='100%' height='50%' playing controls/>
                     <div className='row'>
                         <div>
-                            <h1>{this.state.data.title} ({this.state.data.year})</h1>
+                            <h4>{this.state.data.title} ({this.state.data.year})</h4>
                         </div>
-                        <div className="col s3">
+                        <div className="col s2">
                             <img style={{width:"100%"}} src={urlApi+'/posters/'+this.state.data.pic} alt=""/>
                         </div>
                         <div className="col s9">
