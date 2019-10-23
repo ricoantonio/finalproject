@@ -12,6 +12,7 @@ import HomeMovie from './HomeMovie'
 import MyAccount from './MyAccount'
 import MovieDetail from './MovieDetal'
 import AdminDashboard from './AdminDashboard'
+import VerifyHome from './VarifyHome'
 
 const keepLogin =(objUser)=>{
     return{
@@ -53,6 +54,7 @@ class App extends Component{
                     <Route path="/myaccount" component={MyAccount}/>
                     <Route path="/movie-detail/:link" component={MovieDetail}/>
                     <Route path="/admin-dashboard" component={AdminDashboard}/>
+                    <Route path="/verify" component={VerifyHome}/>
                 </BrowserRouter>
      
             )

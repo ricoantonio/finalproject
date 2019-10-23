@@ -162,6 +162,7 @@
 .poster {
     position: relative;
     width: 50%;
+    
 }
 
 .image-poster {
@@ -171,6 +172,8 @@
     height: auto;
     transition: .5s ease;
     backface-visibility: hidden;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .middle-poster {
@@ -197,3 +200,9 @@
     margin-top: auto;
     margin-bottom: auto;
 }
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%        /* Footer height */
+  }
