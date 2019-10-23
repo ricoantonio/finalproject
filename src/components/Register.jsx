@@ -5,7 +5,7 @@ import axios from 'axios'
 import { connect } from "react-redux";
 
 
-const urlApi = 'http://localhost:2019'
+import urlApi from '../helpers'
 
 class Register extends Component{
 
@@ -133,9 +133,9 @@ class Register extends Component{
                     email:this.state.email,
                     password:this.state.password
             }).then((res)=>{
-                if (res.data.status=='201'){
+                if (res.data.status==='201'){
                     // done
-                }else if (res.data.status=='400'){
+                }else if (res.data.status==='400'){
                     //taken
                     this.setState({usertaken:1})
                 }
@@ -146,7 +146,7 @@ class Register extends Component{
     }
 
     renderRegis=()=>{
-        if(this.state.onRegisterClick==0){
+        if(this.state.onRegisterClick===0){
             return (
                 <div className="container"> 
                     <div className="center-align">
@@ -176,7 +176,7 @@ class Register extends Component{
                                 <div className="center-align" >
                                     <p>Do you have an account? <Link className="teal-text text-darken-1" to="/login">Sign in</Link></p>
                                 </div>
-                                <p className="center" style={{fontSize:"12px"}}>By clicking "Register", you agree to the <a href="" className="teal-text text-darken-1">Terms of Service</a> and <a href="" className="teal-text text-darken-1">Privacy Policy</a>.</p>
+                                <p className="center" style={{fontSize:"12px"}}>By clicking "Register", you agree to the <a href="/" className="teal-text text-darken-1">Terms of Service</a> and <a href="/" className="teal-text text-darken-1">Privacy Policy</a>.</p>
                             </div>
                         </div>
                     </div>
@@ -204,7 +204,7 @@ class Register extends Component{
                                 <div className="center-align">
                                     <p>Do you have an account? <Link className="teal-text text-darken-1" to="/login">Sign in</Link></p>
                                 </div>
-                                <p className="center" style={{fontSize:"12px"}}>By clicking "Register", you agree to the <a href="" className="teal-text text-darken-1">Terms of Service</a> and <a href="" className="teal-text text-darken-1">Privacy Policy</a>.</p>
+                                <p className="center" style={{fontSize:"12px"}}>By clicking "Register", you agree to the <a href="/" className="teal-text text-darken-1">Terms of Service</a> and <a href="/" className="teal-text text-darken-1">Privacy Policy</a>.</p>
                             </div>
                         </div>
                     </div>

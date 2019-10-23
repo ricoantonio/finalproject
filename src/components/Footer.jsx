@@ -3,8 +3,6 @@ import BogoWhite from '.././Webpic/BOGOlogoWhite.svg'
 import iconFacebook from '.././Webpic/facebook-icon.svg'
 import iconInstagram from '.././Webpic/instagram-icon.svg'
 import iconYoutube from '.././Webpic/youtube-icon.svg'
-import iconGooglePlus from '.././Webpic/googleplus-icon.svg'
-import iconWhatsapp from '.././Webpic/whatsapp-icon.svg'
 import iconTwitter from '.././Webpic/twitter-icon.svg'
 
 

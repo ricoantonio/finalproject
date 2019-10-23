@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-const urlApi = 'http://localhost:2019'
+import urlApi from '../helpers'
 
 export const onLoginClick=()=>{
     return (dispatch)=>{
@@ -30,21 +30,21 @@ export const onLoginUser=(EMAIL, PASSWORD)=>{
             // res.data merupakan sebuah array
             // jika data ditemukan, length > 0
             // jika data tidak ditemukan, length = 0
-            if (res.data.status=='404'){
+            if (res.data.status==='404'){
                 // user not found
                 dispatch(
                     { 
                        type:"LOGIN_ERROR_NOT_FOUND"
                     }
                 )
-            }else if (res.data.status=='401'){
+            }else if (res.data.status==='401'){
                 // wrong pass
                 dispatch(
                     { 
                        type:"LOGIN_ERROR_WRONG_PASS"
                     }
                 )
-            }else if (res.data.status=='200'){
+            }else if (res.data.status==='200'){
                 //success
                 console.log(res.data);
                 

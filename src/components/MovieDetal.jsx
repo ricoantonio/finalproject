@@ -6,7 +6,7 @@ import Nav from './Nav'
 import Footer from './Footer'
 
 
-const urlApi = 'http://localhost:2019'
+import urlApi from '../helpers'
 
 export class MovieDetal extends Component {
     state={
@@ -16,13 +16,23 @@ export class MovieDetal extends Component {
     componentDidMount() {
         console.log(this.props.match.params.link);
         
+        
         Axios.get(
-            `http://localhost:2019/movie/getdatalink/${this.props.match.params.link}`
+            urlApi+`/movie/getdatalink/${this.props.match.params.link}`
         ).then((res)=>{
+            console.log(this.state.data);
             // res.data={id, name, desc, price, pic}
             this.setState({data: res.data[0]})
             console.log(res);
-            this.setState({check:true})
+            
+            Axios.put(urlApi+'/movie/updateview',{
+                id:this.state.data.id
+            })
+            .then((res)=>{
+                this.setState({check:true})
+            }).catch((err)=>{
+                
+            })
         }).catch(()=>{
 
         })

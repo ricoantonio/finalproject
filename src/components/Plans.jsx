@@ -7,7 +7,7 @@ export class Plans extends Component {
             <div className="">
                 <h2 className="center sideText black-text" style={{paddingTop:"5%",marginTop:0}}>Select Your Plan</h2>
                 <div className="container row center" style={{marginTop:'6%',marginBottom:0}}>
-                    <div className="col s4 offset-s1 zoom promocode white z-depth-2" style={{padding:20}}>
+                    <div className="col s4 offset-s1 zoom  white z-depth-2" style={{padding:20}}>
                         <img src={Bogo} style={{height:20}} alt=""/>
                         <p style={{fontSize:"20px"}}>
                             Get 1 month subscription, for
@@ -17,7 +17,7 @@ export class Plans extends Component {
                             <button className="btn-large black">select plan</button>
                         </div>
                     </div>
-                    <div className="col s4 offset-s2 zoom promocode white z-depth-2" style={{padding:20,marginBottom:"10%"}}>
+                    <div className="col s4 offset-s2 zoom white z-depth-2" style={{padding:20,marginBottom:"10%"}}>
                         <img src={Bogo} style={{height:20}} alt=""/>
                         <p style={{fontSize:"20px"}}>
                             Get 1 year subscription and save some money, for only

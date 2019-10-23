@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
 import Bogo from '.././Webpic/BOGOlogo.svg'
 import {Link,Redirect} from 'react-router-dom'
-import axios from 'axios'
 import { connect } from "react-redux";
 import {onLoginUser} from '../action/index'
 import {onLoginClick} from '../action/index'
 
-import Home from './Home' 
-
-const urlApi = 'http://localhost:2019'
 
 class Login extends Component{
     
@@ -85,7 +81,7 @@ class Login extends Component{
     }
 
     renderLogin=()=>{
-        if(this.state.onLoginClick==0){
+        if(this.state.onLoginClick===0){
             return (
                 <div>
                     <div className="container row">

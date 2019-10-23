@@ -11,6 +11,7 @@ import HomeVariety from './HomeVariety'
 import HomeMovie from './HomeMovie'
 import MyAccount from './MyAccount'
 import MovieDetail from './MovieDetal'
+import AdminDashboard from './AdminDashboard'
 
 const keepLogin =(objUser)=>{
     return{
@@ -51,6 +52,7 @@ class App extends Component{
                     <Route path="/movie" component={HomeMovie}/>
                     <Route path="/myaccount" component={MyAccount}/>
                     <Route path="/movie-detail/:link" component={MovieDetail}/>
+                    <Route path="/admin-dashboard" component={AdminDashboard}/>
                 </BrowserRouter>
      
             )

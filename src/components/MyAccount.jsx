@@ -5,7 +5,7 @@ import Axios from 'axios';
 import {Redirect} from 'react-router-dom'
 
 import Nav from './Nav'
-const urlApi = 'http://localhost:2019'
+import urlApi from '../helpers'
 
 export class MyAccount extends Component {
     
@@ -31,7 +31,7 @@ export class MyAccount extends Component {
   }
     
   renderMy=()=>{
-   let {name,email,plan,id}=this.state.data
+   let {name,email,plan}=this.state.data
 
     return(
       <div>
@@ -48,7 +48,7 @@ export class MyAccount extends Component {
             <div style={{padding:"4%"}}>
               <h4>Hi! {name}</h4>
               <h5>Email : {email}</h5>
-              <h5>Plan : {plan=='free'?'FREE':'PREMIUM'}</h5>
+              <h5>Plan : {plan==='free'?'FREE':'PREMIUM'}</h5>
             </div>
           </div>
         </div>

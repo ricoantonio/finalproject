@@ -2,11 +2,6 @@ import React, { Component } from 'react'
 import Slider from 'react-slick'
 import runningman from '../Webpic/runningman.png'
 import hoteldelluna from '../Webpic/hoteldelluna.png'
-import onepiece from '../Webpic/onepiece1.jpg'
-import knowingbros from '../Webpic/knowingbros.jpeg'
-import docjohn from '../Webpic/docjohn.jpg'
-import myheroacademia  from '../Webpic/myheroacademia.jpg'
-
 
 class BestThisWeek extends Component{
 
