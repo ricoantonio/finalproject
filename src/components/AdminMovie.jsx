@@ -45,7 +45,40 @@ export class AdminMovie extends Component {
     render() {
         return (
             <div>
-                <table className="centered striped"  style={{fontSize:10}}>
+                <div className="row">
+                    <div className="input-field col s2">
+                        <input style={{fontSize:"12px"}} className="teal-text text-darken-1" type="text" placeholder="TITLE" />
+                    </div>
+                    <div className="input-field col s1">
+                        <input style={{fontSize:"12px"}} className="teal-text text-darken-1" type="number" placeholder="YEAR" />
+                    </div>
+                    <div className="input-field col s2 file-field">
+                            <div class="btn">
+                                <span style={{fontSize:"12px"}}>PIC</span>
+                                <input type="file"/>
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text"/>
+                            </div>
+                        {/* <input style={{fontSize:"12px"}} className="teal-text text-darken-1" type="text" placeholder="PIC" />    */}
+                    </div>
+                    <div className="input-field col s2">
+                        <input style={{fontSize:"12px"}} className="teal-text text-darken-1" type="text" placeholder="FILE NAME" />
+                    </div>
+                    <div className="input-field col s2">
+                        <input style={{fontSize:"12px"}} className="teal-text text-darken-1" type="text" placeholder="LINK" />
+                    </div>
+                    <div className="input-field col s3">
+                        <textarea style={{fontSize:"12px"}} className="materialize-textarea" type="text" placeholder="DESC." ></textarea>
+                    </div>
+                    <div className="center-align">
+                        <button className="not-square btn black white-text">add</button>
+                    </div>
+                    
+  
+        
+                </div>
+                <table className=" highlight"  style={{fontSize:10}}>
                     <thead>
                        <tr>
                             <th>No.</th>

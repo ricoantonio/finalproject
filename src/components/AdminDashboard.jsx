@@ -65,8 +65,8 @@ export default function ScrollableTabsButtonAuto() {
             textColor="primary"
             centered
             >
-            <Tab style={{backgroundColor:'white'}} label="Korean Drama List" {...a11yProps(0)} />
-            <Tab style={{backgroundColor:'white'}} label="Korean Variety List" {...a11yProps(1)} />
+            <Tab style={{backgroundColor:'white'}} label="Drama List" {...a11yProps(0)} />
+            <Tab style={{backgroundColor:'white'}} label="Variety List" {...a11yProps(1)} />
             <Tab style={{backgroundColor:'white'}} label="Movie List" {...a11yProps(2)} />
             <Tab style={{backgroundColor:'white'}} label="Anime List" {...a11yProps(3)} />
             <Tab style={{backgroundColor:'white'}} label="User List" {...a11yProps(4)} />

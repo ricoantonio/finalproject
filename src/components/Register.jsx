@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 
 
 import urlApi from '../helpers'
+import VerifyHome from './VarifyHome';
 
 class Register extends Component{
 
@@ -15,7 +16,8 @@ class Register extends Component{
         password:'',
         confirmpass:'',
         onRegisterClick:0,
-        usertaken:0
+        usertaken:0,
+        done:false
     }   
 
     checkName=()=>{
@@ -128,12 +130,13 @@ class Register extends Component{
             this.setState({onRegisterClick:1})
             
             axios.post(urlApi+'/auth/register',{
-                    firstname:this.state.firstname,
+                    name:this.state.name,
                     lastname:this.state.lastname,
                     email:this.state.email,
                     password:this.state.password
             }).then((res)=>{
                 if (res.data.status==='201'){
+                    this.setState({done:true})
                     // done
                 }else if (res.data.status==='400'){
                     //taken
@@ -217,6 +220,10 @@ class Register extends Component{
            return(
                <Redirect to='/'/>
            )
+       }else if (this.state.done){
+            return(
+                <Redirect to='/verify'/>
+            )
        }else{
            return(
                this.renderRegis()
