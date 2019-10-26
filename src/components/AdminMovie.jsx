@@ -7,7 +7,14 @@ import urlApi from '../helpers'
 export class AdminMovie extends Component {
 
     state={
-        data:[]
+        data:[],
+        selRow:null,
+        selTitle:'',
+        selYear:null,
+        selPic:'',
+        selFilename:'',
+        selLink:'',
+        selDesc:''
     }
 
     componentDidMount() {
@@ -25,18 +32,67 @@ export class AdminMovie extends Component {
     
     renderData=()=>{
         let list=this.state.data.map((val,index)=>{
-            return(
-            <tr>
-                <td style={{paddingTop:0,paddingBottom:0}}>{index+1}</td>
-                <td style={{paddingTop:0,paddingBottom:0}}>{val.title}</td>
-                <td style={{paddingTop:0,paddingBottom:0}}>{val.year}</td>
-                <td style={{paddingTop:0,paddingBottom:0}}>{val.pic}</td>
-                <td style={{paddingTop:0,paddingBottom:0}}>{val.filename}</td>
-                <td style={{paddingTop:0,paddingBottom:0}}>{val.link}</td>
-                <td style={{paddingTop:0,paddingBottom:0}}>{val.view}</td>
-                <td style={{paddingTop:0,paddingBottom:0}}>{val.desc}</td>
-              </tr>
-            )
+            if(this.state.selRow==val.id){
+                
+                return(
+                    <tr>
+                        <td style={{paddingTop:0,paddingBottom:0}}>
+                            <button onClick={()=>{this.setState({selRow:val.id})}}>save</button>
+                        </td>
+                        <td style={{paddingTop:0,paddingBottom:0}}>
+                            <button onClick={()=>this.setState({selRow:null})}>cancle</button>
+                        </td>
+                        <td style={{paddingTop:0,paddingBottom:0}}>{index+1}</td>
+                        <td style={{paddingTop:0,paddingBottom:0}}>
+                            <textarea style={{fontSize:10}} type="text" onChange={(e)=>{this.setState({selTitle:e.target.value})}} value={this.state.selTitle}/>
+                        </td>
+                        <td style={{paddingTop:0,paddingBottom:0}}>
+                            <textarea style={{fontSize:10}}  type="number" onChange={(e)=>{this.setState({selYear:e.target.value})}} value={this.state.selYear}/>
+                        </td>
+                        <td style={{paddingTop:0,paddingBottom:0}}>
+                            <textarea style={{fontSize:10}}  type="text" onChange={(e)=>{this.setState({selPic:e.target.value})}} value={this.state.selPic}/>
+                        </td>
+                        <td style={{paddingTop:0,paddingBottom:0}}>
+                            <textarea style={{fontSize:10}} type="text" onChange={(e)=>{this.setState({selFilename:e.target.value})}} value={this.state.selFilename}/>
+                        </td>
+                        <td style={{paddingTop:0,paddingBottom:0}}>
+                            <textarea style={{fontSize:10}}  type="text" onChange={(e)=>{this.setState({selLink:e.target.value})}} value={this.state.selLink}/>
+                        </td>
+                        <td style={{paddingTop:0,paddingBottom:0}}>{val.view}</td>
+                        <td style={{paddingTop:0,paddingBottom:0}}>
+                            <textarea style={{fontSize:10}} type="text" onChange={(e)=>{this.setState({selDesc:e.target.value})}} value={this.state.selDesc}/>
+                        </td>
+                    </tr>
+                )
+            }else{
+                return(
+                    <tr>
+                        <td style={{paddingTop:0,paddingBottom:0}}>
+                            <button onClick={()=>{
+                                this.setState({
+                                    selRow:val.id,
+                                    selTitle:val.title,
+                                    selYear:val.year,
+                                    selPic:val.pic,
+                                    selFilename:val.filename,
+                                    selLink:val.link,
+                                    selDesc:val.desc
+                                })}}>edit</button>
+                        </td>
+                        <td style={{paddingTop:0,paddingBottom:0}}>
+                            <button onClick={()=>{this.delete(val.id)}}>del</button>
+                        </td>
+                        <td style={{paddingTop:0,paddingBottom:0}}>{index+1}</td>
+                        <td style={{paddingTop:0,paddingBottom:0}}>{val.title}</td>
+                        <td style={{paddingTop:0,paddingBottom:0}}>{val.year}</td>
+                        <td style={{paddingTop:0,paddingBottom:0}}>{val.pic}</td>
+                        <td style={{paddingTop:0,paddingBottom:0}}>{val.filename}</td>
+                        <td style={{paddingTop:0,paddingBottom:0}}>{val.link}</td>
+                        <td style={{paddingTop:0,paddingBottom:0}}>{val.view}</td>
+                        <td style={{paddingTop:0,paddingBottom:0}}>{val.desc}</td>
+                    </tr>
+                )
+            }
           })
         return list
     }
@@ -85,6 +141,8 @@ export class AdminMovie extends Component {
                 <table className=" highlight"  style={{fontSize:10}}>
                     <thead>
                        <tr>
+                            <th></th>
+                            <th></th>
                             <th>No.</th>
                             <th>Title</th>
                             <th>Year</th>
