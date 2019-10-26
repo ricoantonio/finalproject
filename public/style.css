@@ -144,8 +144,8 @@
 }
 
 .trial-banner{
-    background-image: url('./minimalistic-1571321826838-6043.jpg');
-    background-size: auto;
+    background: url('./minimalistic-1571321826838-6043.jpg') no-repeat center center ;
+    background-size: cover;
 }
 
 
@@ -185,12 +185,13 @@
 .image-poster {
     opacity: 1;
     display: block;
-    width: 100%;
     height: auto;
+    width: 100%;
     transition: .5s ease;
     backface-visibility: hidden;
     margin-right: auto;
     margin-left: auto;
+    
 }
 
 .middle-poster {
@@ -222,4 +223,13 @@
     position: absolute;
     bottom: 0;
     width: 100%        /* Footer height */
+  }
+
+
+html { 
+    background: url('./White-Background-High-Definition-Wallpaper-16573.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }

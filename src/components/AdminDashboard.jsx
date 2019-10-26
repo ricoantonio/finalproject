@@ -61,8 +61,7 @@ export default function ScrollableTabsButtonAuto() {
             <Tabs
             value={value}
             onChange={handleChange}
-            indicatorColor="primary"
-            textColor="primary"
+            indicatorColor='secondary'
             centered
             >
             <Tab style={{backgroundColor:'white'}} label="Drama List" {...a11yProps(0)} />

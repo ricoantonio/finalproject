@@ -28,7 +28,6 @@ export class AdminMovie extends Component {
             return(
             <tr>
                 <td style={{paddingTop:0,paddingBottom:0}}>{index+1}</td>
-                <td style={{paddingTop:0,paddingBottom:0}}>{val.id}</td>
                 <td style={{paddingTop:0,paddingBottom:0}}>{val.title}</td>
                 <td style={{paddingTop:0,paddingBottom:0}}>{val.year}</td>
                 <td style={{paddingTop:0,paddingBottom:0}}>{val.pic}</td>
@@ -53,17 +52,22 @@ export class AdminMovie extends Component {
                         <input style={{fontSize:"12px"}} className="teal-text text-darken-1" type="number" placeholder="YEAR" />
                     </div>
                     <div className="input-field col s2 file-field">
-                            <div class="btn">
-                                <span style={{fontSize:"12px"}}>PIC</span>
-                                <input type="file"/>
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text"/>
-                            </div>
-                        {/* <input style={{fontSize:"12px"}} className="teal-text text-darken-1" type="text" placeholder="PIC" />    */}
+                        <div class="btn black white-text">
+                            <i className="material-icons">publish</i>
+                            <input type="file"/>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input  style={{fontSize:"12px"}} placeholder='PIC' class="file-path validate" type="text"/>
+                        </div>
                     </div>
-                    <div className="input-field col s2">
-                        <input style={{fontSize:"12px"}} className="teal-text text-darken-1" type="text" placeholder="FILE NAME" />
+                    <div className="input-field col s2 file-field">
+                        <div class="btn black white-text">
+                            <i className="material-icons">publish</i>
+                            <input type="file"/>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input  style={{fontSize:"12px"}} placeholder='VIDS' class="file-path validate" type="text"/>
+                        </div>
                     </div>
                     <div className="input-field col s2">
                         <input style={{fontSize:"12px"}} className="teal-text text-darken-1" type="text" placeholder="LINK" />
@@ -82,11 +86,10 @@ export class AdminMovie extends Component {
                     <thead>
                        <tr>
                             <th>No.</th>
-                            <th>Id</th>
                             <th>Title</th>
                             <th>Year</th>
                             <th>Pic</th>
-                            <th>File Name</th>
+                            <th>Vids</th>
                             <th>Link</th>
                             <th>View</th>
                             <th>Desc.</th>

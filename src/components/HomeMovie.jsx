@@ -46,10 +46,10 @@ class HomeMovie extends Component{
         return this.state.data.map(val=>{
             var link=`/movie-detail/${val.link}`
             return(
-                <div className="col s2" style={{height:"500px", paddingBottom:"3%"}}>
+                <div className="col s2" style={{height:"500px", paddingBottom:"5%"}}>
                     <div className="poster" style={{width:"100%"}}>
                         <Link to={link} onClick={this.onClickMovie(val.id)}>
-                            <img className="not-square2 image-poster" style={{width:"90%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
+                            <img className="not-square2 image-poster" style={{width:"85%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
                             <div className="middle-poster">
                                 <div className="text-poster">
                                     <i className="material-icons" style={{fontSize:"60px"}}>play_circle_outline</i>

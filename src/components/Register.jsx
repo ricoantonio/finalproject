@@ -187,7 +187,7 @@ class Register extends Component{
             )
         }else{
             return(
-                <div className="container"> 
+                <div className="container bgregis"> 
                     <div className="center-align">
                         <Link className="center-align" to="/"><img className="logo" src={Bogo} alt="BOGO"/></Link>
                     </div>
