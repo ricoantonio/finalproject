@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import Bogo from '.././Webpic/BOGOlogo.svg'
 
 export class SubsHome extends Component {
+
     render() {
         return (
             <div>
@@ -27,7 +28,7 @@ export class SubsHome extends Component {
                                 </p>
                                 <p style={{fontSize:"30px"}}>Rp.50.000/<span style={{fontSize:"20px"}}>month</span></p>
                                 <div className="btn-trial" style={{marginTop:"20px",marginBottom:"120px"}}>
-                                    <button className="btn-large black">select plan</button>
+                                    <Link to='/mplan'><button className="btn-large black">select plan</button></Link>
                                 </div>
                             </div>
                             <div className="col s5 offset-s2 zoom white z-depth-2" style={{padding:20}}>
