@@ -57,7 +57,7 @@ export class SubsHome extends Component {
                             <nav>
                                 <div class="nav-wrapper white">
                                     <Link to="/" class=" left"><img className="" src={Bogo} style={{height:"29px", marginLeft:"30%",marginTop:"20%"}} alt="BOGO"/></Link>
-                                    <Link className="right" to='/login' style={{marginRight:"2%"}}><b className="black-text">SIGN IN</b></Link>
+                                    <Link className="right" to='/sublogin' style={{marginRight:"2%"}}><b className="black-text">SIGN IN</b></Link>
                                 </div>
                             </nav>
                         </div>
