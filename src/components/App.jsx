@@ -15,6 +15,7 @@ import AdminDashboard from './AdminDashboard'
 import VerifyHome from './VarifyHome'
 import SubsHome from './SubsHome'
 import RegisPlan  from './RegisPlan'
+import LoginPlan from './LoginPlan'
 
 const keepLogin =(objUser)=>{
     return{
@@ -58,7 +59,8 @@ class App extends Component{
                     <Route path="/admin-dashboard" component={AdminDashboard}/>
                     <Route path="/verify" component={VerifyHome}/>
                     <Route path="/subs" component={SubsHome}/>
-                    <Route path="/mplan" component={RegisPlan}/>
+                    <Route path="/subregis" component={RegisPlan}/>
+                    <Route path="/sublogin" component={LoginPlan}/>
                 </BrowserRouter>
      
             )

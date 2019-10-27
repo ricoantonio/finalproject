@@ -77,7 +77,7 @@ export class Profile extends Component {
         {/* <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
           Open Menu
         </Button> */}
-        <a href='/' onClick={this.handleClick}><i className="material-icons right" style={{marginLeft:10,fontSize:"30px"}}>account_circle</i></a>  
+        <i className="material-icons right" onClick={this.handleClick} style={{marginLeft:10,fontSize:"30px",cursor:'pointer', marginRight:10}}>account_circle</i>
         
         <Menu
           id="simple-menu"

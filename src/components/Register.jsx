@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 
 
 import urlApi from '../helpers'
-import VerifyHome from './VarifyHome';
 
 class Register extends Component{
 
