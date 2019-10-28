@@ -4,6 +4,7 @@ import BestThisWeek from './BestThisWeek'
 import Footer from './Footer'
 import Plans from './Plans'
 import Trial from './Trial'
+import TopMovie from './TopMovie'
 
 class Home extends Component{
 
@@ -23,6 +24,7 @@ class Home extends Component{
                     <Nav/>
                     <Trial/>
                     <BestThisWeek/>
+                    <TopMovie/>
                     <Plans/>
                     <Footer/>
                 </div>
