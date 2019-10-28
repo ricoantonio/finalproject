@@ -1,13 +1,26 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import {Link,Redirect} from 'react-router-dom'
 import Bogo from '.././Webpic/BOGOlogo.svg'
 import { connect } from "react-redux";
+import HomeMovie from './HomeMovie';
 
 
 export class SubsHome extends Component {
 
-    render() {
+    state={
+        month: false,
+        year: false,
+        done:false
+    }
 
+    componentDidMount() {
+        this.setState({month:false})
+        this.setState({year:false})
+        this.setState({done:true})
+    }
+    
+
+    renderSub=()=>{
         if(this.props.email){
             return (
                 <div>
@@ -31,7 +44,7 @@ export class SubsHome extends Component {
                                     </p>
                                     <p style={{fontSize:"30px"}}>Rp.50.000/<span style={{fontSize:"20px"}}>month</span></p>
                                     <div className="btn-trial" style={{marginTop:"20px",marginBottom:"120px"}}>
-                                        <Link to='/subregis'><button className="btn-large black">select plan</button></Link>
+                                        <button onClick={()=>this.setState({month:true})} className="btn-large black">select plan</button>
                                     </div>
                                 </div>
                                 <div className="col s5 offset-s2 zoom white z-depth-2" style={{padding:20}}>
@@ -41,7 +54,7 @@ export class SubsHome extends Component {
                                     </p>
                                     <p style={{fontSize:"30px"}}>Rp.350.000/<span style={{fontSize:"20px"}}>year</span></p>
                                     <div className="btn-trial" style={{marginTop:"20px",marginBottom:"120px"}}>
-                                        <button className="btn-large black">select plan</button>
+                                        <button onClick={()=>this.setState({year:true})} className="btn-large black">select plan</button>
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +86,7 @@ export class SubsHome extends Component {
                                     </p>
                                     <p style={{fontSize:"30px"}}>Rp.50.000/<span style={{fontSize:"20px"}}>month</span></p>
                                     <div className="btn-trial" style={{marginTop:"20px",marginBottom:"120px"}}>
-                                        <Link to='/subregis'><button className="btn-large black">select plan</button></Link>
+                                        <button onClick={()=>this.setState({month:true})} className="btn-large black">select plan</button>
                                     </div>
                                 </div>
                                 <div className="col s5 offset-s2 zoom white z-depth-2" style={{padding:20}}>
@@ -83,13 +96,38 @@ export class SubsHome extends Component {
                                     </p>
                                     <p style={{fontSize:"30px"}}>Rp.350.000/<span style={{fontSize:"20px"}}>year</span></p>
                                     <div className="btn-trial" style={{marginTop:"20px",marginBottom:"120px"}}>
-                                        <button className="btn-large black">select plan</button>
+                                        <button onClick={()=>this.setState({year:true})} className="btn-large black">select plan</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            )
+        }
+    }
+
+    render() {
+        if(this.state.done){
+            if(!this.state.month&&!this.state.year){
+                return(
+                    this.renderSub()
+                )
+            }if(this.state.month){
+                return(
+                    <Redirect to={{pathname:'/plan',state:{plan:'month'}
+                    }}/>
+                )
+            }if(this.state.year){
+                return(
+                    <Redirect to={{pathname:'/plan',state:{plan:'year'}
+                    }}/>
+                )
+            }
+        }else{
+            return(
+
+                <p>Loading</p>
             )
         }
     }

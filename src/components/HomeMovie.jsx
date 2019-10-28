@@ -14,8 +14,7 @@ class HomeMovie extends Component{
     state={
         data:[],
         check:false
-    }
-
+    }    
 
     componentDidMount() {
         Axios.get(urlApi+'/movie/getdata'
@@ -27,7 +26,6 @@ class HomeMovie extends Component{
           }).catch((err)=>{
       
           })
-          
     }
     
     onClickMovie=(id)=>{

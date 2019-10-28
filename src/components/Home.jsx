@@ -6,16 +6,32 @@ import Plans from './Plans'
 import Trial from './Trial'
 
 class Home extends Component{
+
+    state={
+        done:false
+    }
+
+    componentDidMount(){
+        this.setState({done:true})
+    }
+    
+
     render() {
-        return (
-            <div className="">
-                <Nav/>
-                <Trial/>
-                <BestThisWeek/>
-                <Plans/>
-                <Footer/>
-            </div>
-        )
+        if(this.state.done){
+            return (
+                <div className="">
+                    <Nav/>
+                    <Trial/>
+                    <BestThisWeek/>
+                    <Plans/>
+                    <Footer/>
+                </div>
+            )
+        }else{
+            return(
+                <p>Loading</p>
+            )
+        }
     }
 }
 

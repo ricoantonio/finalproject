@@ -11,18 +11,21 @@ import HomeVariety from './HomeVariety'
 import HomeMovie from './HomeMovie'
 import MyAccount from './MyAccount'
 import MovieDetail from './MovieDetal'
-import AdminDashboard from './AdminDashboard'
 import VerifyHome from './VarifyHome'
 import SubsHome from './SubsHome'
 import RegisPlan  from './RegisPlan'
 import LoginPlan from './LoginPlan'
+import SelectedPlan from './SelectedPlan'
+import Admin from './Admin'
 
 const keepLogin =(objUser)=>{
     return{
         type:"LOGIN_SUCCESS",
         payload:{
             id:objUser.id,
-            email: objUser.email
+            email: objUser.email,
+            role:objUser.role,
+            plan:objUser.plan
         }
     }
 }
@@ -56,11 +59,12 @@ class App extends Component{
                     <Route path="/movie" component={HomeMovie}/>
                     <Route path="/myaccount" component={MyAccount}/>
                     <Route path="/movie-detail/:link" component={MovieDetail}/>
-                    <Route path="/admin-dashboard" component={AdminDashboard}/>
+                    <Route path="/admin-dashboard" component={Admin}/>
                     <Route path="/verify" component={VerifyHome}/>
                     <Route path="/subs" component={SubsHome}/>
                     <Route path="/subregis" component={RegisPlan}/>
                     <Route path="/sublogin" component={LoginPlan}/>
+                    <Route path="/plan" component={SelectedPlan}/>
                 </BrowserRouter>
      
             )

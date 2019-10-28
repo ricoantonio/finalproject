@@ -194,7 +194,7 @@ export class LoginPlan extends Component {
     render() {
         if(this.props.email){
             return (
-                <Redirect to='/'/>
+                <Redirect to='/subs'/>
             )
         }else{
             return(

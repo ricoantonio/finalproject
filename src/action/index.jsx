@@ -48,11 +48,11 @@ export const onLoginUser=(EMAIL, PASSWORD)=>{
                 //success
                 console.log(res.data);
                 
-                let {id,email}=res.data.result
+                let {id,email,role,plan}=res.data.result
 
                 localStorage.setItem(
                     'userData',
-                    JSON.stringify({id,email})
+                    JSON.stringify({id,email,role,plan})
                 )
                 
                 
@@ -60,7 +60,7 @@ export const onLoginUser=(EMAIL, PASSWORD)=>{
                     { 
                         type:"LOGIN_SUCCESS",
                         payload:{
-                            id,email
+                            id,email,role,plan
                         }
                     }
                 )
@@ -75,8 +75,9 @@ export const onLoginUser=(EMAIL, PASSWORD)=>{
 
 export const onLogoutUser=()=>{
     // menghapus data di local storage
+    
     localStorage.removeItem('userData')
-
+    window.location.reload();
     // menghapus data di redux
     return {
         type:"LOGOUT_SUCCESS"
