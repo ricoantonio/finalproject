@@ -27,17 +27,6 @@ class HomeMovie extends Component{
       
           })
     }
-    
-    onClickMovie=(id)=>{
-        Axios.post(urlApi+'/movie/updateview',
-        {
-            data:id
-        }).then((res)=>{
-
-        }).catch((err)=>{
-
-        })
-    }
 
 
     renderData=()=>{
@@ -46,7 +35,7 @@ class HomeMovie extends Component{
             return(
                 <div className="col s2" style={{height:"500px", paddingBottom:"5%"}}>
                     <div className="poster" style={{width:"100%"}}>
-                        <Link to={link} onClick={this.onClickMovie(val.id)}>
+                        <Link to={link}>
                             <img className="not-square2 image-poster" style={{width:"85%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
                             <div className="middle-poster">
                                 <div className="text-poster">

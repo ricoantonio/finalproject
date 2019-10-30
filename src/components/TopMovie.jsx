@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ItemsCarousel from 'react-items-carousel'
 import Axios from 'axios'
 import urlApi from '../helpers'
+import { Link } from 'react-router-dom'
 
 export class TopMovie extends Component {
 
@@ -24,10 +25,13 @@ export class TopMovie extends Component {
 
     renderPoster=()=>{
         let list=this.state.activeItemIndex.map((val,i)=>{
+            var link=`/movie-detail/${val.link}`
             return(
-                <div className="zoom">
-                    <img style={{height:230}} src={urlApi+'/posters/'+val.pic} alt=""/>
-                </div>
+                <Link to={link}>
+                    <div className="posterHome" style={{cursor:'pointer'}}>
+                        <img className="col s2 not-square" style={{width:"20%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
+                    </div>
+                </Link>
             )
         })
         return list
@@ -37,9 +41,8 @@ export class TopMovie extends Component {
        if(this.state.done){
         return (
            <div>
-             <h2 className="center sideText black-text">Best Movies</h2>
-              <div style={{"padding":"20px","maxWidth":"100%", height:"10%"}}>
-                <ItemsCarousel
+             <h2 className="center sideText black-text">Popular Movies</h2>
+                {/* <ItemsCarousel
                   infiniteLoop={false}
                   gutter={12}
                   activePosition={'center'}
@@ -53,10 +56,11 @@ export class TopMovie extends Component {
                   firstAndLastGutter={false}
                   rightChevron={<i className="material-icons medium white-text">navigate_next</i>}
                   leftChevron={<i className="material-icons medium white-text">navigate_before</i>}
-                >
-                  {this.renderPoster()}
-                </ItemsCarousel>
-            </div>
+                > */}
+                <div className="row" style={{marginTop:"3%"}}>
+                    {this.renderPoster()}
+                </div>
+                {/* </ItemsCarousel> */}
            </div>
         )
        }else{

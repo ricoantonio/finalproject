@@ -240,6 +240,8 @@ export class RegisPlan extends Component {
     }
 }
 
+// moment(new Date()).format('YYYY-MM-DD HH:mm:ss.SSS')
+
 const mapStateToProps=state=>{
     return {
       email: state.auth.email

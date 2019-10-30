@@ -126,7 +126,6 @@ export class SubsHome extends Component {
             }
         }else{
             return(
-
                 <p>Loading</p>
             )
         }

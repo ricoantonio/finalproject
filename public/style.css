@@ -31,6 +31,13 @@
     transform: scale(1.2);
 }
 
+.zoomPoster {
+    transition: transform .2s; /* Animation */
+}
+.zoomPoster:hover {
+    transform: scale(1.2);
+}
+
 .zoomText {
     transition: transform .1s; /* Animation */
     margin: 0 auto;
@@ -157,6 +164,15 @@
 
 .btn-trial:hover {
     top: -5px;
+}
+.posterHome {
+    position: relative;
+    top: 0;
+    transition: top 0.2s ease-in-out;
+}
+
+.posterHome:hover {
+    top: -20px;
 }
 
 .bgaccount {

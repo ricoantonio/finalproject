@@ -3,7 +3,7 @@ import Bogo from '.././Webpic/BOGOlogo.svg'
 import {Link,Redirect} from 'react-router-dom'
 import axios from 'axios'
 import { connect } from "react-redux";
-
+import moment from 'moment'
 
 import urlApi from '../helpers'
 
@@ -116,6 +116,7 @@ class Register extends Component{
     
 
     onRegister=()=>{
+        console.log(moment(new Date()).format('YYYY-MM-DD'));
         if (!this.state.name||
             !this.state.email||
             !this.state.password||
@@ -127,6 +128,10 @@ class Register extends Component{
             
         }else{
             this.setState({onRegisterClick:1})
+// moment(new Date()).format('YYYY-MM-DD HH:mm:ss.SSS')
+
+            
+
             
             axios.post(urlApi+'/auth/register',{
                     name:this.state.name,

@@ -109,7 +109,7 @@ export class Profile extends Component {
       )
     }else{
       return(
-        <a href='/' onClick={this.handleClick}><i className="material-icons right" style={{marginLeft:10,fontSize:"30px"}}>account_circle</i></a>  
+        <a onClick={this.handleClick}><i className="material-icons right" style={{marginLeft:10,fontSize:"30px",cursor:'pointer', marginRight:10}}>account_circle</i></a>  
       )
     }
   }

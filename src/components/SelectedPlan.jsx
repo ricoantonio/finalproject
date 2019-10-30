@@ -3,7 +3,7 @@ import {Link,Redirect} from 'react-router-dom'
 import Bogo from '.././Webpic/BOGOlogo.svg'
 import { connect } from "react-redux";
 import Home from './Home';
-
+import moment from 'moment'
 export class SelectedPlan extends Component {
 
     state={
@@ -13,6 +13,7 @@ export class SelectedPlan extends Component {
 
     componentDidMount() {
         console.log(this.props.location.state);
+        console.log();
         
         this.setState({done:true})
     }
@@ -29,33 +30,67 @@ export class SelectedPlan extends Component {
                         </nav>
                     </div>
                 </div>
-                <div className="row" style={{marginTop:"5%"}}>
+                <div className="row" style={{marginTop:"3%"}}>
+                    <div className="center">
+                        <h2  style={{marginTop:0}}>
+                            <b>
+                                Your Billing Info
+                            </b>
+                        </h2>
+                        <p>
+                            Confirm your selections and add a payment method to your account.
+                        </p>
+                    </div>
                     <div className="col s4 offset-s4 white" style={{padding:"2%"}}>
                         <div>
                             <div className="center">
                                 <h4>{this.props.email}</h4>
                             </div>
-                            <div className="col s12">
-                                <span>{this.props.location.state.plan === 'month' ?  "Monthly subscription Rp50.000/month" : "Yearly subscription Rp350.000/year" }</span> 
+                            <div className="col s12" style={{marginTop:"3%"}}>
+                                <span>{this.props.location.state.plan === 'month' ?  <span><b>Monthly subscription:</b> Rp50.000/m</span> : <span><b>Yearly subscription:</b> Rp350.000/yr</span>}</span> 
                                 <Link to='/subs'><span className="right teal-text text-darken-1"><b>change plan</b></span></Link>
                             </div>
-                            <div className="col s8 offset-s2">
+                            <div className="col s12" style={{marginTop:"2%"}}>
                                 <div className="left">
-                                    <span>Your subscription start at:</span>
+                                    <span>Your subscription start from:</span>
                                 </div>
                                 <div className="right">
-                                    <span>20/10/2020</span>
+                                    <span>
+                                        <b>
+                                            {moment(new Date()).format('DD-MM-YYYY')}
+                                        </b>
+                                    </span>
                                 </div>
                             </div>
-                            <div className="col s8 offset-s2">
+                            <div className="col s12">
                                 <div className="left">
                                     <span>Your subscription ends at:</span>
                                 </div>
                                 <div className="right">
-                                    <span>20/11/2020</span>
+                                    <span>
+                                        <b>
+                                            {this.props.location.state.plan === 'month'
+                                            ?(moment(new Date()).add(1,'month').format('DD-MM-YYYY'))
+                                            :(moment(new Date()).add(1,'year').format('DD-MM-YYYY'))}
+                                        </b>
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="col s8 offset-s2" style={{marginTop:"4%"}}>
+                                <div className="left">
+                                    <h5>Total Due:</h5>
+                                </div>
+                                <div className="right">
+                                    <h5>{this.props.location.state.plan ==='month' ? 'Rp.50.000' : 'Rp.350.000' }</h5>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div className="col s4 offset-s4" style={{paddingLeft:0, paddingRight:0, marginTop:"1%"}}>
+                        <button className=" btn-large right black col s12">
+                            COUNTINUE
+                            <i className="material-icons right" style={{position:'absolute'}}>arrow_forward</i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -87,7 +122,8 @@ export class SelectedPlan extends Component {
     }
 }
 
-
+// moment(new Date()).format('YYYY-MM-DD').add(1,'month')
+// moment(new Date()).format('YYYY-MM-DD').add(1,'year')
 
 const mapStateToProps=state=>{
     return {
