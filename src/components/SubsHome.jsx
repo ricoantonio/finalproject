@@ -37,7 +37,7 @@ export class SubsHome extends Component {
                         <h2 className="center sideText black-text" style={{paddingTop:"2%",marginTop:0}}>Select Your Plan</h2>
                         <div className="container row center" style={{marginTop:'5%',marginBottom:0}}>
                             <div className='col s10 offset-s1'style={{marginBottom:"10%"}}>
-                                <div className="col s5 zoom  white z-depth-2" style={{padding:20}}>
+                                <div className="col s5 zoom  white z-depth-2" style={{padding:20 , height:"400px"}}>
                                     <img src={Bogo} style={{height:20}} alt=""/>
                                     <p style={{fontSize:"20px"}}>
                                         Get 1 month subscription, for
@@ -47,7 +47,7 @@ export class SubsHome extends Component {
                                         <button onClick={()=>this.setState({month:true})} className="btn-large black">select plan</button>
                                     </div>
                                 </div>
-                                <div className="col s5 offset-s2 zoom white z-depth-2" style={{padding:20}}>
+                                <div className="col s5 offset-s2 zoom white z-depth-2" style={{padding:20 , height:"400px"}}>
                                     <img src={Bogo} style={{height:20}} alt=""/>
                                     <p style={{fontSize:"20px"}}>
                                         Get 1 year subscription and save some money, for only
@@ -79,7 +79,7 @@ export class SubsHome extends Component {
                         <h2 className="center sideText black-text" style={{paddingTop:"2%",marginTop:0}}>Select Your Plan</h2>
                         <div className="container row center" style={{marginTop:'5%',marginBottom:0}}>
                             <div className='col s10 offset-s1'style={{marginBottom:"10%"}}>
-                                <div className="col s5 zoom  white z-depth-2" style={{padding:20}}>
+                                <div className="col s5 zoom  white z-depth-2" style={{padding:20 , height:"400px"}}>
                                     <img src={Bogo} style={{height:20}} alt=""/>
                                     <p style={{fontSize:"20px"}}>
                                         Get 1 month subscription, for
@@ -89,7 +89,7 @@ export class SubsHome extends Component {
                                         <button onClick={()=>this.setState({month:true})} className="btn-large black">select plan</button>
                                     </div>
                                 </div>
-                                <div className="col s5 offset-s2 zoom white z-depth-2" style={{padding:20}}>
+                                <div className="col s5 offset-s2 zoom white z-depth-2" style={{padding:20 , height:"400px"}}>
                                     <img src={Bogo} style={{height:20}} alt=""/>
                                     <p style={{fontSize:"20px"}}>
                                         Get 1 year subscription and save some money, for only

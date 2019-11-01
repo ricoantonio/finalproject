@@ -29,7 +29,7 @@ export class TopMovie extends Component {
             return(
                 <Link to={link}>
                     <div className="posterHome" style={{cursor:'pointer'}}>
-                        <img className="col s2 not-square" style={{width:"20%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
+                        <img className="col s2 not-square2" style={{width:"20%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
                     </div>
                 </Link>
             )
@@ -40,7 +40,7 @@ export class TopMovie extends Component {
     render() {
        if(this.state.done){
         return (
-           <div>
+           <div className='container'>
              <h2 className="center sideText black-text">Popular Movies</h2>
                 {/* <ItemsCarousel
                   infiniteLoop={false}
