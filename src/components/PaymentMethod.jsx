@@ -80,7 +80,7 @@ export class PaymentMethod extends Component {
                             <img className='' style={{width:"80%"}} src={danabarcode} alt=""/> 
                         </div>
                     </div>
-                    <input className="center teal-text text-darken-1" onChange={(e)=>{this.angka(e.target.value)}}  value={this.state.phone} style={{marginTop:"5%", fontSize:'25px'}} type="number" placeholder="Your DANA Phone Number"/>
+                    <input className="center teal-text text-darken-1" onChange={(e)=>{this.angka(e.target.value)}} value={this.state.phone} style={{marginTop:"5%", fontSize:'25px'}} type="number" placeholder="Your DANA Phone Number"/>
                     <img style={{width:"60%", marginTop:"1%"}} src={this.state.file} alt=""/>
                     <div className="input-field file-field">
                         <div class="btn black white-text">
