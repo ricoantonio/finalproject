@@ -30,7 +30,7 @@ export class TopMovie extends Component {
                 <Link to={link}>
                     <div className="posterHome" style={{cursor:'pointer'}}>
                         <img className="col s2 not-square2" style={{width:"20%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
-                    </div>
+                    </div>   
                 </Link>
             )
         })

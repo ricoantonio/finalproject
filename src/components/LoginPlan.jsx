@@ -7,8 +7,6 @@ import {onLoginUser} from '../action/index'
 import {onLoginClick} from '../action/index'
 
 
-import urlApi from '../helpers'
-
 export class LoginPlan extends Component {
     state={
         onLoginClick:0,

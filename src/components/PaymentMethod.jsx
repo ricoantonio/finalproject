@@ -7,7 +7,12 @@ import ovo from '.././Webpic/ovo.jpg'
 import dana from '.././Webpic/dana.jpg'
 import ovobarcode from '.././Webpic/ovo-barcode.jpg'
 import danabarcode from '.././Webpic/dana-barcode.jpg'
+import { connect } from "react-redux";
+import moment from 'moment'
 
+import Axios from 'axios'
+
+import urlApi from '../helpers'
 
 export class PaymentMethod extends Component {
 
@@ -16,21 +21,32 @@ export class PaymentMethod extends Component {
         done:false,
         file:null,
         phone:'',
+        rop:null
     }
    
     handleChange = event => {
-        this.setState({file:null})
-        this.setState({phone:''})
-        this.setState({type:event.target.value})
-        console.log(this.state.phone);
+        this.setState({
+            file:null,
+            phone:'',
+            type:event.target.value
+        })
+        // console.log(this.state.phone);
         
     };
 
     show=(event)=>{
-        this.setState({file: URL.createObjectURL(event.target.files[0])})
+        this.setState({
+            file: URL.createObjectURL(event.target.files[0]),
+            rop:event.target.files[0]
+
+        })
+        // console.log(event.target.files[0]);
+        
     }
     
     angka=(e)=>{
+        console.log(this.props.plan);
+        console.log(this.state.file);
         
         console.log(this.state.phone);
         if (e.match(/\d/g) || e==''){
@@ -40,8 +56,30 @@ export class PaymentMethod extends Component {
     }
 
     onDone=()=>{
-        console.log(this.state.phone);
-        this.setState({done:true})
+        
+        var fd = new FormData()
+
+        var data = {
+            email: this.props.email,
+            phone: this.state.phone,
+            plan: this.props.plan,
+            type: this.state.type === 1 ? 'OVO' : 'DANA',
+            dateupload: moment().format('YYYY-MM-DD h:mm:ss')
+        }
+
+        fd.append('img', this.state.rop, this.state.rop.name)
+        fd.append('data', JSON.stringify(data))
+        
+        Axios.post(urlApi+'/payment/postdatapayment', fd)
+        .then((res)=>{
+            console.log(res);
+            this.setState({done:true})
+        }).catch((err)=>{
+            console.log(err);
+        })
+        
+        // console.log(data);
+        // console.log(this.state.phone);
     }
 
     renderPay=()=>{
@@ -65,7 +103,7 @@ export class PaymentMethod extends Component {
                     <div className="input-field file-field">
                         <div class="btn black white-text">
                             <i className="material-icons">publish</i>
-                            <input type="file" onChange={this.show}/>
+                            <input type="file" onChange={(e)=>{this.show(e)}}/>
                         </div>
                         <div class="file-path-wrapper">
                             <input placeholder='Upload YOUR receipt of transfer' class="file-path validate" type="text"/>
@@ -96,7 +134,7 @@ export class PaymentMethod extends Component {
                     <div className="input-field file-field">
                         <div class="btn black white-text">
                             <i className="material-icons">publish</i>
-                            <input type="file" onChange={this.show}/>
+                            <input type="file" onChange={(e)=>{this.show(e)}}/>
                         </div>
                         <div class="file-path-wrapper">
                             <input placeholder='Upload YOUR receipt of transfer' class="file-path validate" type="text"/>
@@ -155,4 +193,11 @@ export class PaymentMethod extends Component {
 }
 
 
-export default PaymentMethod
+const mapStateToProps=state=>{
+    return {
+      email: state.auth.email
+    }
+}
+
+
+export default connect(mapStateToProps)(PaymentMethod)

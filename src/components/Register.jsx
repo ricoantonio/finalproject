@@ -117,7 +117,7 @@ class Register extends Component{
 
     onRegister=()=>{
         console.log(moment().format('MMMM Do YYYY, h:mm:ss'));
-        console.log(moment(new Date()).format('YYYY-MM-DD'));
+        console.log(moment().format('YYYY-MM-DD'));
         if (!this.state.name||
             !this.state.email||
             !this.state.password||

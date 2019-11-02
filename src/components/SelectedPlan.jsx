@@ -167,7 +167,7 @@ export class SelectedPlan extends Component {
                             </div>
                         </div>
                     </div>
-                    <PaymentMethod/>
+                    <PaymentMethod plan={this.props.location.state.plan} />
                 </div>
             )
         }
