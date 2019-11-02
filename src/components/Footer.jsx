@@ -11,15 +11,15 @@ import iconTwitter from '.././Webpic/twitter-icon.svg'
     
     render() {
         return (
-            <footer class="page-footer black" style={{marginTop:"6%"}}>
-                <div class="container">
-                    <div class="row">
-                        <div class="col l6 s12">
+            <footer className="page-footer black" style={{marginTop:"6%"}}>
+                <div className="container">
+                    <div className="row">
+                        <div className="col l6 s12">
                         <img style={{height:"35px"}} src={BogoWhite} alt=""/>
-                        <p class="grey-text text-lighten-4">Premium Video-on-Demand service with better viewing experience.</p>
+                        <p className="grey-text text-lighten-4">Premium Video-on-Demand service with better viewing experience.</p>
                         </div>
-                        <div class="col l4 offset-l2 s12">
-                        <h5 class="white-text">Our Socials</h5>
+                        <div className="col l4 offset-l2 s12">
+                        <h5 className="white-text">Our Socials</h5>
                         <ul>
                             <span><a href="/"><img src={iconYoutube} style={{height:"30px"}} alt=""/></a></span>
                             <span><a href="/"><img src={iconTwitter} style={{height:"30px", marginLeft:"2%"}} alt=""/></a></span>
@@ -29,10 +29,10 @@ import iconTwitter from '.././Webpic/twitter-icon.svg'
                         </div>
                     </div>
                 </div>
-                    <div class="footer-copyright">
-                        <div class="container">
+                    <div className="footer-copyright">
+                        <div className="container">
                         Currently v1.00b © 2019 Copyright |BOGO
-                        <a class="grey-text text-lighten-4 right" style={{fontSize:"12px"}} href="#!">More Links</a>
+                        <a className="grey-text text-lighten-4 right" style={{fontSize:"12px"}} href="#!">More Links</a>
                     </div>
                 </div>
             </footer>

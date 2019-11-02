@@ -15,7 +15,7 @@ export class TopMovie extends Component {
         Axios.get(urlApi+'/movie/mostview')
         .then((res)=>{
             this.setState({activeItemIndex:res.data})
-            console.log(res.data);
+            // console.log(res.data);
             this.setState({done:true})
             
         }).catch((err)=>{

@@ -32,7 +32,7 @@ export class Profile extends Component {
     }).then((res)=>{
       this.setState({data:res.data[0]})
       
-      console.log(this.state.data.name);
+      // console.log(this.state.data.name);
       
       this.setState({loading:true})
     }).catch((err)=>{

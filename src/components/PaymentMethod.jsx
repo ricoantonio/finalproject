@@ -45,10 +45,9 @@ export class PaymentMethod extends Component {
     }
     
     angka=(e)=>{
-        console.log(this.props.plan);
-        console.log(this.state.file);
-        
-        console.log(this.state.phone);
+        // console.log(this.props.plan);
+        // console.log(this.state.file);
+        // console.log(this.state.phone);
         if (e.match(/\d/g) || e==''){
             this.setState({phone:e})
         }
@@ -72,7 +71,8 @@ export class PaymentMethod extends Component {
         
         Axios.post(urlApi+'/payment/postdatapayment', fd)
         .then((res)=>{
-            console.log(res);
+            // console.log(res);
+            // update
             this.setState({done:true})
         }).catch((err)=>{
             console.log(err);
