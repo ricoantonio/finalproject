@@ -86,7 +86,7 @@ export class Profile extends Component {
           open={Boolean(this.state.anchorEl)}
           onClose={this.handleClose}
         > 
-        <div style={{paddingLeft:20,paddingRight:20}}>
+        <div style={{paddingLeft:70,paddingRight:70}}>
           <div className="center">
             <i className="material-icons" style={{fontSize:"100px",marginRight:5}}>account_circle</i>
             <h5>{this.state.data.name}</h5>

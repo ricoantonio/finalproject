@@ -50,7 +50,7 @@ class App extends Component{
         if(this.state.check){
             return (
                 <BrowserRouter>
-                    <Route path="/"exact component={Home}/>
+                    <Route path="/" exact component={Home}/>
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Register}/>
                     <Route path="/anime" component={HomeAnime}/>

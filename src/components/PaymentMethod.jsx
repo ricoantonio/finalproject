@@ -29,13 +29,19 @@ export class PaymentMethod extends Component {
     show=(event)=>{
         this.setState({file: URL.createObjectURL(event.target.files[0])})
     }
-
+    
     angka=(e)=>{
-        console.log(this.state.phone);
         
-        if (e.match(/\d/g)|| e=='')
-        this.setState({phone:e})
+        console.log(this.state.phone);
+        if (e.match(/\d/g) || e==''){
+            this.setState({phone:e})
+        }
 
+    }
+
+    onDone=()=>{
+        console.log(this.state.phone);
+        this.setState({done:true})
     }
 
     renderPay=()=>{
@@ -51,7 +57,10 @@ export class PaymentMethod extends Component {
                             <img className='' style={{width:"80%"}} src={ovobarcode} alt=""/> 
                         </div>
                     </div>
-                    <input className="center teal-text text-darken-1" onChange={(e)=>{this.angka(e.target.value)}} value={this.state.phone} style={{marginTop:"5%", fontSize:'25px'}} type="number" placeholder="Your OVO Phone Number"/>
+                    <span>OVO phone number:</span>
+                    <input className="center teal-text text-darken-1" onChange={(e)=>{this.angka(e.target.value)}} 
+                        value={this.state.phone} style={{marginTop:"5%", fontSize:'25px'}} 
+                        type="number" placeholder="OVO phone number" />
                     <img style={{width:"60%", marginTop:"1%"}} src={this.state.file} alt=""/>
                     <div className="input-field file-field">
                         <div class="btn black white-text">
@@ -63,7 +72,6 @@ export class PaymentMethod extends Component {
                         </div>
                     </div>
                     <span className='grey-text text-lighten-1' style={{fontSize:"10px"}}>
-                        <i className="material-icons left" style={{marginRight:0}}>error</i>
                         You need to input your OVO phone number and upload your receipt of transfer to complete the process
                     </span>
                 </div>
@@ -80,7 +88,10 @@ export class PaymentMethod extends Component {
                             <img className='' style={{width:"80%"}} src={danabarcode} alt=""/> 
                         </div>
                     </div>
-                    <input className="center teal-text text-darken-1" onChange={(e)=>{this.angka(e.target.value)}} value={this.state.phone} style={{marginTop:"5%", fontSize:'25px'}} type="number" placeholder="Your DANA Phone Number"/>
+                    <span>DANA phone number:</span>
+                    <input className="center teal-text text-darken-1" onChange={(e)=>{this.angka(e.target.value)}} 
+                        value={this.state.phone} style={{marginTop:"5%", fontSize:'25px'}} 
+                        type="number" placeholder="DANA phone number"/>
                     <img style={{width:"60%", marginTop:"1%"}} src={this.state.file} alt=""/>
                     <div className="input-field file-field">
                         <div class="btn black white-text">
@@ -92,7 +103,6 @@ export class PaymentMethod extends Component {
                         </div>
                     </div>
                     <span className='grey-text text-lighten-1' style={{fontSize:"10px"}}>
-                        <i className="material-icons left" style={{marginRight:0}}>error</i>
                         You need to input your DANA phone number upload your receipt of transfer to complete the process
                     </span>
                 </div>
@@ -102,31 +112,43 @@ export class PaymentMethod extends Component {
 
     render(){
         return(
-            <div className="row">
-                <div className="col s4 offset-s4 white" style={{paddingLeft:0, paddingRight:0, marginTop:0}}>
-                    <div className="center" style={{marginTop:"4%", marginBottom:'4%'}}>
-                        <FormControl style={{width:"50%" , marginBottom:'2%'}}>
-                            <Select value={this.state.type} onChange={this.handleChange} style={{marginLeft:"5%"}} displayEmpty>
-                                <MenuItem value="">
-                                    <em>Select Payment Method</em>
-                                </MenuItem>
-                                <MenuItem value={1}>OVO</MenuItem>
-                                <MenuItem value={2}>DANA</MenuItem>
-                            </Select>
-                            <FormHelperText style={{marginLeft:"5%"}}>Payment Method</FormHelperText>
-                        </FormControl>
-                        {this.renderPay()}
-                    </div>
-                </div>
-                <div className="col s4 offset-s4" style={{paddingLeft:0, paddingRight:0, marginTop:"1%", marginBottom:'20%'}}>
-                    {this.state.file && this.state.phone ? 
-                    <button className=" btn-large right black col s12" onClick={()=>this.setState({continue:true})}>
-                        DONE
-                    </button>:
-                    <button className=" btn-large right black col s12 disabled" onClick={()=>this.setState({continue:true})}>
-                        DONE
-                    </button>}
-                </div>
+            <div>
+                {!this.state.done?
+                    (<div className="row">
+                        <div className="col s4 offset-s4 white" style={{paddingLeft:0, paddingRight:0, marginTop:0}}>
+                            <div className="center" style={{marginTop:"4%", marginBottom:'4%'}}>
+                                <FormControl style={{width:"70%" , marginBottom:'2%'}}>
+                                    <Select value={this.state.type} onChange={this.handleChange} style={{marginLeft:"5%"}} displayEmpty>
+                                        <MenuItem value="">
+                                            <em>Select Payment Method</em>
+                                        </MenuItem>
+                                        <MenuItem value={1}>OVO</MenuItem>
+                                        <MenuItem value={2}>DANA</MenuItem>
+                                    </Select>
+                                    <FormHelperText style={{marginLeft:"5%"}}>Payment Method</FormHelperText>
+                                </FormControl>
+                                {this.renderPay()}
+                            </div>
+                        </div>
+                        <div className="col s4 offset-s4" style={{paddingLeft:0, paddingRight:0, marginTop:"1%", marginBottom:'20%'}}>
+                            {this.state.file && this.state.phone ? 
+                            <button className=" btn-large right black col s12" onClick={this.onDone}>
+                                DONE
+                            </button>:
+                            <button className=" btn-large right black col s12 disabled" onClick={()=>this.setState({done:true})}>
+                                DONE
+                            </button>}
+                        </div>
+                    </div>):
+                    (<div className="row">
+                        <div className="col s4 offset-s4 white" style={{paddingLeft:0, paddingRight:0, marginTop:0}}>
+                            <div className="center" style={{marginTop:"4%", marginBottom:'4%'}}>
+                                <h4><b>Thank You for Subscribing!</b></h4>
+                                <p>Please wait while Your Payment is beeing proccess by our admin</p>
+                            </div>
+                        </div>
+                    </div>)
+                }
             </div>
         )
     }

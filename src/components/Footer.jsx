@@ -11,7 +11,7 @@ import iconTwitter from '.././Webpic/twitter-icon.svg'
     
     render() {
         return (
-            <footer class="page-footer black">
+            <footer class="page-footer black" style={{marginTop:"6%"}}>
                 <div class="container">
                     <div class="row">
                         <div class="col l6 s12">
