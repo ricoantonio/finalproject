@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-
 import urlApi from '../helpers'
 
 export const onLoginClick=()=>{
@@ -71,7 +70,6 @@ export const onLoginUser=(EMAIL, PASSWORD)=>{
     }
     
 }
-
 
 export const onLogoutUser=()=>{
     // menghapus data di local storage
