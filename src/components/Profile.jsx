@@ -62,7 +62,11 @@ export class Profile extends Component {
             <i className="material-icons" style={{fontSize:"100px",marginRight:5}}>account_circle</i>
             <h5>{this.state.data.name}</h5>
             <p>{this.state.data.email}</p>
-            <p>{this.state.data.plan==='free'?'FREE':'PREMIUM'}</p>
+            <p>
+              {this.state.data.plan=== 'free' ? 'FREE' : 
+              this.state.data.plan === 'pending' ? <span className="green-text">PENDING...</span> : 
+              <span className="yellow-text text-darken-3">PREMIUM<i className="material-icons right" style={{marginLeft:0}}>grade</i></span>}
+            </p>
           </div>
         </div>
           <Link to='/admin-dashboard'><MenuItem className="black-text">Admin Dashboard</MenuItem></Link>
@@ -91,7 +95,11 @@ export class Profile extends Component {
             <i className="material-icons" style={{fontSize:"100px",marginRight:5}}>account_circle</i>
             <h5>{this.state.data.name}</h5>
             <p>{this.state.data.email}</p>
-            <p>{this.state.data.plan==='free'?'FREE':'PREMIUM'}</p>
+            <p className="row">
+              {this.state.data.plan=== 'free' ? 'FREE' : 
+              this.state.data.plan === 'pending' ? <span className="green-text">PENDING...</span> : 
+              <span className="yellow-text text-darken-3 col s8 offset-s2">PREMIUM<i className="material-icons right" style={{marginLeft:0}}>grade</i></span>}
+            </p>
           </div>
         </div>
           <Link to='/myaccount'><MenuItem className="black-text">My Account</MenuItem></Link>
