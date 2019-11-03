@@ -8,6 +8,7 @@ import Footer from './Footer'
 import Trial from './Trial'
 
 import urlApi from '../helpers'
+import BestThisWeek from './BestThisWeek'
 
 class HomeMovie extends Component{
 
@@ -60,6 +61,7 @@ class HomeMovie extends Component{
                 <div>
                     <Nav/>
                     <Trial/>
+                    <BestThisWeek/>
                         <h1 className="sideText black-text center">Movie</h1>
                         <div className="row">
                             {this.renderData()}

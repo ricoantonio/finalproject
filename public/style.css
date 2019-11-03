@@ -207,7 +207,6 @@
     backface-visibility: hidden;
     margin-right: auto;
     margin-left: auto;
-    
 }
 
 .middle-poster {
@@ -238,7 +237,6 @@
 }
 
 
-
 .text-poster {
     color:black;
     margin-top: auto;
@@ -259,3 +257,10 @@ html {
     -o-background-size: cover;
     background-size: cover;
   }
+
+
+.tinted { 
+    /* filter: brightness(80%); */
+    opacity: 0.9;
+    background: white;
+}
