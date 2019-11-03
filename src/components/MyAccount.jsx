@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {onLogoutUser} from '../action/index'
 import Axios from 'axios';
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
 
 import Nav from './Nav'
 import urlApi from '../helpers'
@@ -37,18 +37,20 @@ export class MyAccount extends Component {
       <div>
         <Nav/>
         <div className="container">
-          <div style={{marginTop:"2%"}}>
-            <span style={{fontSize:"30px"}}>My Account</span>
-            <div class="input-field inline-block right" style={{width:"20%", marginRight:28}} >
-                <input className="not-square promocode center" id="search" style={{height:"30px", fontSize:"18px", paddingLeft:10, paddingRight:10}} type="search" placeholder='Enter Promo Code' required/>
+          <div className="row">
+            <div className="center" style={{marginTop:"8%"}}>
+              <span style={{fontSize:"30px"}}>My Account</span>
+              {/* <span className="right" style={{fontSize:"30px"}}>#{id}</span> */}
             </div>
-            {/* <span className="right" style={{fontSize:"30px"}}>#{id}</span> */}
-          </div>
-          <div className="card large z-depth-1 not-square " style={{marginTop:"2%"}}>
-            <div style={{padding:"4%"}}>
-              <h4>Hi! {name}</h4>
-              <h5>Email : {email}</h5>
-              <h5>Plan : {plan==='free'?'FREE':'PREMIUM'}</h5>
+            <div className="card z-depth-1 not-square2 col s6 offset-s3 center" style={{marginTop:"2%"}}>
+              <div style={{padding:"4%"}}>
+                <h4 style={{marginBottom:"5%", marginTop:"1%"}}>{email}</h4>
+                <h5>Hi! {name}</h5>
+                <h5>{plan==='free'? <div><p>FREE</p> <Link to="/subs" ><button className="btn-small not-square black white-text">Go Premium</button></Link></div> : plan==='pending'? 'PENDING' : 'PREMIUM'}</h5>
+                <div class="input-field" style={{marginRight:"20px"}} >
+                    <input className="not-square promocode center" id="search" style={{height:"30px", fontSize:"18px", paddingLeft:10, paddingRight:10}} type="search" placeholder='Enter Promo Code' required/>
+                </div>
+              </div>
             </div>
           </div>
         </div>

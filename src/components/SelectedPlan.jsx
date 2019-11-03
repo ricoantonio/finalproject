@@ -50,7 +50,7 @@ export class SelectedPlan extends Component {
                                     <h4 style={{marginTop:0}}>{this.props.email}</h4>
                                 </div>
                                 <div className="col s12" style={{marginTop:"3%"}}>
-                                    <span>{this.props.location.state.plan === 'month' ?  <span><b>Monthly subscription:</b> Rp50.000/m</span> : <span><b>Yearly subscription:</b> Rp350.000/yr</span>}</span> 
+                                    <span>{this.props.location.state.plan === 'month' ?  <span><b>Monthly subscription:</b> Rp50.000/mo</span> : <span><b>Yearly subscription:</b> Rp350.000/yr</span>}</span> 
                                     <Link to='/subs'><span className="right teal-text text-darken-1"><b>change plan</b></span></Link>
                                 </div>
                                 <div className="col s12" style={{marginTop:"2%"}}>
@@ -127,7 +127,7 @@ export class SelectedPlan extends Component {
                                     <h4 style={{marginTop:0}}>{this.props.email}</h4>
                                 </div>
                                 <div className="col s12" style={{marginTop:"3%"}}>
-                                    <span>{this.props.location.state.plan === 'month' ?  <span><b>Monthly subscription:</b> Rp50.000/m</span> : <span><b>Yearly subscription:</b> Rp350.000/yr</span>}</span> 
+                                    <span>{this.props.location.state.plan === 'month' ?  <span><b>Monthly subscription:</b> Rp50.000/mo</span> : <span><b>Yearly subscription:</b> Rp350.000/yr</span>}</span> 
                                     <Link to='/subs'><span className="right teal-text text-darken-1"><b>change plan</b></span></Link>
                                 </div>
                                 <div className="col s12" style={{marginTop:"2%"}}>

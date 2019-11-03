@@ -3,6 +3,7 @@ import {Link, Redirect} from 'react-router-dom'
 import Bogo from '.././Webpic/BOGOlogo.svg'
 import axios from 'axios'
 import { connect } from "react-redux";
+import moment from 'moment'
 
 import urlApi from '../helpers'
 
@@ -132,7 +133,8 @@ export class RegisPlan extends Component {
                     name:this.state.name,
                     lastname:this.state.lastname,
                     email:this.state.email,
-                    password:this.state.password
+                    password:this.state.password,
+                    date:moment().format('YYYYY-MM-DD, h:mm:ss')
             }).then((res)=>{
                 if (res.data.status==='201'){
                     this.setState({done:true})

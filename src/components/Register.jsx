@@ -116,13 +116,13 @@ class Register extends Component{
     
 
     onRegister=()=>{
-        console.log(moment().format('MMMM Do YYYY, h:mm:ss'));
+        console.log(moment().format('YYYYY-MM-DD, h:mm:ss'));
         console.log(moment().format('YYYY-MM-DD'));
         if (!this.state.name||
             !this.state.email||
             !this.state.password||
             !this.state.confirmpass||
-            this.state.password!==this.state.confirmpass||
+            this.state.password!==this .state.confirmpass||
             this.state.usertaken
         ){
             this.setState({onRegisterClick:1})
@@ -138,7 +138,8 @@ class Register extends Component{
                     name:this.state.name,
                     lastname:this.state.lastname,
                     email:this.state.email,
-                    password:this.state.password
+                    password:this.state.password,
+                    date:moment().format('YYYYY-MM-DD, h:mm:ss')
             }).then((res)=>{
                 if (res.data.status==='201'){
                     this.setState({done:true})

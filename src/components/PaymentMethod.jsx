@@ -73,7 +73,13 @@ export class PaymentMethod extends Component {
         .then((res)=>{
             // console.log(res);
             // update
-            this.setState({done:true})
+            Axios.post(urlApi+'/payment/pending',{
+                id:this.props.id
+            }).then((res)=>{
+                this.setState({done:true})
+            }).catch((err)=>{
+                console.log(err);
+            })
         }).catch((err)=>{
             console.log(err);
         })
@@ -195,7 +201,8 @@ export class PaymentMethod extends Component {
 
 const mapStateToProps=state=>{
     return {
-      email: state.auth.email
+      email: state.auth.email,
+      id:state.auth.id
     }
 }
 
