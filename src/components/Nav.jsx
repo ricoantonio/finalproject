@@ -5,9 +5,11 @@ import {connect} from 'react-redux'
 
 import Profile from './Profile'
 
-class Nav extends Component{
+export class Nav extends Component{
     
     renderNav=()=>{
+        console.log(window.location.pathname);
+        
         if (!this.props.email){
             return (
                 <div className="navbar-fixed" style={{margin:0}}>
@@ -15,10 +17,22 @@ class Nav extends Component{
                         <nav>
                             <div className="nav-wrapper black">
                                 <Link to="/" className=" left"><img className="" src={BogoWhite} style={{height:"29px", marginLeft:"30%",marginTop:"20%"}} alt="BOGO"/></Link>
-                                <Link to='/drama' className="navMenu2" style={{marginLeft:"5%",marginRight:"2%"}}>KOREAN DRAMA</Link>
-                                <Link to='/variety' className="navMenu2" style={{marginRight:"2%"}}>KOREAN VARIETY</Link>
-                                <Link to='/movie' className="navMenu2" style={{marginRight:"2%"}}>MOVIES</Link>
-                                <Link to='/anime' className="navMenu2" style={{marginRight:"2%"}}>ANIME</Link>
+                                {window.location.pathname === '/drama' ? 
+                                    <Link to='/drama' className="navMenu2 white-text" style={{marginLeft:"5%",marginRight:"2%"}}><b>KOREAN DRAMA</b></Link> :
+                                    <Link to='/drama' className="navMenu2" style={{marginLeft:"5%",marginRight:"2%"}}>KOREAN DRAMA</Link>
+                                }
+                                {window.location.pathname === '/variety' ? 
+                                    <Link to='/variety' className="navMenu2 white-text" style={{marginRight:"2%"}}><b>KOREAN VARIETY</b></Link> :
+                                    <Link to='/variety' className="navMenu2" style={{marginRight:"2%"}}>KOREAN VARIETY</Link>
+                                }
+                                {window.location.pathname === '/movie' ? 
+                                    <Link to='/movie' className="navMenu2 white-text" style={{marginRight:"2%"}}><b>MOVIES</b></Link> :
+                                    <Link to='/movie' className="navMenu2" style={{marginRight:"2%"}}>MOVIES</Link>
+                                }
+                                {window.location.pathname === '/anime' ? 
+                                    <Link to='/anime' className="navMenu2 white-text" style={{marginRight:"2%"}}><b>ANIME</b></Link> :
+                                    <Link to='/anime' className="navMenu2" style={{marginRight:"2%"}}>ANIME</Link>
+                                }
                             {/* <span className="not-square white">
                             <input className="noStyle teal-text text-darken-1 white" type="text" placeholder="Search..."/>
                             <i className="material-icons black-text left top" style={{fontSize:"200%",marginRight:0,marginTop:0,paddingTop:0}}>search</i>
@@ -49,10 +63,22 @@ class Nav extends Component{
                         <nav>
                             <div className="nav-wrapper black">
                                 <Link to="/" className=" left"><img className="" src={BogoWhite} style={{height:"29px", marginLeft:"30%",marginTop:"20%"}} alt="BOGO"/></Link>
-                                <Link to='/drama' className="navMenu2" style={{marginLeft:"5%",marginRight:"2%"}}>KOREAN DRAMA</Link>
-                                <Link to='/variety' className="navMenu2" style={{marginRight:"2%"}}>KOREAN VARIETY</Link>
-                                <Link to='/movie' className="navMenu2" style={{marginRight:"2%"}}>MOVIES</Link>
-                                <Link to='/anime' className="navMenu2" style={{marginRight:"2%"}}>ANIME</Link>
+                                {window.location.pathname === '/drama' ? 
+                                    <Link to='/drama' className="navMenu2 white-text" style={{marginLeft:"5%",marginRight:"2%"}}><b>KOREAN DRAMA</b></Link> :
+                                    <Link to='/drama' className="navMenu2" style={{marginLeft:"5%",marginRight:"2%"}}>KOREAN DRAMA</Link>
+                                }
+                                {window.location.pathname === '/variety' ? 
+                                    <Link to='/variety' className="navMenu2 white-text" style={{marginRight:"2%"}}><b>KOREAN VARIETY</b></Link> :
+                                    <Link to='/variety' className="navMenu2" style={{marginRight:"2%"}}>KOREAN VARIETY</Link>
+                                }
+                                {window.location.pathname === '/movie' ? 
+                                    <Link to='/movie' className="navMenu2 white-text" style={{marginRight:"2%"}}><b>MOVIES</b></Link> :
+                                    <Link to='/movie' className="navMenu2" style={{marginRight:"2%"}}>MOVIES</Link>
+                                }
+                                {window.location.pathname === '/anime' ? 
+                                    <Link to='/anime' className="navMenu2 white-text" style={{marginRight:"2%"}}><b>ANIME</b></Link> :
+                                    <Link to='/anime' className="navMenu2" style={{marginRight:"2%"}}>ANIME</Link>
+                                }
                                 {/* <span className="not-square white">
                                 <input className="noStyle teal-text text-darken-1 white" type="text" placeholder="Search..."/>
                                 <i className="material-icons black-text left top" style={{fontSize:"200%",marginRight:0,marginTop:0,paddingTop:0}}>search</i>
