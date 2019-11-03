@@ -117,8 +117,7 @@ export class Profile extends Component {
       )
     }else{
       return(
-        <a onClick={this.handleClick}><i className="material-icons right" style={{marginLeft:10,fontSize:"30px",cursor:'pointer', marginRight:10}}>account_circle</i></a>  
-      )
+        <i className="material-icons right" onClick={this.handleClick} style={{marginLeft:10,fontSize:"30px",cursor:'pointer', marginRight:10}}>account_circle</i>      )
     }
   }
 }

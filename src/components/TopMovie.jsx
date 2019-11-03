@@ -7,14 +7,17 @@ import { Link } from 'react-router-dom'
 export class TopMovie extends Component {
 
     state={
-        activeItemIndex:[],
+        data:[],
+        activeItemIndex:0,
         done:false
     }
 
     componentDidMount() {
+        // this.setState({done:true})
+
         Axios.get(urlApi+'/movie/mostview')
         .then((res)=>{
-            this.setState({activeItemIndex:res.data})
+            this.setState({data:res.data})
             // console.log(res.data);
             this.setState({done:true})
             
@@ -24,14 +27,22 @@ export class TopMovie extends Component {
     }
 
     renderPoster=()=>{
-        let list=this.state.activeItemIndex.map((val,i)=>{
+        let list=this.state.data.map((val,i)=>{
             var link=`/movie-detail/${val.link}`
             return(
-                <Link to={link}>
-                    <div className="posterHome" style={{cursor:'pointer'}}>
-                        <img className="col s2 not-square2" style={{width:"20%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
-                    </div>   
+                <Link to={link} key={i}>
+                    <div className="poster" style={{width:"100%"}}>
+                        <img className="not-square2 image-poster" style={{width:"85%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
+                        <div className="middle-poster">
+                            <div className="text-poster">
+                                <i className="material-icons" style={{fontSize:"60px"}}>play_circle_outline</i>
+                            </div>
+                        </div>
+                    </div>
                 </Link>
+                // <div  className="" style={{cursor:'pointer'}}>
+                //     <img className="" style={{width:"98%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
+                // </div>  
             )
         })
         return list
@@ -40,28 +51,28 @@ export class TopMovie extends Component {
     render() {
        if(this.state.done){
         return (
-           <div className='container'>
-             <h2 className="center sideText black-text">Popular Movies</h2>
-                {/* <ItemsCarousel
-                  infiniteLoop={false}
-                  gutter={12}
-                  activePosition={'center'}
-                  chevronWidth={60}
-                  disableSwipe={false}
-                  alwaysShowChevrons={false}
-                  numberOfCards={10}
-                  slidesToScroll={2}
-                  outsideChevron={false}
-                  showSlither={false}
-                  firstAndLastGutter={false}
-                  rightChevron={<i className="material-icons medium white-text">navigate_next</i>}
-                  leftChevron={<i className="material-icons medium white-text">navigate_before</i>}
-                > */}
-                <div className="row" style={{marginTop:"3%"}}>
+            <div style={{"padding":"0 60px","maxWidth":"90%","margin":"0 auto"}}>
+                 <h2 className="center sideText black-text">Popular Movies</h2>
+                <ItemsCarousel
+                infiniteLoop={false}
+                gutter={12}
+                activePosition={'center'}
+                chevronWidth={60}
+                disableSwipe={false}
+                alwaysShowChevrons={false}
+                numberOfCards={5}
+                slidesToScroll={2}
+                outsideChevron={true}
+                showSlither={false}
+                firstAndLastGutter={false}
+                activeItemIndex={this.state.activeItemIndex}
+                requestToChangeActive={value => this.setState({ activeItemIndex: value })}
+                rightChevron={<i className="material-icons medium black-text">navigate_next</i>}
+                leftChevron={<i className="material-icons medium black-text">navigate_before</i>}
+                >
                     {this.renderPoster()}
-                </div>
-                {/* </ItemsCarousel> */}
-           </div>
+                </ItemsCarousel>
+            </div>
         )
        }else{
            return(

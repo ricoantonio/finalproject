@@ -229,6 +229,16 @@
     opacity: 1;
 }
 
+.poster-home:hover  {
+    opacity: 0.3;
+}
+
+.poster-home:hover {
+    opacity: 1;
+}
+
+
+
 .text-poster {
     color:black;
     margin-top: auto;
