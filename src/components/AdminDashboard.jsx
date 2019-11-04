@@ -79,7 +79,7 @@ export default function AdminDashboard() {
         <TabPanel value={value} index={1}>
             Item Two
         </TabPanel>
-        <TabPanel value={value} index={2}>
+        <TabPanel value={value} style={{backgroundColor:'white'}} index={2}>
             <AdminMovie/>
         </TabPanel>
         <TabPanel value={value} index={3}>

@@ -258,9 +258,7 @@ html {
     background-size: cover;
   }
 
-
-.tinted { 
-    /* filter: brightness(80%); */
-    opacity: 0.9;
-    background: white;
+.not-premium {
+    background: url('./black-background.jpg') no-repeat center center fixed ;
+    background-size: cover;
 }

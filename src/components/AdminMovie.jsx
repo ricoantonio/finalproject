@@ -124,10 +124,20 @@ export class AdminMovie extends Component {
         })
     }
 
+    delete=(id)=>{
+        Axios.post(urlApi+'/movie/delete',{
+            id:id
+        }).then((res)=>{
+            console.log(res);
+            this.getdata()
+        }).catch((err)=>{
+
+        })
+    }
+
     renderData=()=>{
         let list=this.state.data.map((val,index)=>{
             if(this.state.selRow==val.id){
-                
                 return(
                     <tr>
                         <td style={{paddingTop:0,paddingBottom:0}}>
@@ -159,33 +169,35 @@ export class AdminMovie extends Component {
                     </tr>
                 )
             }else{
-                return(
-                    <tr>
-                        <td style={{paddingTop:0,paddingBottom:0}}>
-                            <button onClick={()=>{
-                                this.setState({
-                                    selRow:val.id,
-                                    selTitle:val.title,
-                                    selYear:val.year,
-                                    selPic:val.pic,
-                                    selFilename:val.filename,
-                                    selLink:val.link,
-                                    selDesc:val.description
-                                })}}>edit</button>
-                        </td>
-                        <td style={{paddingTop:0,paddingBottom:0}}>
-                            <button onClick={()=>{this.delete(val.id)}}>del</button>
-                        </td>
-                        <td style={{paddingTop:0,paddingBottom:0}}>{index+1}</td>
-                        <td style={{paddingTop:0,paddingBottom:0}}>{val.title}</td>
-                        <td style={{paddingTop:0,paddingBottom:0}}>{val.year}</td>
-                        <td style={{paddingTop:0,paddingBottom:0}}>{val.pic}</td>
-                        <td style={{paddingTop:0,paddingBottom:0}}>{val.filename}</td>
-                        <td style={{paddingTop:0,paddingBottom:0}}>{val.link}</td>
-                        <td style={{paddingTop:0,paddingBottom:0}}>{val.view}</td>
-                        <td style={{paddingTop:0,paddingBottom:0}}>{val.description}</td>
-                    </tr>
-                )
+                if(val.isDeleted === 0){
+                    return(
+                        <tr>
+                            <td style={{paddingTop:0,paddingBottom:0}}>
+                                <button onClick={()=>{
+                                    this.setState({
+                                        selRow:val.id,
+                                        selTitle:val.title,
+                                        selYear:val.year,
+                                        selPic:val.pic,
+                                        selFilename:val.filename,
+                                        selLink:val.link,
+                                        selDesc:val.description
+                                    })}}>edit</button>
+                            </td>
+                            <td style={{paddingTop:0,paddingBottom:0}}>
+                                <button onClick={()=>{this.delete(val.id)}}>del</button>
+                            </td>
+                            <td style={{paddingTop:0,paddingBottom:0}}>{index+1}</td>
+                            <td style={{paddingTop:0,paddingBottom:0}}>{val.title}</td>
+                            <td style={{paddingTop:0,paddingBottom:0}}>{val.year}</td>
+                            <td style={{paddingTop:0,paddingBottom:0}}>{val.pic}</td>
+                            <td style={{paddingTop:0,paddingBottom:0}}>{val.filename}</td>
+                            <td style={{paddingTop:0,paddingBottom:0}}>{val.link}</td>
+                            <td style={{paddingTop:0,paddingBottom:0}}>{val.view}</td>
+                            <td style={{paddingTop:0,paddingBottom:0}}>{val.description}</td>
+                        </tr>
+                    )
+                }
             }
           })
         return list
@@ -230,7 +242,7 @@ export class AdminMovie extends Component {
                     </div>
                     
                 </div>
-                <table className=" highlight white"  style={{fontSize:10}}>
+                <table className=" striped white"  style={{fontSize:10}}>
                     <thead>
                        <tr>
                             <th></th>
