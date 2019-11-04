@@ -130,9 +130,6 @@ class Register extends Component{
         }else{
             this.setState({onRegisterClick:1})
 // moment(new Date()).format('YYYY-MM-DD HH:mm:ss.SSS')
-
-            
-
             
             axios.post(urlApi+'/auth/register',{
                     name:this.state.name,
