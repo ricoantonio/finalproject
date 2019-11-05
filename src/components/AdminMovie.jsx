@@ -145,10 +145,10 @@ export class AdminMovie extends Component {
                                 <div className="row center blue-grey lighten-5" style={{fontSize:12, marginBottom:0, paddingTop:"2%"}}>
                                     <div className="col s1 offset-s3">{index+1}</div>
                                     <div className="col s2">
-                                        <textarea style={{fontSize:12, paddingLeft:0,paddingRight:0}} type="text" onChange={(e)=>{this.setState({selTitle:e.target.value})}} value={this.state.selTitle}/>
+                                        <input style={{fontSize:12, paddingLeft:0,paddingRight:0}} type="text" onChange={(e)=>{this.setState({selTitle:e.target.value})}} value={this.state.selTitle}/>
                                     </div>
                                     <div className="col s1">
-                                        <textarea style={{fontSize:12}}  type="number" onChange={(e)=>{this.setState({selYear:e.target.value})}} value={this.state.selYear}/>
+                                        <input style={{fontSize:12}}  type="number" onChange={(e)=>{this.setState({selYear:e.target.value})}} value={this.state.selYear}/>
                                     </div>
                                     <div className="col s1">
                                         <button className="right" onClick={()=>{this.onSave(val.id)}}>save</button>
@@ -170,27 +170,27 @@ export class AdminMovie extends Component {
                                                 pic:
                                             </div>
                                             <div className="col s12">
-                                                <textarea style={{fontSize:12}}  type="text" onChange={(e)=>{this.setState({selPic:e.target.value})}} value={this.state.selPic}/>
+                                                <input style={{fontSize:12}}  type="text" onChange={(e)=>{this.setState({selPic:e.target.value})}} value={this.state.selPic}/>
                                             </div>
                                             <div className="col s1">
                                                 filename:
                                             </div>
                                             <div className="col s12">
-                                                <textarea className="right" style={{fontSize:12}} type="text" onChange={(e)=>{this.setState({selFilename:e.target.value})}} value={this.state.selFilename}/>
+                                                <input className="right" style={{fontSize:12}} type="text" onChange={(e)=>{this.setState({selFilename:e.target.value})}} value={this.state.selFilename}/>
                                             </div>
                                             <div className="col s1">
                                                 link:
                                             </div>
                                             <div className="col s12">
-                                                <textarea className="right" style={{fontSize:12}}  type="text" onChange={(e)=>{this.setState({selLink:e.target.value})}} value={this.state.selLink}/>
+                                                <input className="right" style={{fontSize:12}}  type="text" onChange={(e)=>{this.setState({selLink:e.target.value})}} value={this.state.selLink}/>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col s2 green">
                                         categories
                                     </div>
-                                    <div className="col s3 red">
-                                        desc
+                                    <div className="col s3">
+                                        <textarea className="" style={{fontSize:12}} type="text" onChange={(e)=>{this.setState({selDesc:e.target.value})}} value={this.state.selDesc}/>
                                     </div>
                                 </div>
                             </>
@@ -199,10 +199,10 @@ export class AdminMovie extends Component {
                                 <div className="row center" style={{fontSize:12, marginBottom:0, marginTop:"2%"}}>
                                     <div className="col s1 offset-s3">{index+1}</div>
                                     <div className="col s2">
-                                        <textarea style={{fontSize:12,paddingLeft:0,paddingRight:0}} type="text" onChange={(e)=>{this.setState({selTitle:e.target.value})}} value={this.state.selTitle}/>
+                                        <input style={{fontSize:12,paddingLeft:0,paddingRight:0}} type="text" onChange={(e)=>{this.setState({selTitle:e.target.value})}} value={this.state.selTitle}/>
                                     </div>
                                     <div className="col s1">
-                                        <textarea style={{fontSize:12}}  type="number" onChange={(e)=>{this.setState({selYear:e.target.value})}} value={this.state.selYear}/>
+                                        <input style={{fontSize:12}}  type="number" onChange={(e)=>{this.setState({selYear:e.target.value})}} value={this.state.selYear}/>
                                     </div>
                                     <div className="col s1">
                                         <button className="right" onClick={()=>{this.onSave(val.id)}}>save</button>
@@ -224,27 +224,27 @@ export class AdminMovie extends Component {
                                                 pic:
                                             </div>
                                             <div className="col s12">
-                                                <textarea style={{fontSize:12}}  type="text" onChange={(e)=>{this.setState({selPic:e.target.value})}} value={this.state.selPic}/>
+                                                <input style={{fontSize:12}}  type="text" onChange={(e)=>{this.setState({selPic:e.target.value})}} value={this.state.selPic}/>
                                             </div>
                                             <div className="col s1">
                                                 filename:
                                             </div>
                                             <div className="col s12">
-                                                <textarea className="right" style={{fontSize:12}} type="text" onChange={(e)=>{this.setState({selFilename:e.target.value})}} value={this.state.selFilename}/>
+                                                <input className="right" style={{fontSize:12}} type="text" onChange={(e)=>{this.setState({selFilename:e.target.value})}} value={this.state.selFilename}/>
                                             </div>
                                             <div className="col s1">
                                                 link:
                                             </div>
                                             <div className="col s12">
-                                                <textarea className="right" style={{fontSize:12}}  type="text" onChange={(e)=>{this.setState({selLink:e.target.value})}} value={this.state.selLink}/>
+                                                <input className="right" style={{fontSize:12}}  type="text" onChange={(e)=>{this.setState({selLink:e.target.value})}} value={this.state.selLink}/>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col s2 green">
                                         categories
                                     </div>
-                                    <div className="col s3 red">
-                                        desc
+                                    <div className="col s3">
+                                        <textarea className="" style={{fontSize:12}} type="text" onChange={(e)=>{this.setState({selDesc:e.target.value})}} value={this.state.selDesc}/>
                                     </div>
                                 </div>
                             </>
@@ -308,73 +308,73 @@ export class AdminMovie extends Component {
         return list
     }
 
-    renderData=()=>{
-        let list=this.state.data.map((val,index)=>{
-            if(this.state.selRow==val.id){
-                return(
-                    <tr>
-                        <td style={{paddingTop:0,paddingBottom:0}}>
-                            <button onClick={()=>{this.onSave(val.id)}}>save</button>
-                        </td>
-                        <td style={{paddingTop:0,paddingBottom:0}}>
-                            <button onClick={()=>this.setState({selRow:null})}>cancle</button>
-                        </td>
-                        <td style={{paddingTop:0,paddingBottom:0}}>{index+1}</td>
-                        <td style={{paddingTop:0,paddingBottom:0}}>
-                            <textarea style={{fontSize:10}} type="text" onChange={(e)=>{this.setState({selTitle:e.target.value})}} value={this.state.selTitle}/>
-                        </td>
-                        <td style={{paddingTop:0,paddingBottom:0}}>
-                            <textarea style={{fontSize:10}}  type="number" onChange={(e)=>{this.setState({selYear:e.target.value})}} value={this.state.selYear}/>
-                        </td>
-                        <td style={{paddingTop:0,paddingBottom:0}}>
-                            <textarea style={{fontSize:10}}  type="text" onChange={(e)=>{this.setState({selPic:e.target.value})}} value={this.state.selPic}/>
-                        </td>
-                        <td style={{paddingTop:0,paddingBottom:0}}>
-                            <textarea style={{fontSize:10}} type="text" onChange={(e)=>{this.setState({selFilename:e.target.value})}} value={this.state.selFilename}/>
-                        </td>
-                        <td style={{paddingTop:0,paddingBottom:0}}>
-                            <textarea style={{fontSize:10}}  type="text" onChange={(e)=>{this.setState({selLink:e.target.value})}} value={this.state.selLink}/>
-                        </td>   
-                        <td style={{paddingTop:0,paddingBottom:0}}>{val.view}</td>
-                        <td style={{paddingTop:0,paddingBottom:0}}>
-                            <textarea style={{fontSize:10}} type="text" onChange={(e)=>{this.setState({selDesc:e.target.value})}} value={this.state.selDesc}/>
-                        </td>
-                    </tr>
-                )
-            }else{
-                if(val.isDeleted === 0){
-                    return(
-                        <tr>
-                            <td style={{paddingTop:0,paddingBottom:0}}>
-                                <button onClick={()=>{
-                                    this.setState({
-                                        selRow:val.id,
-                                        selTitle:val.title,
-                                        selYear:val.year,
-                                        selPic:val.pic,
-                                        selFilename:val.filename,
-                                        selLink:val.link,
-                                        selDesc:val.description
-                                    })}}>edit</button>
-                            </td>
-                            <td style={{paddingTop:0,paddingBottom:0}}>
-                                <button onClick={()=>{this.delete(val.id)}}>del</button>
-                            </td>
-                            <td style={{paddingTop:0,paddingBottom:0}}>{index+1}</td>
-                            <td style={{paddingTop:0,paddingBottom:0}}>{val.title}</td>
-                            <td style={{paddingTop:0,paddingBottom:0}}>{val.year}</td>
-                            <td style={{paddingTop:0,paddingBottom:0}}>{val.pic}</td>
-                            <td style={{paddingTop:0,paddingBottom:0}}>{val.filename}</td>
-                            <td style={{paddingTop:0,paddingBottom:0}}>{val.link}</td>
-                            <td style={{paddingTop:0,paddingBottom:0}}>{val.view}</td>
-                            <td style={{paddingTop:0,paddingBottom:0}}>{val.description}</td>
-                        </tr>
-                    )
-                }
-            }
-          })
-        return list
-    }
+    // renderData=()=>{
+    //     let list=this.state.data.map((val,index)=>{
+    //         if(this.state.selRow==val.id){
+    //             return(
+    //                 <tr>
+    //                     <td style={{paddingTop:0,paddingBottom:0}}>
+    //                         <button onClick={()=>{this.onSave(val.id)}}>save</button>
+    //                     </td>
+    //                     <td style={{paddingTop:0,paddingBottom:0}}>
+    //                         <button onClick={()=>this.setState({selRow:null})}>cancle</button>
+    //                     </td>
+    //                     <td style={{paddingTop:0,paddingBottom:0}}>{index+1}</td>
+    //                     <td style={{paddingTop:0,paddingBottom:0}}>
+    //                         <textarea style={{fontSize:10}} type="text" onChange={(e)=>{this.setState({selTitle:e.target.value})}} value={this.state.selTitle}/>
+    //                     </td>
+    //                     <td style={{paddingTop:0,paddingBottom:0}}>
+    //                         <textarea style={{fontSize:10}}  type="number" onChange={(e)=>{this.setState({selYear:e.target.value})}} value={this.state.selYear}/>
+    //                     </td>
+    //                     <td style={{paddingTop:0,paddingBottom:0}}>
+    //                         <textarea style={{fontSize:10}}  type="text" onChange={(e)=>{this.setState({selPic:e.target.value})}} value={this.state.selPic}/>
+    //                     </td>
+    //                     <td style={{paddingTop:0,paddingBottom:0}}>
+    //                         <textarea style={{fontSize:10}} type="text" onChange={(e)=>{this.setState({selFilename:e.target.value})}} value={this.state.selFilename}/>
+    //                     </td>
+    //                     <td style={{paddingTop:0,paddingBottom:0}}>
+    //                         <textarea style={{fontSize:10}}  type="text" onChange={(e)=>{this.setState({selLink:e.target.value})}} value={this.state.selLink}/>
+    //                     </td>   
+    //                     <td style={{paddingTop:0,paddingBottom:0}}>{val.view}</td>
+    //                     <td style={{paddingTop:0,paddingBottom:0}}>
+    //                         <textarea style={{fontSize:10}} type="text" onChange={(e)=>{this.setState({selDesc:e.target.value})}} value={this.state.selDesc}/>
+    //                     </td>
+    //                 </tr>
+    //             )
+    //         }else{
+    //             if(val.isDeleted === 0){
+    //                 return(
+    //                     <tr>
+    //                         <td style={{paddingTop:0,paddingBottom:0}}>
+    //                             <button onClick={()=>{
+    //                                 this.setState({
+    //                                     selRow:val.id,
+    //                                     selTitle:val.title,
+    //                                     selYear:val.year,
+    //                                     selPic:val.pic,
+    //                                     selFilename:val.filename,
+    //                                     selLink:val.link,
+    //                                     selDesc:val.description
+    //                                 })}}>edit</button>
+    //                         </td>
+    //                         <td style={{paddingTop:0,paddingBottom:0}}>
+    //                             <button onClick={()=>{this.delete(val.id)}}>del</button>
+    //                         </td>
+    //                         <td style={{paddingTop:0,paddingBottom:0}}>{index+1}</td>
+    //                         <td style={{paddingTop:0,paddingBottom:0}}>{val.title}</td>
+    //                         <td style={{paddingTop:0,paddingBottom:0}}>{val.year}</td>
+    //                         <td style={{paddingTop:0,paddingBottom:0}}>{val.pic}</td>
+    //                         <td style={{paddingTop:0,paddingBottom:0}}>{val.filename}</td>
+    //                         <td style={{paddingTop:0,paddingBottom:0}}>{val.link}</td>
+    //                         <td style={{paddingTop:0,paddingBottom:0}}>{val.view}</td>
+    //                         <td style={{paddingTop:0,paddingBottom:0}}>{val.description}</td>
+    //                     </tr>
+    //                 )
+    //             }
+    //         }
+    //       })
+    //     return list
+    // }
 
     render() {
         return (
