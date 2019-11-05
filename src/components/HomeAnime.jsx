@@ -9,7 +9,7 @@ class HomeAnime extends Component{
         return (
             <div>
                 <Nav/>
-                <Trial/>
+                {/* <Trial/> */}
                 <BestThisWeek/>
                 <h1 className="sideText black-text center">Anime</h1>
                 <Footer/>

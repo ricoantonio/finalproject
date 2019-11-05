@@ -9,7 +9,7 @@ class HomeDrama extends Component{
         return (
             <div>
                 <Nav/>
-                <Trial/>
+                {/* <Trial/> */}
                 <BestThisWeek/>
                 <h1 className="sideText black-text center">Korean Drama </h1>
                 <Footer/>

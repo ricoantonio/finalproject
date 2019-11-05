@@ -69,6 +69,7 @@ export class Profile extends Component {
             </p>
           </div>
         </div>
+          <Link to='/admin-pendinguser'><MenuItem className="black-text">Pending User</MenuItem></Link>
           <Link to='/admin-dashboard'><MenuItem className="black-text">Admin Dashboard</MenuItem></Link>
           <MenuItem onClick={this.props.onLogoutUser} href="/">Log Out</MenuItem>
         </Menu>

@@ -63,7 +63,7 @@ export class PaymentMethod extends Component {
             phone: this.state.phone,
             plan: this.props.plan,
             type: this.state.type === 1 ? 'OVO' : 'DANA',
-            dateupload: moment().format('YYYY-MM-DD h:mm:ss')
+            dateupload: moment().format('YYYY-MM-DD H:mm:ss')
         }
 
         fd.append('img', this.state.rop, this.state.rop.name)
@@ -201,8 +201,8 @@ export class PaymentMethod extends Component {
 
 const mapStateToProps=state=>{
     return {
-      email: state.auth.email,
-      id:state.auth.id
+        email: state.auth.email,
+        id:state.auth.id
     }
 }
 

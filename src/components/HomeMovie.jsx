@@ -34,7 +34,7 @@ class HomeMovie extends Component{
         return this.state.data.map(val=>{
             var link=`/movie-detail/${val.link}`
             return(
-                <div className="col s2" style={{height:"500px", paddingBottom:"5%"}}>
+                <div className="col s2" style={{height:"500px", paddingBottom:"5%", marginTop:"3%"}}>
                     <div className="poster" style={{width:"100%"}}>
                         <Link to={link}>
                             <img className="not-square2 image-poster" style={{width:"85%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
@@ -60,7 +60,7 @@ class HomeMovie extends Component{
             return (
                 <div>
                     <Nav/>
-                    <Trial/>
+                    {/* <Trial/> */}
                     <BestThisWeek/>
                         <h1 className="sideText black-text center">Movie</h1>
                         <div className="row">

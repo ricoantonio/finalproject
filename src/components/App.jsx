@@ -17,6 +17,7 @@ import RegisPlan  from './RegisPlan'
 import LoginPlan from './LoginPlan'
 import SelectedPlan from './SelectedPlan'
 import Admin from './Admin'
+import PendingUser from './PendingUser'
 
 const keepLogin =(objUser)=>{
     return{
@@ -60,6 +61,7 @@ class App extends Component{
                     <Route path="/myaccount" component={MyAccount}/>
                     <Route path="/movie-detail/:link" component={MovieDetail}/>
                     <Route path="/admin-dashboard" component={Admin}/>
+                    <Route path="/admin-pendinguser" component={PendingUser}/>
                     <Route path="/verify" component={VerifyHome}/>
                     <Route path="/subs" component={SubsHome}/>
                     <Route path="/subregis" component={RegisPlan}/>

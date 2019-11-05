@@ -134,7 +134,7 @@ export class RegisPlan extends Component {
                     lastname:this.state.lastname,
                     email:this.state.email,
                     password:this.state.password,
-                    date:moment().format('YYYYY-MM-DD, h:mm:ss')
+                    date:moment().format('YYYYY-MM-DD, H:mm:ss')
             }).then((res)=>{
                 if (res.data.status==='201'){
                     this.setState({done:true})
