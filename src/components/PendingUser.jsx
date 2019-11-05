@@ -60,7 +60,14 @@ export class PendingUser extends Component {
 
     decline=(email)=>{
         // console.log(email);
-        
+        Axios.post(urlApi+'/payment/decline',{
+            email:email
+        }).then((res)=>{
+            this.getData()
+            console.log(res);
+        }).catch((err)=>{
+            console.log(err);
+        })
     }
 
     renderPending=()=>{

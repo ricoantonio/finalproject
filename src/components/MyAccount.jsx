@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {onLogoutUser} from '../action/index'
 import Axios from 'axios';
 import {Redirect, Link} from 'react-router-dom'
-
+import moment from 'moment'
 import Nav from './Nav'
 import urlApi from '../helpers'
 
@@ -21,7 +21,9 @@ export class MyAccount extends Component {
       }
     }).then((res)=>{
       this.setState({data:res.data[0]})
-      console.log(this.state.data.name);
+      // console.log(this.state.data);
+      // console.log(moment(this.state.data.dateEnd).format('DD-MM-YYYY'));
+      
       this.setState({loading:true})
       
     }).catch((err)=>{
@@ -31,7 +33,7 @@ export class MyAccount extends Component {
   }
     
   renderMy=()=>{
-   let {name,email,plan}=this.state.data
+   let {name,email,plan,dateEnd}=this.state.data
 
     return(
       <div>
@@ -51,6 +53,7 @@ export class MyAccount extends Component {
                   plan==='pending'? <span className="green-text">PENDING...</span> :
                   <span className="yellow-text text-darken-3 col s4 offset-s4">PREMIUM<i className="material-icons right" style={{marginLeft:0,fontSize:"30px"}}>grade</i></span>}
                 </h5>
+                <span>Your subscription will end on : <b>{moment(dateEnd).format(`DD-MM-YYYY`)}</b></span>
                 <div class="input-field" style={{marginRight:"20px"}} >
                     <input className="not-square promocode center" id="search" style={{height:"30px", fontSize:"18px", paddingLeft:10, paddingRight:10}} type="search" placeholder='Enter Promo Code' required/>
                 </div>
