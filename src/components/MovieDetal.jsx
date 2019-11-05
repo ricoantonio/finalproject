@@ -46,14 +46,21 @@ export class MovieDetal extends Component {
                     <Nav/>
                     {this.props.plan === 'premium' ?
                     <ReactPlayer url={urlApi+'/movies/'+this.state.data.filename} width='100%' height='50%' playing controls/> :
-                    <div className="not-premium center" style={{height:"50%", paddingBottom:"10%"}} >
-                        <p className="sideText" style={{marginTop:0,marginBottom:10, fontSize:"38px",paddingTop:"10%"}}> <b>Oh no! You need to be a Premium Member to watch this video</b> </p>
-                        <p  className="white-text" style={{marginTop:10, fontSize:'20px'}}>Premium Video-on-Demand service and better viewing experience, with plans starting <br/> at Rp.50.000/month.</p>
-                        <div className="btn-trial">
-                            <Link to='/subs'><button className="btn-large not-square white black-text"><b>start your subscription</b></button></Link>
+
+                    <div className="">
+                        <div className="center" style={{height:"50%", paddingBottom:"10%", position:'absolute', width:"100%" }} >
+                            <p className="sideText" style={{marginTop:0,marginBottom:10, fontSize:"38px",paddingTop:"10%"}}> <b>Oh no! You need to be a Premium Member to watch this video</b> </p>
+                            <p  className="white-text" style={{marginTop:10, fontSize:'20px'}}>Premium Video-on-Demand service and better viewing experience, with plans starting <br/> at Rp.50.000/month.</p>
+                            <div className="btn-trial">
+                                <Link to='/subs'><button className="btn-large not-square white black-text"><b>start your subscription</b></button></Link>
+                            </div>
+                            <span className="grey-text text-lighten-1" style={{fontSize:"12px"}}>New subscribers only.</span>
                         </div>
-                        <span className="grey-text text-lighten-1" style={{fontSize:"12px"}}>New subscribers only.</span>
-                            </div>}
+                        <div>
+                            <ReactPlayer url={urlApi+'/movies/'+this.state.data.filename} width='100%' height='50%'/>
+                        </div>
+                    </div>
+                    }
                     <div className='row'>
                         <div>
                             <h4>{this.state.data.title} ({this.state.data.year})</h4>
