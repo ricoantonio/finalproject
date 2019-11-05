@@ -142,22 +142,22 @@ export class AdminMovie extends Component {
                         {
                             index%2===1 ?
                             <>
-                                <div className="row center blue-grey lighten-5" style={{fontSize:10, marginBottom:0, paddingTop:"2%"}}>
+                                <div className="row center blue-grey lighten-5" style={{fontSize:12, marginBottom:0, paddingTop:"2%"}}>
                                     <div className="col s1 offset-s3">{index+1}</div>
                                     <div className="col s2">
-                                        <textarea style={{fontSize:10}} type="text" onChange={(e)=>{this.setState({selTitle:e.target.value})}} value={this.state.selTitle}/>
+                                        <textarea style={{fontSize:12, paddingLeft:0,paddingRight:0}} type="text" onChange={(e)=>{this.setState({selTitle:e.target.value})}} value={this.state.selTitle}/>
                                     </div>
                                     <div className="col s1">
-                                        <textarea style={{fontSize:10}}  type="number" onChange={(e)=>{this.setState({selYear:e.target.value})}} value={this.state.selYear}/>
+                                        <textarea style={{fontSize:12}}  type="number" onChange={(e)=>{this.setState({selYear:e.target.value})}} value={this.state.selYear}/>
                                     </div>
                                     <div className="col s1">
-                                        <button onClick={()=>{this.onSave(val.id)}}>save</button>
+                                        <button className="right" onClick={()=>{this.onSave(val.id)}}>save</button>
                                     </div>
                                     <div className="col s1">
-                                        <button onClick={()=>this.setState({selRow:null})}>cancle</button>
+                                        <button className="left" onClick={()=>this.setState({selRow:null})}>cancle</button>
                                     </div>
                                 </div>
-                                <div className="row center valign-wrapper blue-grey lighten-5" style={{fontSize:10, marginBottom:0, marginTop:0 , marginBottom:"2%"}}>
+                                <div className="row center valign-wrapper blue-grey lighten-5" style={{fontSize:12, marginBottom:0, marginTop:0 , marginBottom:"2%"}}>
                                     <div className="col s1">
                                         <img style={{width:"100%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
                                     </div>
@@ -170,19 +170,19 @@ export class AdminMovie extends Component {
                                                 pic:
                                             </div>
                                             <div className="col s12">
-                                                <textarea style={{fontSize:10}}  type="text" onChange={(e)=>{this.setState({selPic:e.target.value})}} value={this.state.selPic}/>
+                                                <textarea style={{fontSize:12}}  type="text" onChange={(e)=>{this.setState({selPic:e.target.value})}} value={this.state.selPic}/>
                                             </div>
                                             <div className="col s1">
                                                 filename:
                                             </div>
                                             <div className="col s12">
-                                                <textarea className="right" style={{fontSize:10}} type="text" onChange={(e)=>{this.setState({selFilename:e.target.value})}} value={this.state.selFilename}/>
+                                                <textarea className="right" style={{fontSize:12}} type="text" onChange={(e)=>{this.setState({selFilename:e.target.value})}} value={this.state.selFilename}/>
                                             </div>
                                             <div className="col s1">
                                                 link:
                                             </div>
                                             <div className="col s12">
-                                                <textarea className="right" style={{fontSize:10}}  type="text" onChange={(e)=>{this.setState({selLink:e.target.value})}} value={this.state.selLink}/>
+                                                <textarea className="right" style={{fontSize:12}}  type="text" onChange={(e)=>{this.setState({selLink:e.target.value})}} value={this.state.selLink}/>
                                             </div>
                                         </div>
                                     </div>
@@ -196,22 +196,22 @@ export class AdminMovie extends Component {
                             </>
                             :
                             <>
-                                <div className="row center" style={{fontSize:10, marginBottom:0, marginTop:"2%"}}>
+                                <div className="row center" style={{fontSize:12, marginBottom:0, marginTop:"2%"}}>
                                     <div className="col s1 offset-s3">{index+1}</div>
                                     <div className="col s2">
-                                        <textarea style={{fontSize:10}} type="text" onChange={(e)=>{this.setState({selTitle:e.target.value})}} value={this.state.selTitle}/>
+                                        <textarea style={{fontSize:12,paddingLeft:0,paddingRight:0}} type="text" onChange={(e)=>{this.setState({selTitle:e.target.value})}} value={this.state.selTitle}/>
                                     </div>
                                     <div className="col s1">
-                                        <textarea style={{fontSize:10}}  type="number" onChange={(e)=>{this.setState({selYear:e.target.value})}} value={this.state.selYear}/>
+                                        <textarea style={{fontSize:12}}  type="number" onChange={(e)=>{this.setState({selYear:e.target.value})}} value={this.state.selYear}/>
                                     </div>
                                     <div className="col s1">
-                                        <button onClick={()=>{this.onSave(val.id)}}>save</button>
+                                        <button className="right" onClick={()=>{this.onSave(val.id)}}>save</button>
                                     </div>
                                     <div className="col s1">
-                                        <button onClick={()=>this.setState({selRow:null})}>cancle</button>
+                                        <button className="left" onClick={()=>this.setState({selRow:null})}>cancle</button>
                                     </div>
                                 </div>
-                                <div className="row center valign-wrapper" style={{fontSize:10, marginBottom:0, marginTop:0}}>
+                                <div className="row center valign-wrapper" style={{fontSize:12, marginBottom:0, marginTop:0}}>
                                     <div className="col s1">
                                         <img style={{width:"100%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
                                     </div>
@@ -224,19 +224,19 @@ export class AdminMovie extends Component {
                                                 pic:
                                             </div>
                                             <div className="col s12">
-                                                <textarea style={{fontSize:10}}  type="text" onChange={(e)=>{this.setState({selPic:e.target.value})}} value={this.state.selPic}/>
+                                                <textarea style={{fontSize:12}}  type="text" onChange={(e)=>{this.setState({selPic:e.target.value})}} value={this.state.selPic}/>
                                             </div>
                                             <div className="col s1">
                                                 filename:
                                             </div>
                                             <div className="col s12">
-                                                <textarea className="right" style={{fontSize:10}} type="text" onChange={(e)=>{this.setState({selFilename:e.target.value})}} value={this.state.selFilename}/>
+                                                <textarea className="right" style={{fontSize:12}} type="text" onChange={(e)=>{this.setState({selFilename:e.target.value})}} value={this.state.selFilename}/>
                                             </div>
                                             <div className="col s1">
                                                 link:
                                             </div>
                                             <div className="col s12">
-                                                <textarea className="right" style={{fontSize:10}}  type="text" onChange={(e)=>{this.setState({selLink:e.target.value})}} value={this.state.selLink}/>
+                                                <textarea className="right" style={{fontSize:12}}  type="text" onChange={(e)=>{this.setState({selLink:e.target.value})}} value={this.state.selLink}/>
                                             </div>
                                         </div>
                                     </div>
@@ -257,12 +257,12 @@ export class AdminMovie extends Component {
                         <>
                             {
                                 index%2===1 ? 
-                                <div className="row center blue-grey lighten-5" style={{fontSize:10, marginBottom:0, marginTop:0}}>
+                                <div className="row center blue-grey lighten-5" style={{fontSize:12, marginBottom:2, marginTop:2}}>
                                     <div className="col s1 offset-s3">{index+1}</div>
-                                    <div className="col s2">{val.title}</div>
+                                    <div className="col s2" style={{paddingLeft:0,paddingRight:0}}>{val.title}</div>
                                     <div className="col s1">{val.year}</div>
                                     <div className="col s1">
-                                        <button onClick={()=>{
+                                        <button className="right" onClick={()=>{
                                             this.setState({
                                                 selRow:val.id,
                                                 selTitle:val.title,
@@ -275,15 +275,15 @@ export class AdminMovie extends Component {
                                         </button>
                                     </div>
                                     <div className="col s1">
-                                        <button onClick={()=>{this.delete(val.id)}}>del</button>
+                                        <button className="left" onClick={()=>{this.delete(val.id)}}>del</button>
                                     </div>
                                 </div> :
-                                <div className="row center" style={{fontSize:10, marginBottom:0, marginTop:0}}>
+                                <div className="row center" style={{fontSize:12, marginBottom:2, marginTop:2}}>
                                     <div className="col s1 offset-s3">{index+1}</div>
-                                    <div className="col s2">{val.title}</div>
+                                    <div className="col s2" style={{paddingLeft:0,paddingRight:0}}>{val.title}</div>
                                     <div className="col s1">{val.year}</div>
                                     <div className="col s1">
-                                        <button onClick={()=>{
+                                        <button className="right" onClick={()=>{
                                             this.setState({
                                                 selRow:val.id,
                                                 selTitle:val.title,
@@ -296,7 +296,7 @@ export class AdminMovie extends Component {
                                         </button>
                                     </div>
                                     <div className="col s1">
-                                        <button onClick={()=>{this.delete(val.id)}}>del</button>
+                                        <button className="left" onClick={()=>{this.delete(val.id)}}>del</button>
                                     </div>
                                 </div> 
                             }
@@ -378,7 +378,7 @@ export class AdminMovie extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{paddingBottom:"20%"}}>
                 <div className="row">
                     <div className="input-field col s2">
                         <input style={{fontSize:"12px"}} onChange={e=>this.setState({inTitle:e.target.value})} className="teal-text text-darken-1" type="text" placeholder="TITLE" />
@@ -417,10 +417,10 @@ export class AdminMovie extends Component {
                 </div>
 
                 <div className="row center">
-                    <div className="col s1 offset-s3">No.</div>
-                    <div className="col s2">Title</div>
-                    <div className="col s1">Year</div>
-                    <div className="col s2">Action</div>
+                    <div className="col s1 offset-s3"><b>No.</b></div>
+                    <div className="col s2"><b>Title</b></div>
+                    <div className="col s1"><b>Year</b></div>
+                    <div className="col s2"><b>Action</b></div>
                 </div>
                 {this.renderData2()}
 

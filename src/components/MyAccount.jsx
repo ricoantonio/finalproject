@@ -53,7 +53,10 @@ export class MyAccount extends Component {
                   plan==='pending'? <span className="green-text">PENDING...</span> :
                   <span className="yellow-text text-darken-3 col s4 offset-s4">PREMIUM<i className="material-icons right" style={{marginLeft:0,fontSize:"30px"}}>grade</i></span>}
                 </h5>
-                <span>Your subscription will end on : <b>{moment(dateEnd).format(`DD-MM-YYYY`)}</b></span>
+                {
+                  plan==='premium'?
+                  <span>Your subscription will end on : <b>{moment(dateEnd).format(`DD-MM-YYYY`)}</b></span>:''
+                }
                 <div class="input-field" style={{marginRight:"20px"}} >
                     <input className="not-square promocode center" id="search" style={{height:"30px", fontSize:"18px", paddingLeft:10, paddingRight:10}} type="search" placeholder='Enter Promo Code' required/>
                 </div>
