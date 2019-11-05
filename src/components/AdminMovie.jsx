@@ -134,6 +134,179 @@ export class AdminMovie extends Component {
 
         })
     }
+    renderData2=()=>{
+        let list=this.state.data.map((val,index)=>{
+            if(this.state.selRow==val.id){
+                return(
+                    <>
+                        {
+                            index%2===1 ?
+                            <>
+                                <div className="row center blue-grey lighten-5" style={{fontSize:10, marginBottom:0, paddingTop:"2%"}}>
+                                    <div className="col s1 offset-s3">{index+1}</div>
+                                    <div className="col s2">
+                                        <textarea style={{fontSize:10}} type="text" onChange={(e)=>{this.setState({selTitle:e.target.value})}} value={this.state.selTitle}/>
+                                    </div>
+                                    <div className="col s1">
+                                        <textarea style={{fontSize:10}}  type="number" onChange={(e)=>{this.setState({selYear:e.target.value})}} value={this.state.selYear}/>
+                                    </div>
+                                    <div className="col s1">
+                                        <button onClick={()=>{this.onSave(val.id)}}>save</button>
+                                    </div>
+                                    <div className="col s1">
+                                        <button onClick={()=>this.setState({selRow:null})}>cancle</button>
+                                    </div>
+                                </div>
+                                <div className="row center valign-wrapper blue-grey lighten-5" style={{fontSize:10, marginBottom:0, marginTop:0 , marginBottom:"2%"}}>
+                                    <div className="col s1">
+                                        <img style={{width:"100%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
+                                    </div>
+                                    <div className="col s3 ">
+                                        <ReactPlayer url={urlApi+'/movies/'+val.filename} width='100%' height='50%' playing controls/>
+                                    </div>
+                                    <div className="col s2">
+                                        <div className="row">
+                                            <div className="col s1">
+                                                pic:
+                                            </div>
+                                            <div className="col s12">
+                                                <textarea style={{fontSize:10}}  type="text" onChange={(e)=>{this.setState({selPic:e.target.value})}} value={this.state.selPic}/>
+                                            </div>
+                                            <div className="col s1">
+                                                filename:
+                                            </div>
+                                            <div className="col s12">
+                                                <textarea className="right" style={{fontSize:10}} type="text" onChange={(e)=>{this.setState({selFilename:e.target.value})}} value={this.state.selFilename}/>
+                                            </div>
+                                            <div className="col s1">
+                                                link:
+                                            </div>
+                                            <div className="col s12">
+                                                <textarea className="right" style={{fontSize:10}}  type="text" onChange={(e)=>{this.setState({selLink:e.target.value})}} value={this.state.selLink}/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col s2 green">
+                                        categories
+                                    </div>
+                                    <div className="col s3 red">
+                                        desc
+                                    </div>
+                                </div>
+                            </>
+                            :
+                            <>
+                                <div className="row center" style={{fontSize:10, marginBottom:0, marginTop:"2%"}}>
+                                    <div className="col s1 offset-s3">{index+1}</div>
+                                    <div className="col s2">
+                                        <textarea style={{fontSize:10}} type="text" onChange={(e)=>{this.setState({selTitle:e.target.value})}} value={this.state.selTitle}/>
+                                    </div>
+                                    <div className="col s1">
+                                        <textarea style={{fontSize:10}}  type="number" onChange={(e)=>{this.setState({selYear:e.target.value})}} value={this.state.selYear}/>
+                                    </div>
+                                    <div className="col s1">
+                                        <button onClick={()=>{this.onSave(val.id)}}>save</button>
+                                    </div>
+                                    <div className="col s1">
+                                        <button onClick={()=>this.setState({selRow:null})}>cancle</button>
+                                    </div>
+                                </div>
+                                <div className="row center valign-wrapper" style={{fontSize:10, marginBottom:0, marginTop:0}}>
+                                    <div className="col s1">
+                                        <img style={{width:"100%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
+                                    </div>
+                                    <div className="col s3 ">
+                                        <ReactPlayer url={urlApi+'/movies/'+val.filename} width='100%' height='50%' playing controls/>
+                                    </div>
+                                    <div className="col s2">
+                                        <div className="row">
+                                            <div className="col s1">
+                                                pic:
+                                            </div>
+                                            <div className="col s12">
+                                                <textarea style={{fontSize:10}}  type="text" onChange={(e)=>{this.setState({selPic:e.target.value})}} value={this.state.selPic}/>
+                                            </div>
+                                            <div className="col s1">
+                                                filename:
+                                            </div>
+                                            <div className="col s12">
+                                                <textarea className="right" style={{fontSize:10}} type="text" onChange={(e)=>{this.setState({selFilename:e.target.value})}} value={this.state.selFilename}/>
+                                            </div>
+                                            <div className="col s1">
+                                                link:
+                                            </div>
+                                            <div className="col s12">
+                                                <textarea className="right" style={{fontSize:10}}  type="text" onChange={(e)=>{this.setState({selLink:e.target.value})}} value={this.state.selLink}/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col s2 green">
+                                        categories
+                                    </div>
+                                    <div className="col s3 red">
+                                        desc
+                                    </div>
+                                </div>
+                            </>
+                        }
+                    </>
+                )
+            }else{
+                if(val.isDeleted === 0){
+                    return(
+                        <>
+                            {
+                                index%2===1 ? 
+                                <div className="row center blue-grey lighten-5" style={{fontSize:10, marginBottom:0, marginTop:0}}>
+                                    <div className="col s1 offset-s3">{index+1}</div>
+                                    <div className="col s2">{val.title}</div>
+                                    <div className="col s1">{val.year}</div>
+                                    <div className="col s1">
+                                        <button onClick={()=>{
+                                            this.setState({
+                                                selRow:val.id,
+                                                selTitle:val.title,
+                                                selYear:val.year,
+                                                selPic:val.pic,
+                                                selFilename:val.filename,
+                                                selLink:val.link,
+                                                selDesc:val.description
+                                            })}}>edit
+                                        </button>
+                                    </div>
+                                    <div className="col s1">
+                                        <button onClick={()=>{this.delete(val.id)}}>del</button>
+                                    </div>
+                                </div> :
+                                <div className="row center" style={{fontSize:10, marginBottom:0, marginTop:0}}>
+                                    <div className="col s1 offset-s3">{index+1}</div>
+                                    <div className="col s2">{val.title}</div>
+                                    <div className="col s1">{val.year}</div>
+                                    <div className="col s1">
+                                        <button onClick={()=>{
+                                            this.setState({
+                                                selRow:val.id,
+                                                selTitle:val.title,
+                                                selYear:val.year,
+                                                selPic:val.pic,
+                                                selFilename:val.filename,
+                                                selLink:val.link,
+                                                selDesc:val.description
+                                            })}}>edit
+                                        </button>
+                                    </div>
+                                    <div className="col s1">
+                                        <button onClick={()=>{this.delete(val.id)}}>del</button>
+                                    </div>
+                                </div> 
+                            }
+                        </>
+                    )
+                }
+            }
+        })
+        return list
+    }
 
     renderData=()=>{
         let list=this.state.data.map((val,index)=>{
@@ -242,7 +415,16 @@ export class AdminMovie extends Component {
                     </div>
                     
                 </div>
-                <table className=" striped white"  style={{fontSize:10}}>
+
+                <div className="row center">
+                    <div className="col s1 offset-s3">No.</div>
+                    <div className="col s2">Title</div>
+                    <div className="col s1">Year</div>
+                    <div className="col s2">Action</div>
+                </div>
+                {this.renderData2()}
+
+                {/* <table className=" striped white"  style={{fontSize:10}}>
                     <thead>
                        <tr>
                             <th></th>
@@ -260,7 +442,7 @@ export class AdminMovie extends Component {
                     <tbody>
                         {this.renderData()}
                     </tbody>
-                </table>
+                </table> */}
             </div>
         )
     }
