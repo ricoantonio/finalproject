@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {Route,BrowserRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
+import moment from 'moment'
+
 
 import Login from './Login'
 import Register from './Register'
@@ -18,6 +20,7 @@ import LoginPlan from './LoginPlan'
 import SelectedPlan from './SelectedPlan'
 import Admin from './Admin'
 import PendingUser from './PendingUser'
+import Axios from 'axios'
 
 const keepLogin =(objUser)=>{
     return{
@@ -26,7 +29,8 @@ const keepLogin =(objUser)=>{
             id:objUser.id,
             email: objUser.email,
             role:objUser.role,
-            plan:objUser.plan
+            plan:objUser.plan,
+            dateEnd:objUser.dateEnd
         }
     }
 }
@@ -38,17 +42,37 @@ class App extends Component{
 
     componentDidMount() {
         // check LocalStorage
+        
         let userStorage=JSON.parse(localStorage.getItem("userData"))
         
         if (userStorage){
             //kirim ke redux
             this.props.keepLogin(userStorage)
         } 
-
+        
         this.setState({check: true})
     }
+
+    cekUser=()=>{
+        if (moment(this.props.dateEnd).format('DD-MM-YYYY H:mm:ss')>=moment().format('DD-MM-YYYY H:mm:ss')){
+            // console.log(moment(this.props.dateEnd).format('DD-MM-YYYY H:mm:ss'));
+            
+            console.log('a');
+            
+        }else{
+            // console.log(moment(this.props.dateEnd).format('DD-MM-YYYY H:mm:ss'));
+            
+            console.log('b');
+            
+        }
+    }
+
+
+    
+
     render() {
         if(this.state.check){
+            
             return (
                 <BrowserRouter>
                     <Route path="/" exact component={Home}/>
@@ -78,4 +102,11 @@ class App extends Component{
     }
 }
 
-export default connect(null,{keepLogin})(App)
+const mapStateToProps=state=>{
+    return {
+      dateEnd:state.auth.dateEnd,
+      plan:state.auth.plan
+    }
+}
+
+export default connect(mapStateToProps,{keepLogin})(App)

@@ -14,6 +14,9 @@ export const onLoginClick=()=>{
 export const onLoginUser=(EMAIL, PASSWORD)=>{
 
     return (dispatch)=>{
+        console.log(EMAIL);
+        console.log(PASSWORD);
+        
         axios.get(
             urlApi+ "/auth/login", 
             {
@@ -25,7 +28,7 @@ export const onLoginUser=(EMAIL, PASSWORD)=>{
         ).then((res)=>{
             
             
-
+ 
             // res.data merupakan sebuah array
             // jika data ditemukan, length > 0
             // jika data tidak ditemukan, length = 0
@@ -45,13 +48,13 @@ export const onLoginUser=(EMAIL, PASSWORD)=>{
                 )
             }else if (res.data.status==='200'){
                 //success
-                console.log(res.data);
+                console.log(res.data.result);
                 
-                let {id,email,role,plan}=res.data.result
+                let {id,email,role,plan,dateEnd}=res.data.result
 
                 localStorage.setItem(
                     'userData',
-                    JSON.stringify({id,email,role,plan})
+                    JSON.stringify({id,email,role,plan,dateEnd})
                 )
                 
                 
@@ -59,7 +62,7 @@ export const onLoginUser=(EMAIL, PASSWORD)=>{
                     { 
                         type:"LOGIN_SUCCESS",
                         payload:{
-                            id,email,role,plan
+                            id,email,role,plan,dateEnd
                         }
                     }
                 )

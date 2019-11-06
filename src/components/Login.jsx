@@ -12,11 +12,12 @@ class Login extends Component{
         onLoginClick:0,
         email:'',
         password:'',
-        name:''
+        name:'' 
     }
 
     onLogin=()=>{
 
+        // alert('You are now logged in')
         this.props.onLoginClick()
         if (
             !this.state.email||

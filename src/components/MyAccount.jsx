@@ -49,7 +49,7 @@ export class MyAccount extends Component {
                 <h4 style={{marginBottom:"5%", marginTop:"1%"}}>{email}</h4>
                 <h5>Hi! {name}</h5>
                 <h5 className="row">
-                  {plan==='free' ? <div><p>FREE</p> <Link to="/subs" ><button className="btn-small not-square black white-text">Go Premium</button></Link></div> : 
+                  {plan==='free' ? <div><p>Free</p> <Link to="/subs" ><button className="btn-small not-square black white-text">Go Premium</button></Link></div> : 
                   plan==='pending'? <span className="green-text">Pending...</span> :
                   <span className="yellow-text text-darken-3 col s4 offset-s4">PREMIUM<i className="material-icons right" style={{marginLeft:0,fontSize:"30px"}}>grade</i></span>}
                 </h5>

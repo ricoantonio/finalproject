@@ -6,6 +6,7 @@ const init = {
     email:"",
     role:"",
     plan:"",
+    dateEnd:"",
     errPass:false,
     errUser:false
 }
@@ -14,7 +15,7 @@ const AuthReducer=(state=init, action)=>{
     switch (action.type) {
         case 'LOGIN_SUCCESS':
             // Akan menyalin property di state untuk kemudian di ubah id dan usernamenya 
-            return {...state, id: action.payload.id, email: action.payload.email, role:action.payload.role, plan:action.payload.plan}
+            return {...state, id: action.payload.id, email: action.payload.email, role:action.payload.role, plan:action.payload.plan, dateEnd: action.payload.dateEnd}
 
         case 'LOGIN_ERROR_WRONG_PASS':
             return {...state, errPass:true,errUser:false}

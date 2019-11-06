@@ -169,11 +169,31 @@ export class AdminMovie extends Component {
         })
     }
 
-    delmoviecategory=(id)=>{
+    delmoviecategory=(id,idcategory)=>{
         Axios.post(urlApi+'/movie/delmoviecategory',{
             id:id
         }).then((res)=>{
             this.getmoviecategory()
+            console.log(this.state.moviecategory);
+            console.log(id);
+            var total = 0
+            var check = this.state.moviecategory.map((val)=>{
+                if(val.idcategory == idcategory){
+                    return total++
+                }
+            })
+            if(total===1){
+                Axios.post(urlApi+'/movie/delcategoryall' , {
+                    id:idcategory
+                }).then((res)=>{
+                    console.log(res);
+                    this.getmoviecategory()
+                    this.getcategories()
+                }).catch((err)=>{
+                    console.log(err);
+                })
+            }
+            
         }).catch((err)=>{
             console.log(err);
             
@@ -186,7 +206,7 @@ export class AdminMovie extends Component {
                 return(
                     <div className="col s6" style={{fontSize:12}}>
                         <span className="left">{val.category} </span>
-                        <button onClick={()=>{this.delmoviecategory(val.id)}} className="right">del</button>
+                        <button onClick={()=>{this.delmoviecategory(val.id,val.idcategory)}} className="right">del</button>
                     </div>
                 )
             }
@@ -215,6 +235,19 @@ export class AdminMovie extends Component {
             }).then((res)=>{
                 // console.log(res);
                 this.getmoviecategory()
+            }).catch((err)=>{
+                console.log(err);
+                
+            })
+        }
+        if(this.state.selcategory<0){
+            Axios.post(urlApi+'/movie/addothercategory',{
+                idmovie:id,
+                other:this.state.other
+            }).then((res)=>{
+                // console.log(res);
+                this.getmoviecategory()
+                this.getcategories()
             }).catch((err)=>{
                 console.log(err);
                 
@@ -295,7 +328,7 @@ export class AdminMovie extends Component {
 
                                             {
                                                 this.state.selcategory==-1 ?
-                                                <input placeholder="Other Category center" style={{fontSize:12, marginTop:0}} onChange={(e)=>{this.setState({other:e.target.value})}} type="text"/> : ''
+                                                <input placeholder="Other Category" style={{fontSize:12, marginTop:0}} onChange={(e)=>{this.setState({other:e.target.value})}} type="text"/> : ''
                                             }
                                             <button onClick={()=>{this.addcategory(val.id)}}>add</button>
                                         </div>
@@ -369,7 +402,7 @@ export class AdminMovie extends Component {
                                             </FormControl>
                                             {
                                                 this.state.selcategory==-1?
-                                                <input style={{fontSize:12}} onChange={(e)=>{this.setState({other:e.target.value})}} type="text"/> :''
+                                                <input placeholder="Other Category" style={{fontSize:12, marginTop:0}} onChange={(e)=>{this.setState({other:e.target.value})}} type="text"/> : ''
                                             }
                                             <button onClick={()=>{this.addcategory(val.id)}}>add</button>
                                         </div>

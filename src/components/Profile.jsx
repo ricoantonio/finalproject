@@ -97,8 +97,8 @@ export class Profile extends Component {
             <h5>{this.state.data.name}</h5>
             <p>{this.state.data.email}</p>
             <p className="row">
-              {this.state.data.plan=== 'free' ? 'FREE' : 
-              this.state.data.plan === 'pending' ? <span className="green-text">PENDING...</span> : 
+              {this.state.data.plan=== 'free' ? 'Free' : 
+              this.state.data.plan === 'pending' ? <span className="green-text">Pending...</span> : 
               <span className="yellow-text text-darken-3 col s8 offset-s2">PREMIUM<i className="material-icons right" style={{marginLeft:0}}>grade</i></span>}
             </p>
           </div>

@@ -15,6 +15,7 @@ export class MovieDetal extends Component {
         check:false
     }
     componentDidMount() {
+        
         console.log(this.props.match.params.link);
         
         
@@ -87,7 +88,8 @@ export class MovieDetal extends Component {
 const mapStateToProps=state=>{
     return {
         plan:state.auth.plan,
-        email: state.auth.email
+        email: state.auth.email,
+        dateEnd: state.auth.dateEnd
     }
 }
 
