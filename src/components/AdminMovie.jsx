@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import Axios from 'axios'
 import ReactPlayer from 'react-player'
 
+import FormControl from '@material-ui/core/FormControl';
+import NativeSelect from '@material-ui/core/NativeSelect';
+
+import SelectSearch from 'react-select-search'
+ 
+
 import urlApi from '../helpers'
 
 
@@ -25,7 +31,12 @@ export class AdminMovie extends Component {
         inPos:null,
         inMov:null,
         showPos:null,
-        showMov:null
+        showMov:null,
+        moviecategory:[],
+        categories:[],
+        selcategory:0,
+        other:'',
+        categoryrender:null
     }
 
     componentDidMount() {
@@ -35,14 +46,37 @@ export class AdminMovie extends Component {
     getdata=()=>{
         Axios.get(urlApi+'/movie/getdata'
         ).then((res)=>{
+            // console.log(this.state.data);
             this.setState({data:res.data})
-            console.log(this.state.data);
             this.setState({loading:true})
             this.setState({check:true})
+            this.getmoviecategory()
+            this.getcategories()
+            
           }).catch((err)=>{
             console.log(err);
             
           })
+    }
+
+    getcategories=()=>{
+        Axios.get(urlApi+'/movie/getcategory')
+            .then((res)=>{
+                // console.log(res.data); 
+                this.setState({categories:res.data})
+            }).catch((err)=>{
+                console.log(err);
+            })
+    }
+
+    getmoviecategory=()=>{
+        Axios.get(urlApi+'/movie/getmoviecategory')
+            .then((res)=>{
+                // console.log(res.data); 
+                this.setState({moviecategory:res.data})
+            }).catch((err)=>{
+                console.log(err);
+            })
     }
 
     showPos=(event)=>{
@@ -87,7 +121,7 @@ export class AdminMovie extends Component {
         
         Axios.post(urlApi+'/movie/upmoviepos', fd)
         .then((res)=>{
-            console.log(res);
+            // console.log(res);
 
             Axios.post(urlApi+'/movie/upmoviefile', fd2)
             .then((res)=>{
@@ -128,12 +162,66 @@ export class AdminMovie extends Component {
         Axios.post(urlApi+'/movie/delete',{
             id:id
         }).then((res)=>{
-            console.log(res);
+            // console.log(res);
             this.getdata()
         }).catch((err)=>{
 
         })
     }
+
+    delmoviecategory=(id)=>{
+        Axios.post(urlApi+'/movie/delmoviecategory',{
+            id:id
+        }).then((res)=>{
+            this.getmoviecategory()
+        }).catch((err)=>{
+            console.log(err);
+            
+        })
+    }
+
+    moviecategory=(id)=>{
+        let list=this.state.moviecategory.map(val=>{
+            if(val.idmovie===id){
+                return(
+                    <div className="col s6" style={{fontSize:12}}>
+                        <span className="left">{val.category} </span>
+                        <button onClick={()=>{this.delmoviecategory(val.id)}} className="right">del</button>
+                    </div>
+                )
+            }
+        })
+        return list
+    }
+
+    rendercategory=()=>{
+        // console.log(this.state.categories);
+        var arr = []
+        let list = this.state.categories.map((val)=>{
+            return(
+                // arr.push({name:val.category,value:val.id})
+                // {name:val.category,value:val.id}
+                <option value={val.id}>{val.category}</option>
+            )
+        })
+        return list
+    }
+
+    addcategory=(id)=>{
+        if(this.state.selcategory>0){
+            Axios.post(urlApi+'/movie/addmoviecategory',{
+                idmovie:id,
+                idcategory:this.state.selcategory
+            }).then((res)=>{
+                // console.log(res);
+                this.getmoviecategory()
+            }).catch((err)=>{
+                console.log(err);
+                
+            })
+        }
+    }
+
     renderData2=()=>{
         let list=this.state.data.map((val,index)=>{
             if(this.state.selRow==val.id){
@@ -167,29 +255,52 @@ export class AdminMovie extends Component {
                                     <div className="col s2">
                                         <div className="row">
                                             <div className="col s1">
-                                                pic:
+                                                Pic:
                                             </div>
                                             <div className="col s12">
                                                 <input style={{fontSize:12}}  type="text" onChange={(e)=>{this.setState({selPic:e.target.value})}} value={this.state.selPic}/>
                                             </div>
                                             <div className="col s1">
-                                                filename:
+                                                Filename:
                                             </div>
                                             <div className="col s12">
                                                 <input className="right" style={{fontSize:12}} type="text" onChange={(e)=>{this.setState({selFilename:e.target.value})}} value={this.state.selFilename}/>
                                             </div>
                                             <div className="col s1">
-                                                link:
+                                                Link:
                                             </div>
                                             <div className="col s12">
                                                 <input className="right" style={{fontSize:12}}  type="text" onChange={(e)=>{this.setState({selLink:e.target.value})}} value={this.state.selLink}/>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col s2 green">
-                                        categories
-                                    </div>
                                     <div className="col s3">
+                                        <p className="center" style={{marginBottom:20}}>Categories:</p>
+                                        {this.moviecategory(val.id)}
+                                        <div className="col s12" style={{marginTop:10}}>
+                                            <FormControl>
+                                                <NativeSelect
+                                                value={this.state.selcategory}
+                                                onChange={(e)=>{this.setState({selcategory:e.target.value})}}
+                                                inputProps={{ 'aria-label': 'age' }}
+                                                style={{fontSize:12}}
+                                                >
+                                                    <option value={0}>--Add Categories--</option>
+                                                    {this.rendercategory()}
+                                                    <option value={-1}>Other</option>
+                                                </NativeSelect>
+                                            </FormControl>
+
+                                            {/* <SelectSearch options={this.rendercategory()} /> */}
+
+                                            {
+                                                this.state.selcategory==-1 ?
+                                                <input placeholder="Other Category center" style={{fontSize:12, marginTop:0}} onChange={(e)=>{this.setState({other:e.target.value})}} type="text"/> : ''
+                                            }
+                                            <button onClick={()=>{this.addcategory(val.id)}}>add</button>
+                                        </div>
+                                    </div>
+                                    <div className="col s2">
                                         <textarea className="" style={{fontSize:12}} type="text" onChange={(e)=>{this.setState({selDesc:e.target.value})}} value={this.state.selDesc}/>
                                     </div>
                                 </div>
@@ -221,29 +332,49 @@ export class AdminMovie extends Component {
                                     <div className="col s2">
                                         <div className="row">
                                             <div className="col s1">
-                                                pic:
+                                                Pic:
                                             </div>
                                             <div className="col s12">
                                                 <input style={{fontSize:12}}  type="text" onChange={(e)=>{this.setState({selPic:e.target.value})}} value={this.state.selPic}/>
                                             </div>
                                             <div className="col s1">
-                                                filename:
+                                                Filename:
                                             </div>
                                             <div className="col s12">
                                                 <input className="right" style={{fontSize:12}} type="text" onChange={(e)=>{this.setState({selFilename:e.target.value})}} value={this.state.selFilename}/>
                                             </div>
                                             <div className="col s1">
-                                                link:
+                                                Link:
                                             </div>
                                             <div className="col s12">
                                                 <input className="right" style={{fontSize:12}}  type="text" onChange={(e)=>{this.setState({selLink:e.target.value})}} value={this.state.selLink}/>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col s2 green">
-                                        categories
-                                    </div>
                                     <div className="col s3">
+                                        <p className="center" style={{marginBottom:20}}>Categories:</p>
+                                        {this.moviecategory(val.id)}
+                                        <div className="col s12" style={{marginTop:10}}>
+                                            <FormControl>
+                                                <NativeSelect
+                                                value={this.state.selcategory}
+                                                onChange={(e)=>{this.setState({selcategory:e.target.value})}}
+                                                inputProps={{ 'aria-label': 'age' }}
+                                                style={{fontSize:12}}
+                                                >
+                                                    <option value={0}>--Add Categories--</option>
+                                                    {this.rendercategory()}
+                                                    <option value={-1}>Other</option>
+                                                </NativeSelect>
+                                            </FormControl>
+                                            {
+                                                this.state.selcategory==-1?
+                                                <input style={{fontSize:12}} onChange={(e)=>{this.setState({other:e.target.value})}} type="text"/> :''
+                                            }
+                                            <button onClick={()=>{this.addcategory(val.id)}}>add</button>
+                                        </div>
+                                    </div>
+                                    <div className="col s2">
                                         <textarea className="" style={{fontSize:12}} type="text" onChange={(e)=>{this.setState({selDesc:e.target.value})}} value={this.state.selDesc}/>
                                     </div>
                                 </div>
