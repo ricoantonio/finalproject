@@ -32,36 +32,83 @@ export class PendingUser extends Component {
 
     approve=(email,plan)=>{
         // console.log(email);
-        if(plan === 'year'){
-            Axios.post(urlApi+'/payment/topremium',{
-                email:email,
-                dateStart:moment().format('YYYY-MM-DD H:mm:ss'),
-                dateEnd:moment().add(1,'year').format('YYYY-MM-DD H:mm:ss')
-            }).then((res)=>{
-                this.getData()
-                console.log(res);
-            }).catch((err)=>{
-                console.log(err);
-            })
-        } 
-        if(plan === 'month'){
-            Axios.post(urlApi+'/payment/topremium',{
-                email:email,
-                dateStart:moment().format('YYYY-MM-DD H:mm:ss'),
-                dateEnd:moment().add(1,'month').format('YYYY-MM-DD H:mm:ss')
-            }).then((res)=>{
-                this.getData()
-                console.log(res);
-            }).catch((err)=>{
-                console.log(err);
-            })
-        }
+        console.log(this.props.id);
+        
+        Axios.get(urlApi+'/payment/getnotif',{
+            params:{
+                id:this.props.id
+            }
+        }).then((res)=>{
+            if(res.data.length===0){
+                if(plan === 'year'){
+                    Axios.post(urlApi+'/payment/topremium',{
+                        email:email,
+                        dateStart:moment().format('YYYY-MM-DD H:mm:ss'),
+                        dateEnd:moment().add(1,'year').format('YYYY-MM-DD H:mm:ss'),
+                        id:this.props.id
+                    }).then((res)=>{
+                        this.getData()
+                        console.log(res);
+                    }).catch((err)=>{
+                        console.log(err);
+                    })
+                } 
+                if(plan === 'month'){
+                    Axios.post(urlApi+'/payment/topremium',{
+                        email:email,
+                        dateStart:moment().format('YYYY-MM-DD H:mm:ss'),
+                        dateEnd:moment().add(1,'month').format('YYYY-MM-DD H:mm:ss'),
+                        id:this.props.id
+                    }).then((res)=>{
+                        this.getData()
+                        console.log(res);
+                    }).catch((err)=>{
+                        console.log(err);
+                    })
+                }
+            }else{
+                if(plan === 'year'){
+                    Axios.post(urlApi+'/payment/topremiumupdate',{
+                        email:email,
+                        dateStart:moment().format('YYYY-MM-DD H:mm:ss'),
+                        dateEnd:moment().add(1,'year').format('YYYY-MM-DD H:mm:ss'),
+                        id:this.props.id
+                    }).then((res)=>{
+                        this.getData()
+                        console.log(res);
+                    }).catch((err)=>{
+                        console.log(err);
+                    })
+                } 
+                if(plan === 'month'){
+                    Axios.post(urlApi+'/payment/topremiumupdate',{
+                        email:email,
+                        dateStart:moment().format('YYYY-MM-DD H:mm:ss'),
+                        dateEnd:moment().add(1,'month').format('YYYY-MM-DD H:mm:ss'),
+                        id:this.props.id
+                    }).then((res)=>{
+                        this.getData()
+                        console.log(res);
+                    }).catch((err)=>{
+                        console.log(err);
+                    })
+                }
+            }
+
+            
+        }).catch((err)=>{
+            console.log(err);
+            
+        })
+
+       
     }
 
     decline=(email)=>{
         // console.log(email);
         Axios.post(urlApi+'/payment/decline',{
-            email:email
+            email:email,
+            id:this.props.id
         }).then((res)=>{
             this.getData()
             console.log(res);
@@ -172,7 +219,8 @@ export class PendingUser extends Component {
 
 const mapStateToProps=state=>{
     return {
-        email: state.auth.email
+        email: state.auth.email,
+        id:state.auth.id
     }
 }
 

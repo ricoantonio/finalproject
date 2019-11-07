@@ -14,8 +14,8 @@ export const onLoginClick=()=>{
 export const onLoginUser=(EMAIL, PASSWORD)=>{
 
     return (dispatch)=>{
-        console.log(EMAIL);
-        console.log(PASSWORD);
+        // console.log(EMAIL);
+        // console.log(PASSWORD);
         
         axios.get(
             urlApi+ "/auth/login", 
@@ -48,7 +48,7 @@ export const onLoginUser=(EMAIL, PASSWORD)=>{
                 )
             }else if (res.data.status==='200'){
                 //success
-                console.log(res.data.result);
+                // console.log(res.data.result);
                 
                 let {id,email,role,plan,dateEnd}=res.data.result
 

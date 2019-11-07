@@ -8,7 +8,7 @@ import Profile from './Profile'
 export class Nav extends Component{
     
     renderNav=()=>{
-        console.log(window.location.pathname);
+        // console.log(window.location.pathname);
         
         if (!this.props.email){
             return (
@@ -18,12 +18,12 @@ export class Nav extends Component{
                             <div className="nav-wrapper black">
                                 <Link to="/" className=" left"><img className="" src={BogoWhite} style={{height:"29px", marginLeft:"30%",marginTop:"20%"}} alt="BOGO"/></Link>
                                 {window.location.pathname === '/drama' ? 
-                                    <Link to='/drama' className="navMenu2 white-text" style={{marginLeft:"5%",marginRight:"2%"}}><b>KOREAN DRAMA</b></Link> :
-                                    <Link to='/drama' className="navMenu2" style={{marginLeft:"5%",marginRight:"2%"}}>KOREAN DRAMA</Link>
+                                    <Link to='/drama' className="navMenu2 white-text" style={{marginLeft:"5%",marginRight:"2%"}}><b>DRAMA</b></Link> :
+                                    <Link to='/drama' className="navMenu2" style={{marginLeft:"5%",marginRight:"2%"}}>DRAMA</Link>
                                 }
                                 {window.location.pathname === '/variety' ? 
-                                    <Link to='/variety' className="navMenu2 white-text" style={{marginRight:"2%"}}><b>KOREAN VARIETY</b></Link> :
-                                    <Link to='/variety' className="navMenu2" style={{marginRight:"2%"}}>KOREAN VARIETY</Link>
+                                    <Link to='/variety' className="navMenu2 white-text" style={{marginRight:"2%"}}><b>VARIETY</b></Link> :
+                                    <Link to='/variety' className="navMenu2" style={{marginRight:"2%"}}>VARIETY</Link>
                                 }
                                 {window.location.pathname === '/movie' ? 
                                     <Link to='/movie' className="navMenu2 white-text" style={{marginRight:"2%"}}><b>MOVIES</b></Link> :
@@ -64,12 +64,12 @@ export class Nav extends Component{
                             <div className="nav-wrapper black">
                                 <Link to="/" className=" left"><img className="" src={BogoWhite} style={{height:"29px", marginLeft:"30%",marginTop:"20%"}} alt="BOGO"/></Link>
                                 {window.location.pathname === '/drama' ? 
-                                    <Link to='/drama' className="navMenu2 white-text" style={{marginLeft:"5%",marginRight:"2%"}}><b>KOREAN DRAMA</b></Link> :
-                                    <Link to='/drama' className="navMenu2" style={{marginLeft:"5%",marginRight:"2%"}}>KOREAN DRAMA</Link>
+                                    <Link to='/drama' className="navMenu2 white-text" style={{marginLeft:"5%",marginRight:"2%"}}><b>DRAMA</b></Link> :
+                                    <Link to='/drama' className="navMenu2" style={{marginLeft:"5%",marginRight:"2%"}}>DRAMA</Link>
                                 }
                                 {window.location.pathname === '/variety' ? 
-                                    <Link to='/variety' className="navMenu2 white-text" style={{marginRight:"2%"}}><b>KOREAN VARIETY</b></Link> :
-                                    <Link to='/variety' className="navMenu2" style={{marginRight:"2%"}}>KOREAN VARIETY</Link>
+                                    <Link to='/variety' className="navMenu2 white-text" style={{marginRight:"2%"}}><b>VARIETY</b></Link> :
+                                    <Link to='/variety' className="navMenu2" style={{marginRight:"2%"}}>VARIETY</Link>
                                 }
                                 {window.location.pathname === '/movie' ? 
                                     <Link to='/movie' className="navMenu2 white-text" style={{marginRight:"2%"}}><b>MOVIES</b></Link> :

@@ -12,6 +12,7 @@ import urlApi from '../helpers'
 export class MovieDetal extends Component {
     state={
         data:[],
+        userHistory:[],
         check:false
     }
     componentDidMount() {
@@ -25,18 +26,41 @@ export class MovieDetal extends Component {
             console.log(this.state.data);
             // res.data={id, name, desc, price, pic}
             this.setState({data: res.data[0]})
-            console.log(res);
+            console.log(res.data);
             
-            Axios.put(urlApi+'/movie/updateview',{
-                id:this.state.data.id
-            })
-            .then((res)=>{
+            if (this.props.email){
+                Axios.get(urlApi+`/movie/gethistory`, {
+                    params:{
+                        idmovie:this.state.data.id,
+                        iduser:this.props.id
+                    }
+                }).then((res2)=>{
+                    if (res2.data.length === 0){
+                        Axios.put(urlApi+'/movie/updateview',{
+                            id:this.state.data.id,
+                            iduser:this.props.id
+                        })
+                        .then((res3)=>{
+                            this.setState({check:true})
+                        }).catch((err3)=>{
+                            console.log(err3);
+                            
+                        })
+                    }else{
+                        this.setState({check:true})
+                    }
+                }).catch((err2)=>{
+                    console.log(err2);
+    
+                })
+            }else{
                 this.setState({check:true})
-            }).catch((err)=>{
-                
-            })
-        }).catch(()=>{
-
+            }
+            
+            
+        }).catch((err)=>{
+            console.log(err);
+            
         })
     }
     
@@ -87,6 +111,7 @@ export class MovieDetal extends Component {
 
 const mapStateToProps=state=>{
     return {
+        id:state.auth.id,
         plan:state.auth.plan,
         email: state.auth.email,
         dateEnd: state.auth.dateEnd

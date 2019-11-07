@@ -5,6 +5,7 @@ import Footer from './Footer'
 import Plans from './Plans'
 import Trial from './Trial'
 import TopMovie from './TopMovie'
+import Notif from './Notif'
 
 class Home extends Component{
 

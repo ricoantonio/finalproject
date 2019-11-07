@@ -3,6 +3,7 @@ import {Route,BrowserRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import moment from 'moment'
 
+import urlApi from '../helpers'
 
 import Login from './Login'
 import Register from './Register'
@@ -21,6 +22,8 @@ import SelectedPlan from './SelectedPlan'
 import Admin from './Admin'
 import PendingUser from './PendingUser'
 import Axios from 'axios'
+import Notif from './Notif'
+import NotifRed from './NotifRed'
 
 const keepLogin =(objUser)=>{
     return{
@@ -53,47 +56,128 @@ class App extends Component{
         this.setState({check: true})
     }
 
-    cekUser=()=>{
-        if (moment(this.props.dateEnd).format('DD-MM-YYYY H:mm:ss')>=moment().format('DD-MM-YYYY H:mm:ss')){
-            // console.log(moment(this.props.dateEnd).format('DD-MM-YYYY H:mm:ss'));
-            
-            console.log('a');
-            
-        }else{
-            // console.log(moment(this.props.dateEnd).format('DD-MM-YYYY H:mm:ss'));
-            
-            console.log('b');
-            
-        }
+    renderNotif=()=>{
+
     }
-
-
-    
 
     render() {
         if(this.state.check){
-            
-            return (
-                <BrowserRouter>
-                    <Route path="/" exact component={Home}/>
-                    <Route path="/login" component={Login}/>
-                    <Route path="/register" component={Register}/>
-                    <Route path="/anime" component={HomeAnime}/>
-                    <Route path="/drama" component={HomeDrama}/>
-                    <Route path="/variety" component={HomeVariety}/>
-                    <Route path="/movie" component={HomeMovie}/>
-                    <Route path="/myaccount" component={MyAccount}/>
-                    <Route path="/movie-detail/:link" component={MovieDetail}/>
-                    <Route path="/admin-dashboard" component={Admin}/>
-                    <Route path="/admin-pendinguser" component={PendingUser}/>
-                    <Route path="/verify" component={VerifyHome}/>
-                    <Route path="/subs" component={SubsHome}/>
-                    <Route path="/subregis" component={RegisPlan}/>
-                    <Route path="/sublogin" component={LoginPlan}/>
-                    <Route path="/plan" component={SelectedPlan}/>
-                </BrowserRouter>
-     
-            )
+            if(moment(this.props.dateEnd)>=moment()){
+                console.log('premium');
+                return (   
+                    <> 
+                        <BrowserRouter>
+                            <Route path="/" exact component={Home}/>
+                            <Route path="/login" component={Login}/>
+                            <Route path="/register" component={Register}/>
+                            <Route path="/anime" component={HomeAnime}/>
+                            <Route path="/drama" component={HomeDrama}/>
+                            <Route path="/variety" component={HomeVariety}/>
+                            <Route path="/movie" component={HomeMovie}/>
+                            <Route path="/myaccount" component={MyAccount}/>
+                            <Route path="/movie-detail/:link" component={MovieDetail}/>
+                            <Route path="/admin-dashboard" component={Admin}/>
+                            <Route path="/admin-pendinguser" component={PendingUser}/>
+                            <Route path="/verify" component={VerifyHome}/>
+                            <Route path="/subs" component={SubsHome}/>
+                            <Route path="/subregis" component={RegisPlan}/>
+                            <Route path="/sublogin" component={LoginPlan}/>
+                            <Route path="/plan" component={SelectedPlan}/>
+                        </BrowserRouter>
+                    </>
+         
+                )
+            }else{
+                if(this.props.email==='admin'){
+                    console.log('ini admin');
+                    return (
+                        <>
+                            <BrowserRouter>
+                                <Route path="/" exact component={Home}/>
+                                <Route path="/login" component={Login}/>
+                                <Route path="/register" component={Register}/>
+                                <Route path="/anime" component={HomeAnime}/>
+                                <Route path="/drama" component={HomeDrama}/>
+                                <Route path="/variety" component={HomeVariety}/>
+                                <Route path="/movie" component={HomeMovie}/>
+                                <Route path="/myaccount" component={MyAccount}/>
+                                <Route path="/movie-detail/:link" component={MovieDetail}/>
+                                <Route path="/admin-dashboard" component={Admin}/>
+                                <Route path="/admin-pendinguser" component={PendingUser}/>
+                                <Route path="/verify" component={VerifyHome}/>
+                                <Route path="/subs" component={SubsHome}/>
+                                <Route path="/subregis" component={RegisPlan}/>
+                                <Route path="/sublogin" component={LoginPlan}/>
+                                <Route path="/plan" component={SelectedPlan}/>
+                            </BrowserRouter>
+                        </>
+                    )
+                }else{
+                    if(this.props.email){
+                        console.log('update to free');
+                        console.log(this.props.id);
+                        
+                        Axios.post(urlApi+'/payment/tofree',{
+                            email:this.props.email,
+                            id:this.props.id
+                        }).then((res)=>{
+                            console.log(res);
+                            
+                        }).catch((err)=>{
+                            console.log(err);
+                            
+                        })
+                        return (
+                            <>
+                                <BrowserRouter>
+                                    <Route path="/" exact component={Home}/>
+                                    <Route path="/login" component={Login}/>
+                                    <Route path="/register" component={Register}/>
+                                    <Route path="/anime" component={HomeAnime}/>
+                                    <Route path="/drama" component={HomeDrama}/>
+                                    <Route path="/variety" component={HomeVariety}/>
+                                    <Route path="/movie" component={HomeMovie}/>
+                                    <Route path="/myaccount" component={MyAccount}/>
+                                    <Route path="/movie-detail/:link" component={MovieDetail}/>
+                                    <Route path="/admin-dashboard" component={Admin}/>
+                                    <Route path="/admin-pendinguser" component={PendingUser}/>
+                                    <Route path="/verify" component={VerifyHome}/>
+                                    <Route path="/subs" component={SubsHome}/>
+                                    <Route path="/subregis" component={RegisPlan}/>
+                                    <Route path="/sublogin" component={LoginPlan}/>
+                                    <Route path="/plan" component={SelectedPlan}/>
+                                </BrowserRouter>
+                            </>
+                        )
+                        
+                    }else{
+
+                        console.log('free');
+                        return (
+                            <>
+                                <BrowserRouter>
+                                    <Route path="/" exact component={Home}/>
+                                    <Route path="/login" component={Login}/>
+                                    <Route path="/register" component={Register}/>
+                                    <Route path="/anime" component={HomeAnime}/>
+                                    <Route path="/drama" component={HomeDrama}/>
+                                    <Route path="/variety" component={HomeVariety}/>
+                                    <Route path="/movie" component={HomeMovie}/>
+                                    <Route path="/myaccount" component={MyAccount}/>
+                                    <Route path="/movie-detail/:link" component={MovieDetail}/>
+                                    <Route path="/admin-dashboard" component={Admin}/>
+                                    <Route path="/admin-pendinguser" component={PendingUser}/>
+                                    <Route path="/verify" component={VerifyHome}/>
+                                    <Route path="/subs" component={SubsHome}/>
+                                    <Route path="/subregis" component={RegisPlan}/>
+                                    <Route path="/sublogin" component={LoginPlan}/>
+                                    <Route path="/plan" component={SelectedPlan}/>
+                                </BrowserRouter>
+                            </>
+                        )
+                    }
+                }
+            }
         }else{
            return(
             <p>Loading</p>
@@ -105,7 +189,9 @@ class App extends Component{
 const mapStateToProps=state=>{
     return {
       dateEnd:state.auth.dateEnd,
-      plan:state.auth.plan
+      plan:state.auth.plan,
+      email:state.auth.email,
+      id:state.auth.id
     }
 }
 

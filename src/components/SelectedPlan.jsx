@@ -15,7 +15,6 @@ export class SelectedPlan extends Component {
 
     componentDidMount() {
         console.log(this.props.location.state);
-        console.log();
         
         this.setState({done:true})
     }

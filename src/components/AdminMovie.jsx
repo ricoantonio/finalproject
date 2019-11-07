@@ -104,39 +104,51 @@ export class AdminMovie extends Component {
         // console.log(this.state.inLink);
         // console.log(this.state.inDesc);
 
-        var fd = new FormData()
-        var fd2 = new FormData()
-
-        var data = {
-            title:this.state.inTitle,
-            year:this.state.inYear,
-            link:this.state.inLink,
-            desc:this.state.inDesc
-        }
-
-        fd.append('movpos', this.state.inPos, this.state.inPos.name)
-        fd2.append('movfile', this.state.inMov, this.state.inMov.name)
-        fd.append('data', JSON.stringify(data))
-        fd2.append('data', JSON.stringify(data))
-        
-        Axios.post(urlApi+'/movie/upmoviepos', fd)
-        .then((res)=>{
-            // console.log(res);
-
-            Axios.post(urlApi+'/movie/upmoviefile', fd2)
+        if (
+            !this.state.inMov,
+            !this.state.inPic,
+            !this.state.inLink,
+            !this.state.inTitle,
+            !this.state.inYear,
+            !this.state.inDesc
+        ){
+            return alert('Please input all data')
+        }else{
+            
+            var fd = new FormData()
+            var fd2 = new FormData()
+    
+            var data = {
+                title:this.state.inTitle,
+                year:this.state.inYear,
+                link:this.state.inLink,
+                desc:this.state.inDesc
+            }
+    
+            fd.append('movpos', this.state.inPos, this.state.inPos.name)
+            fd2.append('movfile', this.state.inMov, this.state.inMov.name)
+            fd.append('data', JSON.stringify(data))
+            fd2.append('data', JSON.stringify(data))
+            
+            Axios.post(urlApi+'/movie/upmoviepos', fd)
             .then((res)=>{
-                this.getdata()
-                console.log(res);
-                alert('Done!')
-
+                // console.log(res);
+    
+                Axios.post(urlApi+'/movie/upmoviefile', fd2)
+                .then((res)=>{
+                    // console.log(res);
+                    this.getdata()
+                    alert('Done!')
+    
+                }).catch((err)=>{
+                    console.log(err);
+                })
+    
             }).catch((err)=>{
                 console.log(err);
             })
-
-        }).catch((err)=>{
-            console.log(err);
-        })
-        
+        }
+    
     }
 
     onSave=(id)=>{
@@ -205,7 +217,7 @@ export class AdminMovie extends Component {
             if(val.idmovie===id){
                 return(
                     <div className="col s6" style={{fontSize:12}}>
-                        <span className="left">{val.category} </span>
+                        <span className="left" style={{textDecoration:'underline'}} >{val.category} </span>
                         <button onClick={()=>{this.delmoviecategory(val.id,val.idcategory)}} className="right">del</button>
                     </div>
                 )
@@ -278,7 +290,7 @@ export class AdminMovie extends Component {
                                         <button className="left" onClick={()=>this.setState({selRow:null})}>cancle</button>
                                     </div>
                                 </div>
-                                <div className="row center valign-wrapper blue-grey lighten-5" style={{fontSize:12, marginBottom:0, marginTop:0 , marginBottom:"2%"}}>
+                                <div className="row center valign-wrapper blue-grey lighten-5" style={{fontSize:12, marginBottom:0, marginTop:0, paddingTop:"1%" , marginBottom:"2%"}}>
                                     <div className="col s1">
                                         <img style={{width:"100%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
                                     </div>
@@ -355,7 +367,7 @@ export class AdminMovie extends Component {
                                         <button className="left" onClick={()=>this.setState({selRow:null})}>cancle</button>
                                     </div>
                                 </div>
-                                <div className="row center valign-wrapper" style={{fontSize:12, marginBottom:0, marginTop:0}}>
+                                <div className="row center valign-wrapper" style={{fontSize:12, paddingTop:"1%", marginBottom:0, marginTop:0}}>
                                     <div className="col s1">
                                         <img style={{width:"100%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
                                     </div>
