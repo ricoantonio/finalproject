@@ -63,6 +63,7 @@ export class PaymentMethod extends Component {
             phone: this.state.phone,
             plan: this.props.plan,
             type: this.state.type === 1 ? 'OVO' : 'DANA',
+            totalpay: this.props.plan === 'month' ? 50000 : 350000,
             dateupload: moment().format('YYYY-MM-DD H:mm:ss')
         }
 

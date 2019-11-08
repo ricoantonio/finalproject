@@ -20,6 +20,7 @@ export class MovieDetal extends Component {
         console.log(this.props.match.params.link);
         
         
+        
         Axios.get(
             urlApi+`/movie/getdatalink/${this.props.match.params.link}`
         ).then((res)=>{
@@ -28,7 +29,13 @@ export class MovieDetal extends Component {
             this.setState({data: res.data[0]})
             console.log(res.data);
             
-            if (this.props.email){
+            Axios.get(urlApi+'/movie/getselmoviecategory',{
+                params:{
+                    id:this.state.data.id
+                }
+            })
+
+            if (this.props.email && this.props.plan ==='premium'){
                 Axios.get(urlApi+`/movie/gethistory`, {
                     params:{
                         idmovie:this.state.data.id,

@@ -6,15 +6,23 @@ import {Redirect, Link} from 'react-router-dom'
 import moment from 'moment'
 import Nav from './Nav'
 import urlApi from '../helpers'
+import NotifPromo from './NotifPromo'
+import NotifPromoRed from './NotifPromoRed'
 
 export class MyAccount extends Component {
     
   state={
     data:[],
-    loading:false
+    loading:false,
+    promo:0
   }
 
   componentDidMount() {
+    
+    this.getData()
+  }
+    
+  getData=()=>{
     Axios.get(urlApi+'/auth/getdata',{
       params:{
         email:this.props.email
@@ -29,15 +37,62 @@ export class MyAccount extends Component {
     }).catch((err)=>{
 
     })
-    
   }
+
+  promoInput=(promo)=>{
+    promo.preventDefault();
+    // console.log(promo);
     
+    Axios.get(urlApi+'/payment/promo',{
+      params:{
+        promo:promo.target[0].value
+      }
+    }).then((res)=>{
+      
+      if(res.data.length>0){
+        if (res.data[0].promo === '7-DAYSFREETRIAL' ){
+          
+          this.setState({promo:1})
+          Axios.post(urlApi+'/payment/userpromo',{
+            email:this.props.email,
+            promo:res.data[0].promo,
+            dateStart:moment().format('YYYYY-MM-DD, H:mm:ss'),
+            dateEnd:moment().add(7, 'days').format('YYYYY-MM-DD, H:mm:ss')
+          }).then((res)=>{
+            this.getData()
+          }).catch((err)=>{
+  
+          })
+        }
+
+
+      }else{
+        // console.log('b');
+        this.setState({promo:2})
+      }
+    }).catch((err)=>{
+
+    })
+    this.setState({promo:0})
+  }
+
+
   renderMy=()=>{
    let {name,email,plan,dateEnd}=this.state.data
 
     return(
       <div>
         <Nav/>
+        {
+          this.state.promo === 1 ? 
+          <>
+            <NotifPromo/>
+          </> :
+          this.state.promo === 2 ? 
+          <>
+            <NotifPromoRed/>
+          </>  :''
+        }
         <div className="container">
           <div className="row">
             <div className="center" style={{marginTop:"8%"}}>
@@ -57,8 +112,10 @@ export class MyAccount extends Component {
                   plan==='premium'?
                   <span>Your subscription will end on : <b>{moment(dateEnd).format(`DD-MM-YYYY`)}</b></span>:''
                 }
-                <div class="input-field" style={{marginRight:"20px"}} >
-                    <input className="not-square promocode center" id="search" style={{height:"30px", fontSize:"18px", paddingLeft:10, paddingRight:10}} type="search" placeholder='Enter Promo Code' required/>
+                <div className="input-field" style={{marginRight:"20px"}} >
+                   <form onSubmit={this.promoInput}>
+                    <input className="not-square promocode center" style={{height:"30px", fontSize:"18px", paddingLeft:10, paddingRight:10}} type="text" placeholder='Enter Promo Code'/>
+                   </form>
                 </div>
               </div>
             </div>

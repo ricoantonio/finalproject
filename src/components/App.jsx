@@ -152,7 +152,7 @@ class App extends Component{
                         
                     }else{
 
-                        console.log('free');
+                        console.log('free user');
                         return (
                             <>
                                 <BrowserRouter>
