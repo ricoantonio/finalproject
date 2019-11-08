@@ -30,7 +30,7 @@ export class PendingUser extends Component {
         })
     }
 
-    approve=(email,plan)=>{
+    approve=(email,plan,id)=>{
         // console.log(email);
         console.log(this.props.id);
         
@@ -45,7 +45,9 @@ export class PendingUser extends Component {
                         email:email,
                         dateStart:moment().format('YYYY-MM-DD H:mm:ss'),
                         dateEnd:moment().add(1,'year').format('YYYY-MM-DD H:mm:ss'),
-                        id:this.props.id
+                        id:this.props.id,
+                        payId:id
+
                     }).then((res)=>{
                         this.getData()
                         console.log(res);
@@ -58,7 +60,8 @@ export class PendingUser extends Component {
                         email:email,
                         dateStart:moment().format('YYYY-MM-DD H:mm:ss'),
                         dateEnd:moment().add(1,'month').format('YYYY-MM-DD H:mm:ss'),
-                        id:this.props.id
+                        id:this.props.id,
+                        payId:id
                     }).then((res)=>{
                         this.getData()
                         console.log(res);
@@ -72,7 +75,8 @@ export class PendingUser extends Component {
                         email:email,
                         dateStart:moment().format('YYYY-MM-DD H:mm:ss'),
                         dateEnd:moment().add(1,'year').format('YYYY-MM-DD H:mm:ss'),
-                        id:this.props.id
+                        id:this.props.id,
+                        payId:id
                     }).then((res)=>{
                         this.getData()
                         console.log(res);
@@ -85,7 +89,8 @@ export class PendingUser extends Component {
                         email:email,
                         dateStart:moment().format('YYYY-MM-DD H:mm:ss'),
                         dateEnd:moment().add(1,'month').format('YYYY-MM-DD H:mm:ss'),
-                        id:this.props.id
+                        id:this.props.id,
+                        payId:id
                     }).then((res)=>{
                         this.getData()
                         console.log(res);
@@ -101,7 +106,6 @@ export class PendingUser extends Component {
             
         })
 
-       
     }
 
     decline=(email)=>{
@@ -151,7 +155,7 @@ export class PendingUser extends Component {
                         {val.plan}
                     </div>
                     <div className="col s2">
-                        <button onClick={()=>{this.approve(val.email,val.plan)}} className="btn not-square green btn-floating waves-effect" style={{marginRight:20}}><i className="material-icons">check</i></button>
+                        <button onClick={()=>{this.approve(val.email,val.plan,val.id)}} className="btn not-square green btn-floating waves-effect" style={{marginRight:20}}><i className="material-icons">check</i></button>
                         <button onClick={()=>{this.decline(val.email)}} className="btn not-square red btn-floating waves-effect"><i className="material-icons">close</i></button>
                     </div>
                 </div>
