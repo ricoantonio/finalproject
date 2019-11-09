@@ -8,12 +8,15 @@ import {Link} from 'react-router-dom'
 
 
 import urlApi from '../helpers'
+import TopMovie from './TopMovie';
+import RelatedMovie from './RelatedMovie';
 
 export class MovieDetal extends Component {
     state={
         data:[],
         userHistory:[],
-        check:false
+        check:false,
+        category:[]
     }
     componentDidMount() {
         
@@ -33,6 +36,15 @@ export class MovieDetal extends Component {
                 params:{
                     id:this.state.data.id
                 }
+            }).then((res)=>{
+                console.log(res);
+                this.setState({category:res.data})
+                console.log('datakelar');
+                
+                
+            }).catch((err)=>{
+                console.log(err);
+                
             })
 
             if (this.props.email && this.props.plan ==='premium'){
@@ -70,6 +82,17 @@ export class MovieDetal extends Component {
             
         })
     }
+
+    renderCategory=()=>{
+        let list = this.state.category.map((val)=>{
+            return (
+                <div className="col s3 not-square black center white-text" style={{ marginRight:10, padding:10, marginTop:10}}>
+                    {val.category}
+                </div>
+            )
+        })
+        return list
+    }
     
     render() {
         if(this.state.check){
@@ -94,14 +117,20 @@ export class MovieDetal extends Component {
                     </div>
                     }
                     <div className='row'>
-                        <div>
-                            <h4>{this.state.data.title} ({this.state.data.year})</h4>
-                        </div>
-                        <div className="col s2">
-                            <img style={{width:"100%"}} src={urlApi+'/posters/'+this.state.data.pic} alt=""/>
-                        </div>
-                        <div className="col s4">
-                            <p>{this.state.data.description}</p>
+                        <div className="col s10 offset-s1">
+                            <div>
+                                <h4>{this.state.data.title} ({this.state.data.year})</h4>
+                            </div>
+                            <div className="col s2" style={{marginTop:"2%"}}>
+                                <img style={{width:"100%"}} src={urlApi+'/posters/'+this.state.data.pic} alt=""/>
+                            </div>
+                            <div className="col s4" style={{marginTop:"2%"}}>
+                                <p style={{fontSize:20, marginTop:0}}>{this.state.data.description}</p>
+                                {this.renderCategory()}
+                            </div>
+                            <div className="col s6">
+                                <RelatedMovie category={this.state.category} />
+                            </div>
                         </div>
                     </div>
                     <Footer/>

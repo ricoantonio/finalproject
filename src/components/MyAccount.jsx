@@ -52,7 +52,6 @@ export class MyAccount extends Component {
       if(res.data.length>0){
         if (res.data[0].promo === '7-DAYSFREETRIAL' ){
           
-          this.setState({promo:1})
           Axios.post(urlApi+'/payment/userpromo',{
             email:this.props.email,
             promo:res.data[0].promo,
@@ -60,14 +59,15 @@ export class MyAccount extends Component {
             dateEnd:moment().add(7, 'days').format('YYYYY-MM-DD, H:mm:ss')
           }).then((res)=>{
             this.getData()
-            window.location.reload();
-
+            this.setState({promo:1})
+            
+            setInterval(()=>{window.location.reload()}, 1000);
           }).catch((err)=>{
-  
+            
           })
         }
-
-
+        
+        
       }else{
         // console.log('b');
         this.setState({promo:2})

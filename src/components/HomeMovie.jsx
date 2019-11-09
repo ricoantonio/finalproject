@@ -37,7 +37,7 @@ class HomeMovie extends Component{
                 <>
                 {
                     val.isDeleted === 0 ?
-                    <div className="col s2" style={{height:"500px", paddingBottom:"5%", marginTop:"3%"}}>
+                    <div className="col s2" style={{height:"400px", paddingBottom:"5%", marginTop:"3%"}}>
                         <div className="poster" style={{width:"100%"}}>
                             <Link to={link}>
                                 <img className="not-square2 image-poster" style={{width:"85%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
@@ -69,7 +69,9 @@ class HomeMovie extends Component{
                     <BestThisWeek/>
                         <h1 className="sideText black-text center">Movie</h1>
                         <div className="row">
-                            {this.renderData()}
+                            <div className="col s10 offset-s1">
+                                {this.renderData()}
+                            </div>
                         </div>
                     <Footer/>
                 </div>

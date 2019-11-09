@@ -219,7 +219,7 @@ export class AdminMovie extends Component {
                     <div className="col s6" style={{fontSize:12}}>
                         <span className="left" style={{textDecoration:'underline'}} >{val.category} </span>
                         {/* <button onClick={()=>{this.delmoviecategory(val.id,val.idcategory)}}  className="right"> */}
-                            <   i className="material-icons right red-text" onClick={()=>{this.delmoviecategory(val.id,val.idcategory)}} style={{cursor:'pointer'}}>close</i>
+                            <i className="material-icons right red-text" onClick={()=>{this.delmoviecategory(val.id,val.idcategory)}} style={{cursor:'pointer'}}>close</i>
                         {/* </button> */}
                     </div>
                 )
@@ -230,7 +230,6 @@ export class AdminMovie extends Component {
 
     rendercategory=()=>{
         // console.log(this.state.categories);
-        var arr = []
         let list = this.state.categories.map((val)=>{
             return(
                 // arr.push({name:val.category,value:val.id})
@@ -602,7 +601,7 @@ export class AdminMovie extends Component {
                 </div>
                 {this.renderData2()}
 
-                {/* <table className=" striped white"  style={{fontSize:10}}>
+                {/*     <table className=" striped white"  style={{fontSize:10}}>
                     <thead>
                        <tr>
                             <th></th>
