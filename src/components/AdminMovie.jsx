@@ -218,7 +218,9 @@ export class AdminMovie extends Component {
                 return(
                     <div className="col s6" style={{fontSize:12}}>
                         <span className="left" style={{textDecoration:'underline'}} >{val.category} </span>
-                        <button onClick={()=>{this.delmoviecategory(val.id,val.idcategory)}} className="right">del</button>
+                        {/* <button onClick={()=>{this.delmoviecategory(val.id,val.idcategory)}}  className="right"> */}
+                            <   i className="material-icons right red-text" onClick={()=>{this.delmoviecategory(val.id,val.idcategory)}} style={{cursor:'pointer'}}>close</i>
+                        {/* </button> */}
                     </div>
                 )
             }
@@ -284,10 +286,10 @@ export class AdminMovie extends Component {
                                         <input style={{fontSize:12}}  type="number" onChange={(e)=>{this.setState({selYear:e.target.value})}} value={this.state.selYear}/>
                                     </div>
                                     <div className="col s1">
-                                        <button className="right" onClick={()=>{this.onSave(val.id)}}>save</button>
+                                        <button className="right btn-small green"  style={{fontSize:10,paddingRight:5,paddingLeft:5, height:30}} onClick={()=>{this.onSave(val.id)}}>save</button>
                                     </div>
                                     <div className="col s1">
-                                        <button className="left" onClick={()=>this.setState({selRow:null})}>cancle</button>
+                                        <button className="left btn-small black" style={{fontSize:10,paddingRight:5,paddingLeft:5, height:30}} onClick={()=>this.setState({selRow:null})}>cancle</button>
                                     </div>
                                 </div>
                                 <div className="row center valign-wrapper blue-grey lighten-5" style={{fontSize:12, marginBottom:0, marginTop:0, paddingTop:"1%" , marginBottom:"2%"}}>
@@ -342,7 +344,7 @@ export class AdminMovie extends Component {
                                                 this.state.selcategory==-1 ?
                                                 <input placeholder="Other Category" style={{fontSize:12, marginTop:0}} onChange={(e)=>{this.setState({other:e.target.value})}} type="text"/> : ''
                                             }
-                                            <button onClick={()=>{this.addcategory(val.id)}}>add</button>
+                                            <button className="btn-small green" onClick={()=>{this.addcategory(val.id)}} style={{fontSize:10,paddingRight:5,paddingLeft:5, height:30, marginLeft:5}} ><i className="material-icons">add</i></button>
                                         </div>
                                     </div>
                                     <div className="col s2">
@@ -361,10 +363,10 @@ export class AdminMovie extends Component {
                                         <input style={{fontSize:12}}  type="number" onChange={(e)=>{this.setState({selYear:e.target.value})}} value={this.state.selYear}/>
                                     </div>
                                     <div className="col s1">
-                                        <button className="right" onClick={()=>{this.onSave(val.id)}}>save</button>
+                                        <button className="right btn-small green"  style={{fontSize:10,paddingRight:5,paddingLeft:5, height:30}} onClick={()=>{this.onSave(val.id)}}>save</button>
                                     </div>
                                     <div className="col s1">
-                                        <button className="left" onClick={()=>this.setState({selRow:null})}>cancle</button>
+                                        <button className="left btn-small black"  style={{fontSize:10,paddingRight:5,paddingLeft:5, height:30}} onClick={()=>this.setState({selRow:null})}>cancle</button>
                                     </div>
                                 </div>
                                 <div className="row center valign-wrapper" style={{fontSize:12, paddingTop:"1%", marginBottom:0, marginTop:0}}>
@@ -416,7 +418,7 @@ export class AdminMovie extends Component {
                                                 this.state.selcategory==-1?
                                                 <input placeholder="Other Category" style={{fontSize:12, marginTop:0}} onChange={(e)=>{this.setState({other:e.target.value})}} type="text"/> : ''
                                             }
-                                            <button onClick={()=>{this.addcategory(val.id)}}>add</button>
+                                            <button className="btn-small green" onClick={()=>{this.addcategory(val.id)}}  style={{fontSize:10,paddingRight:5,paddingLeft:5, height:30, marginLeft:5}} ><i className="material-icons">add</i></button>
                                         </div>
                                     </div>
                                     <div className="col s2">
@@ -438,7 +440,7 @@ export class AdminMovie extends Component {
                                     <div className="col s2" style={{paddingLeft:0,paddingRight:0}}>{val.title}</div>
                                     <div className="col s1">{val.year}</div>
                                     <div className="col s1">
-                                        <button className="right" onClick={()=>{
+                                        <button className="right btn-small black" style={{fontSize:10,paddingRight:5,paddingLeft:5, height:30}} onClick={()=>{
                                             this.setState({
                                                 selRow:val.id,
                                                 selTitle:val.title,
@@ -451,7 +453,7 @@ export class AdminMovie extends Component {
                                         </button>
                                     </div>
                                     <div className="col s1">
-                                        <button className="left" onClick={()=>{this.delete(val.id)}}>del</button>
+                                        <button className="left btn-small red" style={{fontSize:10,paddingRight:5,paddingLeft:5, height:30}} onClick={()=>{this.delete(val.id)}}>del</button>
                                     </div>
                                 </div> :
                                 <div className="row center" style={{fontSize:12, marginBottom:2, marginTop:2}}>
@@ -459,7 +461,7 @@ export class AdminMovie extends Component {
                                     <div className="col s2" style={{paddingLeft:0,paddingRight:0}}>{val.title}</div>
                                     <div className="col s1">{val.year}</div>
                                     <div className="col s1">
-                                        <button className="right" onClick={()=>{
+                                        <button className="right btn-small black" style={{fontSize:10,paddingRight:5,paddingLeft:5, height:30}} onClick={()=>{
                                             this.setState({
                                                 selRow:val.id,
                                                 selTitle:val.title,
@@ -472,7 +474,7 @@ export class AdminMovie extends Component {
                                         </button>
                                     </div>
                                     <div className="col s1">
-                                        <button className="left" onClick={()=>{this.delete(val.id)}}>del</button>
+                                        <button className="left btn-small red" style={{fontSize:10,paddingRight:5,paddingLeft:5, height:30}} onClick={()=>{this.delete(val.id)}}>del</button>
                                     </div>
                                 </div> 
                             }

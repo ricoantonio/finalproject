@@ -113,7 +113,7 @@ class App extends Component{
                         </>
                     )
                 }else{
-                    if(this.props.email){
+                    if(this.props.email && this.props.plan === 'premium' && moment(this.props.dateEnd)<=moment()){
                         console.log('update to free');
                         console.log(this.props.id);
                         

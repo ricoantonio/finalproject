@@ -60,6 +60,8 @@ export class MyAccount extends Component {
             dateEnd:moment().add(7, 'days').format('YYYYY-MM-DD, H:mm:ss')
           }).then((res)=>{
             this.getData()
+            window.location.reload();
+
           }).catch((err)=>{
   
           })

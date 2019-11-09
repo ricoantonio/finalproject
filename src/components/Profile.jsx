@@ -91,15 +91,15 @@ export class Profile extends Component {
           open={Boolean(this.state.anchorEl)}
           onClose={this.handleClose}
         > 
-        <div style={{paddingLeft:80,paddingRight:80}}>
-          <div className="center">
+        <div style={{paddingLeft:70,paddingRight:70}}>
+          <div className="center" >
             <i className="material-icons" style={{fontSize:"100px",marginRight:5}}>account_circle</i>
             <h5>{this.state.data.name}</h5>
-            <p>{this.state.data.email}</p>
+            <p style={{marginLeft:20, marginRight:20}}>{this.state.data.email}</p>
             <p className="row">
               {this.state.data.plan=== 'free' ? 'Free' : 
               this.state.data.plan === 'pending' ? <span className="green-text">Pending...</span> : 
-              <span className="yellow-text text-darken-3 col s8 offset-s2" style={{paddingRight:0,paddingLeft:0}}>PREMIUM<i className="material-icons right" style={{marginLeft:0}}>grade</i></span>}
+              <span className="yellow-text text-darken-3 col s8 offset-s2 " style={{paddingRight:0,paddingLeft:0}}>PREMIUM<i className="material-icons right" style={{marginLeft:0}}>grade</i></span>}
             </p>
           </div>
         </div>
