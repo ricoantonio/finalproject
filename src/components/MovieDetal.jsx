@@ -8,7 +8,6 @@ import {Link} from 'react-router-dom'
 
 
 import urlApi from '../helpers'
-import TopMovie from './TopMovie';
 import RelatedMovie from './RelatedMovie';
 
 export class MovieDetal extends Component {
@@ -27,19 +26,21 @@ export class MovieDetal extends Component {
         Axios.get(
             urlApi+`/movie/getdatalink/${this.props.match.params.link}`
         ).then((res)=>{
-            console.log(this.state.data);
+            // console.log(this.state.data);
+            // console.log(res.data);
             // res.data={id, name, desc, price, pic}
             this.setState({data: res.data[0]})
-            console.log(res.data);
             
             Axios.get(urlApi+'/movie/getselmoviecategory',{
                 params:{
                     id:this.state.data.id
                 }
             }).then((res)=>{
-                console.log(res);
+                // console.log(res);
                 this.setState({category:res.data})
-                console.log('datakelar');
+                // console.log('datakelar');
+                console.log(this.state.category);
+                
                 
                 
             }).catch((err)=>{
