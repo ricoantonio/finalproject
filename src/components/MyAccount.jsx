@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {onLogoutUser} from '../action/index'
-import {premiumPromo} from '../action/index'
+import {onRefresh} from '../action/index'
 import Axios from 'axios';
 import {Redirect, Link} from 'react-router-dom'
 import moment from 'moment'
@@ -59,9 +59,9 @@ export class MyAccount extends Component {
             dateStart:moment().format('YYYYY-MM-DD, H:mm:ss'),
             dateEnd:moment().add(7, 'days').format('YYYYY-MM-DD, H:mm:ss')
           }).then((res)=>{
-            this.props.premiumPromo()
             this.getData()
             this.setState({promo:1})
+            this.props.onRefresh(this.props.email)
             // setInterval(()=>{window.location.reload()}, 1000);
             
           }).catch((err)=>{
@@ -86,16 +86,18 @@ export class MyAccount extends Component {
 
     return(
       <div>
-        <Nav/>
         {
           this.state.promo === 1 ? 
           <>
+            <Nav/>
             <NotifPromo/>
           </> :
           this.state.promo === 2 ? 
           <>
+            <Nav/>
             <NotifPromoRed/>
-          </>  :''
+          </>  : 
+          <Nav/>
         }
         <div className="container">
           <div className="row">
@@ -154,4 +156,4 @@ const mapStateToProps=state=>{
   }
 }
 
-export default connect(mapStateToProps,{onLogoutUser, premiumPromo})(MyAccount)
+export default connect(mapStateToProps,{onLogoutUser, onRefresh})(MyAccount)

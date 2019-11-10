@@ -16,6 +16,10 @@ const AuthReducer=(state=init, action)=>{
         case 'LOGIN_SUCCESS':
             // Akan menyalin property di state untuk kemudian di ubah id dan usernamenya 
             return {...state, id: action.payload.id, email: action.payload.email, role:action.payload.role, plan:action.payload.plan, dateEnd: action.payload.dateEnd}
+        
+            case 'REFRESH':
+            // Akan menyalin property di state untuk kemudian di ubah id dan usernamenya 
+            return {id: action.payload.id, email: action.payload.email, role:action.payload.role, plan:action.payload.plan, dateEnd: action.payload.dateEnd}
 
         case 'LOGIN_ERROR_WRONG_PASS':
             return {...state, errPass:true,errUser:false}

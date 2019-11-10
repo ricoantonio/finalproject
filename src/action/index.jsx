@@ -74,6 +74,49 @@ export const onLoginUser=(EMAIL, PASSWORD)=>{
     
 }
 
+export const onRefresh=(EMAIL)=>{
+
+    return (dispatch)=>{
+        // console.log(EMAIL);
+        // console.log(PASSWORD);
+        
+        axios.get(
+            urlApi+ "/auth/getdata", 
+            {
+                params:{
+                    email:EMAIL,
+                }
+            }
+        ).then((res)=>{
+            
+                //success
+                // console.log(res.data.result);
+                console.log('s');
+                console.log(res.data);
+                
+                let {id,email,role,plan,dateEnd}=res.data[0]
+
+                localStorage.setItem(
+                    'userData',
+                    JSON.stringify({id,email,role,plan,dateEnd})
+                )
+                
+                
+                dispatch(
+                    { 
+                        type:"REFRESH",
+                        payload:{
+                            id,email,role,plan,dateEnd
+                        }
+                    }
+                )
+        }).catch((err)=>{
+            
+        })
+    }
+    
+}
+
 export const onLogoutUser=()=>{
     // menghapus data di local storage
     
