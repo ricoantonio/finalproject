@@ -84,3 +84,16 @@ export const onLogoutUser=()=>{
         type:"LOGOUT_SUCCESS"
     }
 }
+
+
+export const premiumPromo=()=>{
+    console.log('a');
+    return(dispatch)=>{
+        
+        dispatch ({
+
+            type:"PREMIUM_USER"
+        
+        })
+    }
+}

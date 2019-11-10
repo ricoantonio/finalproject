@@ -8,7 +8,6 @@ import {Link} from 'react-router-dom'
 import ItemsCarousel from 'react-items-carousel'
 
 import urlApi from '../helpers'
-import RelatedMovie from './RelatedMovie';
 
 export class MovieDetal extends Component {
     state={
@@ -178,7 +177,7 @@ export class MovieDetal extends Component {
                                             disableSwipe={false}
                                             alwaysShowChevrons={false}
                                             numberOfCards={3}
-                                            slidesToScroll={1}
+                                            slidesToScroll={2}
                                             outsideChevron={true}
                                             showSlither={false}
                                             firstAndLastGutter={false}

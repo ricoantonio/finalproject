@@ -30,6 +30,9 @@ const AuthReducer=(state=init, action)=>{
         case "LOGIN_CLICK":
             return {...state, errPass:false, errUser:false}
 
+        case "PREMIUM_USER":
+            return {...state, plan:'premium'}
+
         default:
             return state;
     }
