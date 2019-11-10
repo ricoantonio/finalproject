@@ -22,7 +22,7 @@ export class MovieDetal extends Component {
 
     componentDidMount() {
         
-        console.log(this.props.match.params.link);
+        // console.log(this.props.match.params.link);
         
         
         
@@ -42,14 +42,14 @@ export class MovieDetal extends Component {
                 // console.log(res);
                 this.setState({category:res.data})
                 // console.log('datakelar');
-                console.log(this.state.category);
+                // console.log(this.state.category);
                 Axios.get(urlApi+'/movie/related',{
                     params:{
                         id:this.state.data.id
                     }
                 }).then((res)=>{
                     this.setState({related:res.data})
-                    console.log(this.state.related);
+                    // console.log(this.state.related);
                     
                 }).catch((err)=>{
                     console.log(err);

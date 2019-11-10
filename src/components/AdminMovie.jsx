@@ -277,7 +277,7 @@ export class AdminMovie extends Component {
                             index%2===1 ?
                             <>
                                 <div className="row center blue-grey lighten-5" style={{fontSize:12, marginBottom:0, paddingTop:"2%"}}>
-                                    <div className="col s1 offset-s3">{index+1}</div>
+                                    <div className="col s1 offset-s3">{val.id}</div>
                                     <div className="col s2">
                                         <input style={{fontSize:12, paddingLeft:0,paddingRight:0}} type="text" onChange={(e)=>{this.setState({selTitle:e.target.value})}} value={this.state.selTitle}/>
                                     </div>
@@ -291,7 +291,7 @@ export class AdminMovie extends Component {
                                         <button className="left btn-small black" style={{fontSize:10,paddingRight:5,paddingLeft:5, height:30}} onClick={()=>this.setState({selRow:null})}>cancle</button>
                                     </div>
                                 </div>
-                                <div className="row center valign-wrapper blue-grey lighten-5" style={{fontSize:12, marginBottom:0, marginTop:0, paddingTop:"1%" , marginBottom:"2%"}}>
+                                <div className="row center valign-wrapper blue-grey lighten-5" style={{fontSize:12, marginBottom:0, marginTop:0, paddingTop:"1%" , paddingBottom:"2%"}}>
                                     <div className="col s1">
                                         <img style={{width:"100%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
                                     </div>
@@ -354,7 +354,7 @@ export class AdminMovie extends Component {
                             :
                             <>
                                 <div className="row center" style={{fontSize:12, marginBottom:0, marginTop:"2%"}}>
-                                    <div className="col s1 offset-s3">{index+1}</div>
+                                    <div className="col s1 offset-s3">{val.id}</div>
                                     <div className="col s2">
                                         <input style={{fontSize:12,paddingLeft:0,paddingRight:0}} type="text" onChange={(e)=>{this.setState({selTitle:e.target.value})}} value={this.state.selTitle}/>
                                     </div>
@@ -368,7 +368,7 @@ export class AdminMovie extends Component {
                                         <button className="left btn-small black"  style={{fontSize:10,paddingRight:5,paddingLeft:5, height:30}} onClick={()=>this.setState({selRow:null})}>cancle</button>
                                     </div>
                                 </div>
-                                <div className="row center valign-wrapper" style={{fontSize:12, paddingTop:"1%", marginBottom:0, marginTop:0}}>
+                                <div className="row center valign-wrapper" style={{fontSize:12, paddingTop:"1%", marginBottom:0, marginTop:0, paddingBottom:"2%"}}>
                                     <div className="col s1">
                                         <img style={{width:"100%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
                                     </div>
@@ -435,7 +435,7 @@ export class AdminMovie extends Component {
                             {
                                 index%2===1 ? 
                                 <div className="row center blue-grey lighten-5" style={{fontSize:12, marginBottom:2, marginTop:2}}>
-                                    <div className="col s1 offset-s3">{index+1}</div>
+                                    <div className="col s1 offset-s3">{val.id}</div>
                                     <div className="col s2" style={{paddingLeft:0,paddingRight:0}}>{val.title}</div>
                                     <div className="col s1">{val.year}</div>
                                     <div className="col s1">
@@ -456,7 +456,7 @@ export class AdminMovie extends Component {
                                     </div>
                                 </div> :
                                 <div className="row center" style={{fontSize:12, marginBottom:2, marginTop:2}}>
-                                    <div className="col s1 offset-s3">{index+1}</div>
+                                    <div className="col s1 offset-s3">{val.id}</div>
                                     <div className="col s2" style={{paddingLeft:0,paddingRight:0}}>{val.title}</div>
                                     <div className="col s1">{val.year}</div>
                                     <div className="col s1">
@@ -594,7 +594,7 @@ export class AdminMovie extends Component {
                 </div>
 
                 <div className="row center">
-                    <div className="col s1 offset-s3"><b>No.</b></div>
+                    <div className="col s1 offset-s3"><b>id.</b></div>
                     <div className="col s2"><b>Title</b></div>
                     <div className="col s1"><b>Year</b></div>
                     <div className="col s2"><b>Action</b></div>
