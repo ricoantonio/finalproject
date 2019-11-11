@@ -17,10 +17,10 @@ import urlApi from '../helpers'
 export class PaymentMethod extends Component {
 
     state={
-        type:'',
-        done:false,
-        file:null,
-        phone:'',
+        type:'' ,
+        done:false ,
+        file:null ,
+        phone:'' ,
         rop:null
     }
    

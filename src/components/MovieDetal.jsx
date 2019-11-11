@@ -6,6 +6,8 @@ import Nav from './Nav'
 import Footer from './Footer'
 import {Link} from 'react-router-dom'
 import ItemsCarousel from 'react-items-carousel'
+import moment from 'moment'
+
 
 import urlApi from '../helpers'
 
@@ -69,9 +71,10 @@ export class MovieDetal extends Component {
                     }
                 }).then((res2)=>{
                     if (res2.data.length === 0){
-                        Axios.put(urlApi+'/movie/updateview',{
+                        Axios.post(urlApi+'/movie/updateview',{
                             id:this.state.data.id,
-                            iduser:this.props.id
+                            iduser:this.props.id,
+                            date:moment().format('YYYY-MM-DD H:mm:ss')
                         })
                         .then((res3)=>{
                             this.setState({check:true})
@@ -168,7 +171,7 @@ export class MovieDetal extends Component {
                             </div>
                             <div className="col s6">
                                 <div style={{"padding":"0 10px","maxWidth":"90%","margin":"0 auto"}}>
-                                    <h4 className="sideText black-text" style={{marginBottom:"5%"}}>You might also like </h4>
+                                    <h4 className="sideText black-text" style={{marginBottom:"5%"}}>More Like This </h4>
                                         <ItemsCarousel
                                             infiniteLoop={false}
                                             gutter={12}

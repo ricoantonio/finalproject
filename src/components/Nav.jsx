@@ -1,12 +1,50 @@
 import React, { Component } from 'react'
 import BogoWhite from '.././Webpic/BOGOlogoWhite.svg'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
+import Axios from 'axios'
 
 import Profile from './Profile'
-
+import urlApi from '../helpers'
 export class Nav extends Component{
     
+    state={
+        data:[],
+        search:'',
+        check: false
+
+    }
+
+    componentDidMount() {
+        this.setState({check: true})
+    }
+
+    onSearch=(e)=>{
+        e.preventDefault()
+        this.setState({search:e.target[0].value})
+        console.log(this.state.search);
+        
+    }
+
+    show=()=>{
+        let list = this.state.data.map((val)=>{
+            if(val.isDeleted===0){
+                return(    
+                    <div className="col s4" style={{padding:20}}>
+                        <div className="col s4">
+                            <img src={urlApi+'/posters/'+val.pic} style={{width:"100%"}} alt=""/>
+                        </div>
+                        <div className="col s8">
+                            <h4 className="sideText">{val.title}</h4>
+                            <span>{val.description}</span>
+                        </div>
+                    </div>
+                )
+            }
+        })
+        return list
+    }
+
     renderNav=()=>{
         // console.log(window.location.pathname);
         
@@ -42,10 +80,19 @@ export class Nav extends Component{
                                     {/* <li>
                                         <a class="waves-effect waves-black btn not-square white black-text"><i class="material-icons left" style={{paddingTop:1,marginRight:1}}>search</i>search</a>
                                     </li> */}
-                                    <div className="input-field inline-block left" style={{width:"60%",height:45,paddingTop:"1%"}} >
-                                        <input className="not-square white-text grey darken-2" id="search" type="search" placeholder='' required/>
-                                        <label className="label-icon"><i className="material-icons white-text" style={{marginBottom:"3%"}}>search</i></label>
-                                    </div>
+
+                                    {
+                                       window.location.pathname === '/search' ? '' :  
+                                        <form onSubmit={this.onSearch}>
+                                            <div className="input-field inline-block left" style={{width:"60%",height:45,paddingTop:"1%"}} >
+                                                <input className="not-square white-text grey darken-2" id="search" type="search" placeholder='' required/>
+                                                <label className="label-icon"><i className="material-icons white-text" style={{marginBottom:"3%"}}>search</i></label>
+                                            </div>
+                                        </form>
+                                    }
+
+
+                                    
                                     {/* <li className="right" style={{margintop:0}}><Link className="navMenu" to="/login">SIGN IN</Link></li> */}
                                     <Link className="right" to='/login'><button className="btn not-square white black-text" >SIGN IN</button></Link>
                                     <Link className="right"  style={{marginBottom:0,paddingRight:0,paddingLeft:0}} to="/register">REGISTER</Link>
@@ -88,15 +135,26 @@ export class Nav extends Component{
                                     {/* <li>
                                         <a class="waves-effect waves-black btn not-square white black-text"><i class="material-icons left" style={{paddingTop:1,marginRight:1}}>search</i>search</a>
                                     </li> */}
+                                    
                                     <div className="right">
                                         <Profile/> 
                                     </div>
-                                    
-                                    <div className="input-field inline-block right" style={{width:"60%",height:45,paddingTop:"1.2%"}} >
+
+                                    {
+                                       window.location.pathname === '/search' ? '' :  
+                                        <form onSubmit={this.onSearch}>
+                                            <div className="input-field inline-block right" style={{width:"60%",height:45,paddingTop:"1.2%"}} >
+                                                <input className="not-square white-text grey darken-2" id="search" type="search" placeholder='' required/>
+                                                <label className="label-icon"><i className="material-icons white-text" style={{marginBottom:"3%"}}>search</i></label>
+                                            </div>
+                                        </form>
+                                    }
+
+                                    {/* <div className="input-field inline-block right" style={{width:"60%",height:45,paddingTop:"1.2%"}} >
                                         <input className="not-square white-text grey darken-2" id="search" type="search" placeholder='' required/>
                                         <label className="label-icon"><i className="material-icons white-text" style={{marginBottom:"3%"}}>search</i></label>
                                     </div>
-                                    
+                                     */}
                                 </ul>
                             {/* <Sidenav/> */}
                             </div>
@@ -108,16 +166,21 @@ export class Nav extends Component{
     }
 
     render() {
-        return(
-            this.renderNav()
-        )
+        console.log(this.props.email)
+        
+        if(this.state.search) return <Redirect to={{pathname:'/search', state:{search:this.state.search}}}/>
+        
+        return this.renderNav()
+    
     }
 }
 
 const mapStateToProps=state=>{
+    
     return {
-      email: state.auth.email,
+      email: state.auth.email
     }
+
 }
 
 // export default connect(mapStateToProps)(Home)

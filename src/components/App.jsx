@@ -24,6 +24,7 @@ import PendingUser from './PendingUser'
 import Axios from 'axios'
 import Notif from './Notif'
 import NotifRed from './NotifRed'
+import HomeSearch from './HomeSearch'
 
 const keepLogin =(objUser)=>{
     return{
@@ -83,6 +84,7 @@ class App extends Component{
                             <Route path="/subregis" component={RegisPlan}/>
                             <Route path="/sublogin" component={LoginPlan}/>
                             <Route path="/plan" component={SelectedPlan}/>
+                            <Route path="/search" component={HomeSearch}/>
                         </BrowserRouter>
                     </>
          
@@ -109,6 +111,7 @@ class App extends Component{
                                 <Route path="/subregis" component={RegisPlan}/>
                                 <Route path="/sublogin" component={LoginPlan}/>
                                 <Route path="/plan" component={SelectedPlan}/>
+                                <Route path="/search" component={HomeSearch}/>
                             </BrowserRouter>
                         </>
                     )
@@ -146,6 +149,7 @@ class App extends Component{
                                     <Route path="/subregis" component={RegisPlan}/>
                                     <Route path="/sublogin" component={LoginPlan}/>
                                     <Route path="/plan" component={SelectedPlan}/>
+                                    <Route path="/search" component={HomeSearch}/>
                                 </BrowserRouter>
                             </>
                         )
@@ -172,6 +176,7 @@ class App extends Component{
                                     <Route path="/subregis" component={RegisPlan}/>
                                     <Route path="/sublogin" component={LoginPlan}/>
                                     <Route path="/plan" component={SelectedPlan}/>
+                                    <Route path="/search" component={HomeSearch}/>
                                 </BrowserRouter>
                             </>
                         )

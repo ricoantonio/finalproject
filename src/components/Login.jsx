@@ -9,9 +9,9 @@ import {onLoginClick} from '../action/index'
 class Login extends Component{
     
     state={
-        onLoginClick:0,
-        email:'',
-        password:'',
+        onLoginClick:0 ,
+        email:'' ,
+        password:'' ,
         name:'' 
     }
 

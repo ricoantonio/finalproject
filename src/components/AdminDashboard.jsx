@@ -65,27 +65,27 @@ export default function AdminDashboard() {
             indicatorColor='secondary'
             centered
             >
-            <Tab style={{backgroundColor:'white'}} label="Drama List" {...a11yProps(0)} />
-            <Tab style={{backgroundColor:'white'}} label="Variety List" {...a11yProps(1)} />
-            <Tab style={{backgroundColor:'white'}} label="Movie List" {...a11yProps(2)} />
-            <Tab style={{backgroundColor:'white'}} label="Anime List" {...a11yProps(3)} />
-            <Tab style={{backgroundColor:'white'}} label="User List" {...a11yProps(4)} />
+            {/* <Tab style={{backgroundColor:'white'}} label="Drama List" {...a11yProps(0)} />
+            <Tab style={{backgroundColor:'white'}} label="Variety List" {...a11yProps(1)} /> */}
+            <Tab style={{backgroundColor:'white'}} label="Movie List" {...a11yProps(0)} />
+            {/* <Tab style={{backgroundColor:'white'}} label="Anime List" {...a11yProps(3)} /> */}
+            <Tab style={{backgroundColor:'white'}} label="User List" {...a11yProps(1)} />
             </Tabs>
         </Paper>
-        <TabPanel value={value} index={0}>
+        {/* <TabPanel value={value} index={0}>
             Item One
         </TabPanel>
         <TabPanel value={value} index={1}>
             Item Two
-        </TabPanel>
-        <TabPanel value={value} style={{backgroundColor:'white'}} index={2}>
+        </TabPanel> */}
+        <TabPanel value={value} style={{backgroundColor:'white'}} index={0}>
             <AdminMovie/>
         </TabPanel>
-        <TabPanel value={value} index={3}>
+        {/* <TabPanel value={value} index={3}>
             Item Four
-        </TabPanel>
-        <TabPanel value={value} index={4}>
-            Item Four
+        </TabPanel> */}
+        <TabPanel value={value} index={1}>
+            Item User 
         </TabPanel>
     </div>
   );

@@ -21,7 +21,7 @@ class HomeMovie extends Component{
         Axios.get(urlApi+'/movie/getdata'
         ).then((res)=>{
             this.setState({data:res.data})
-            console.log(this.state.data);
+            // console.log(this.state.data);
             this.setState({loading:true})
             this.setState({check:true})
           }).catch((err)=>{
@@ -43,7 +43,7 @@ class HomeMovie extends Component{
                                 <img className="not-square2 image-poster" style={{width:"85%"}} src={urlApi+'/posters/'+val.pic} alt=""/>
                                 <div className="middle-poster">
                                     <div className="text-poster">
-                                        <i className="material-icons" style={{fontSize:"60px"}}>play_circle_outline</i>
+                                        <i className="material-icons" style={{fontSize:"50px"}}>play_circle_outline</i>
                                     </div>
                                 </div>
                             </Link>

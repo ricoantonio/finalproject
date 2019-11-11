@@ -120,7 +120,7 @@ export class MyAccount extends Component {
                 }
                 <div className="input-field" style={{marginRight:"20px"}} >
                    <form onSubmit={this.promoInput}>
-                    <input className="not-square promocode center" style={{height:"30px", fontSize:"18px", paddingLeft:10, paddingRight:10}} type="text" placeholder='Enter Promo Code'/>
+                      <input className="not-square promocode center" style={{height:"30px", fontSize:"18px", paddingLeft:10, paddingRight:10}} type="text" placeholder='Enter Promo Code'/>
                    </form>
                 </div>
               </div>

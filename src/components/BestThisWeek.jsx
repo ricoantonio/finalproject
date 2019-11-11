@@ -8,6 +8,7 @@ import knowingbros from '../Webpic/knowingbros.jpeg'
 import myheroacademia from '../Webpic/myheroacademia.jpg'
 import joker from '../Webpic/JOKER2.jpg'
 import avengers from '../Webpic/avengers3.jpg'
+import Spidey from '../Webpic/spider2.jpg'
 
 class BestThisWeek extends Component{
 
@@ -44,25 +45,30 @@ class BestThisWeek extends Component{
                      <div className="center-align tinted" style={{marginTop:0, marginBottom:0}}  >
                         <Slider {...settings} className="black">
                             <div className="transparent">
-                                <a href="/">
+                                <a href="/movie-detail/avengers-infinity-war-2018">
                                     <img className="center-img z-depth-0 " style={{width:"100%"}} src={avengers} alt="avengers"/>
                                 </a>
                             </div>
-                            <div className="transparent">
+                            {/* <div className="transparent">
                                 <a href="/">
                                     <img className="center-img z-depth-0 " src={runningman} alt="running man"/>
                                 </a>
-                            </div>
+                            </div> */}
                             <div className="transparent">
                                 <a href="/">
                                     <img className="center-img z-depth-0 " style={{ width:"100%"}} src={joker} alt="joker"/>
                                 </a>
                             </div>
                             <div className="transparent">
+                                <a href="/movie-detail/Spider-Man-Into-the-Spider-Verse-2018">
+                                    <img className="center-img z-depth-0 " style={{ width:"100%"}} src={Spidey} alt="spider"/>
+                                </a>
+                            </div>
+                            {/* <div className="transparent">
                                 <a href="/">
                                     <img className="center-img z-depth-0 " src={hoteldelluna} alt="hotel del luna"/>
                                 </a>
-                            </div>
+                            </div> */}
                         </Slider>
                     </div> :
                 window.location.pathname === '/drama' ?
@@ -75,13 +81,18 @@ class BestThisWeek extends Component{
                     <div className="center-align tinted" style={{marginTop:0, marginBottom:0}}  >
                         <Slider {...settings} className="black">
                             <div className="transparent">
-                                <a href="/">
-                                    <img className="center-img z-depth-0 " src={joker} alt="joker"/>
+                                <a href="/movie-detail/avengers-infinity-war-2018">
+                                    <img className="center-img z-depth-0 " style={{ width:"100%"}} src={avengers} alt="avengers"/>
+                                </a>
+                            </div>
+                            <div className="transparent">
+                                <a href="/movie-detail/Spider-Man-Into-the-Spider-Verse-2018">
+                                    <img className="center-img z-depth-0 " style={{ width:"100%"}} src={Spidey} alt="spider"/>
                                 </a>
                             </div>
                             <div className="transparent">
                                 <a href="/">
-                                    <img className="center-img z-depth-0 " src={avengers} alt="avengers"/>
+                                    <img className="center-img z-depth-0 " style={{ width:"100%"}} src={joker} alt="joker"/>
                                 </a>
                             </div>
                         </Slider>
