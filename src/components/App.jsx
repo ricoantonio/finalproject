@@ -54,6 +54,7 @@ class App extends Component{
             this.props.keepLogin(userStorage)
         } 
         
+        
         this.setState({check: true})
     }
 
@@ -64,6 +65,13 @@ class App extends Component{
     render() {
         if(this.state.check){
             if(moment(this.props.dateEnd)>=moment()){
+                Axios.post(urlApi+'/auth/lastactive',{
+                    lastActive:moment().format('YYYY-MM-DD H:mm:ss'),
+                    email:this.props.email
+                }).then((res)=>{
+                }).catch((err)=>{
+                    
+                })
                 console.log('premium');
                 return (   
                     <> 
@@ -89,8 +97,17 @@ class App extends Component{
                     </>
          
                 )
+                
             }else{
                 if(this.props.email==='admin'){
+                    Axios.post(urlApi+'/auth/lastactive',{
+                        lastActive:moment().format('YYYY-MM-DD H:mm:ss'),
+                        email:this.props.email
+                    }).then((res)=>{
+    
+                    }).catch((err)=>{
+                        
+                    })
                     console.log('ini admin');
                     return (
                         <>
@@ -122,14 +139,22 @@ class App extends Component{
                         
                         Axios.post(urlApi+'/payment/tofree',{
                             email:this.props.email,
-                            id:this.props.id
+                            email:this.props.email
                         }).then((res)=>{
                             console.log(res);
+                            Axios.post(urlApi+'/auth/lastactive',{
+                                lastActive:moment().format('YYYY-MM-DD H:mm:ss'),
+                                email:this.props.email
+                            }).then((res)=>{
+                            }).catch((err)=>{
+                                
+                            })
                             
                         }).catch((err)=>{
                             console.log(err);
                             
                         })
+                        
                         return (
                             <>
                                 <BrowserRouter>
@@ -153,9 +178,16 @@ class App extends Component{
                                 </BrowserRouter>
                             </>
                         )
-                        
+    
                     }else{
-
+                        Axios.post(urlApi+'/auth/lastactive',{
+                            lastActive:moment().format('YYYY-MM-DD H:mm:ss'),
+                            email:this.props.email
+                        }).then((res)=>{
+        
+                        }).catch((err)=>{
+                            
+                        })
                         console.log('free user');
                         return (
                             <>

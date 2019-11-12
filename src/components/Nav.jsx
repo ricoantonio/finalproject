@@ -22,7 +22,7 @@ export class Nav extends Component{
     onSearch=(e)=>{
         e.preventDefault()
         this.setState({search:e.target[0].value})
-        console.log(this.state.search);
+        // console.log(this.state.search);
         
     }
 
@@ -166,7 +166,7 @@ export class Nav extends Component{
     }
 
     render() {
-        console.log(this.props.email)
+        // console.log(this.props.email)
         
         if(this.state.search) return <Redirect to={{pathname:'/search', state:{search:this.state.search}}}/>
         
