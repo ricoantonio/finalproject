@@ -8,6 +8,7 @@ import Box from '@material-ui/core/Box';
 import { Paper } from '@material-ui/core';
 import Nav from './Nav';
 import AdminMovie from './AdminMovie';
+import AdminUser from './AdminUser';
 
 
 function TabPanel(props) {
@@ -84,8 +85,8 @@ export default function AdminDashboard() {
         {/* <TabPanel value={value} index={3}>
             Item Four
         </TabPanel> */}
-        <TabPanel value={value} index={1}>
-            Item User 
+        <TabPanel value={value} style={{backgroundColor:'white'}} index={1}>
+            <AdminUser/>
         </TabPanel>
     </div>
   );

@@ -78,6 +78,9 @@ export class PaymentMethod extends Component {
                 id:this.props.id
             }).then((res)=>{
                 this.setState({done:true})
+                console.log(data);
+                console.log(this.state.rop);
+                
             }).catch((err)=>{
                 console.log(err);
             })

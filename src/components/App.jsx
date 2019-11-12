@@ -40,6 +40,7 @@ const keepLogin =(objUser)=>{
 }
 
 class App extends Component{
+
     state={
         check:false
     }
@@ -53,7 +54,6 @@ class App extends Component{
             //kirim ke redux
             this.props.keepLogin(userStorage)
         } 
-        
         
         this.setState({check: true})
     }
