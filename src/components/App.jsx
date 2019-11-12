@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import moment from 'moment'
 
 import urlApi from '../helpers'
+import {onRefresh} from '../action/index'
 
 import Login from './Login'
 import Register from './Register'
@@ -25,6 +26,7 @@ import Axios from 'axios'
 import Notif from './Notif'
 import NotifRed from './NotifRed'
 import HomeSearch from './HomeSearch'
+import { Nav } from './Nav'
 
 const keepLogin =(objUser)=>{
     return{
@@ -134,19 +136,27 @@ class App extends Component{
                     )
                 }else{
                     if(this.props.email && this.props.plan === 'premium' && moment(this.props.dateEnd)<=moment()){
-                        console.log('update to free');
-                        console.log(this.props.id);
+                        // console.log('update to free');
+                        // console.log(this.props.id);
+                        // console.log('a');
                         
                         Axios.post(urlApi+'/payment/tofree',{
                             email:this.props.email,
-                            email:this.props.email
+                            id:this.props.id
+                            
                         }).then((res)=>{
-                            console.log(res);
+                            // console.log('b');
+                            // console.log(res);
+                            this.props.onRefresh(this.props.email)
                             Axios.post(urlApi+'/auth/lastactive',{
                                 lastActive:moment().format('YYYY-MM-DD H:mm:ss'),
                                 email:this.props.email
                             }).then((res)=>{
+                                // console.log('c');
+                                console.log(res);
+                                
                             }).catch((err)=>{
+                                console.log(err);
                                 
                             })
                             
@@ -158,6 +168,7 @@ class App extends Component{
                         return (
                             <>
                                 <BrowserRouter>
+                                    <Nav/>
                                     <Route path="/" exact component={Home}/>
                                     <Route path="/login" component={Login}/>
                                     <Route path="/register" component={Register}/>
@@ -232,4 +243,4 @@ const mapStateToProps=state=>{
     }
 }
 
-export default connect(mapStateToProps,{keepLogin})(App)
+export default connect(mapStateToProps,{keepLogin, onRefresh })(App)

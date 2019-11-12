@@ -27,6 +27,7 @@ export const onLoginUser=(EMAIL, PASSWORD)=>{
             }
         ).then((res)=>{
             
+            console.log(res);
             
  
             // res.data merupakan sebuah array
@@ -39,6 +40,8 @@ export const onLoginUser=(EMAIL, PASSWORD)=>{
                        type:"LOGIN_ERROR_NOT_FOUND"
                     }
                 )
+
+                
             }else if (res.data.status==='401'){
                 // wrong pass
                 dispatch(
@@ -49,23 +52,33 @@ export const onLoginUser=(EMAIL, PASSWORD)=>{
             }else if (res.data.status==='200'){
                 //success
                 // console.log(res.data.result);
-                
-                let {id,email,role,plan,dateEnd}=res.data.result
-
-                localStorage.setItem(
-                    'userData',
-                    JSON.stringify({id,email,role,plan,dateEnd})
-                )
-                
-                
-                dispatch(
-                    { 
-                        type:"LOGIN_SUCCESS",
-                        payload:{
-                            id,email,role,plan,dateEnd
+                if(res.data.result.verify===0){
+                    dispatch(
+                        { 
+                           type:"LOGIN_ERROR_NOT_VERIFY"
                         }
-                    }
-                )
+                    )
+    
+                }else{
+                    
+                    let {id,email,role,plan,dateEnd}=res.data.result
+
+                    localStorage.setItem(
+                        'userData',
+                        JSON.stringify({id,email,role,plan,dateEnd})
+                    )
+                    
+                    
+                    dispatch(
+                        { 
+                            type:"LOGIN_SUCCESS",
+                            payload:{
+                                id,email,role,plan,dateEnd
+                            }
+                        }
+                    )
+                }
+                
             }
         }).catch((err)=>{
             

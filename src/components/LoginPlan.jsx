@@ -108,7 +108,7 @@ export class LoginPlan extends Component {
                     </div>
                 </div>
             )
-        } if (this.props.errPass){
+        }else if (this.props.errPass){
             return(
                 <div>
                     <div className="navbar-fixed" style={{margin:0}}>
@@ -135,7 +135,7 @@ export class LoginPlan extends Component {
                 </div>
 
             )
-        } if (this.props.errUser){
+        }else if (this.props.errUser){
             return(
                 <div>
                     <div className="navbar-fixed" style={{margin:0}}>
@@ -161,6 +161,32 @@ export class LoginPlan extends Component {
                     </div>
                 </div>
 
+            )
+        }else if(this.props.errVerify){
+            return (
+                <div>
+                    <div className="navbar-fixed" style={{margin:0}}>
+                        <div className="z-depth-0">
+                            <nav>
+                                <div class="nav-wrapper white">
+                                    <Link to="/" class=" left"><img className="" src={Bogo} style={{height:"29px", marginLeft:"30%",marginTop:"20%"}} alt="BOGO"/></Link>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div className='row'style={{marginTop:"5%"}}>
+                        <div className="col s4 offset-s4 white" style={{padding:"2%"}}>
+                            <div className="red-text text-darken-3" style={{marginTop:"10%",marginBottom:"5%"}}> 
+                                <b>ACCOUNT HAS NOT VERIFIED</b> <i className="material-icons left">cancel</i>
+                            </div>
+                            {this.checkEmail()}
+                            {this.checkPassword()}
+                            <div className="center">
+                                <button onClick={this.onLogin} className="waves-effect waves-light btn black not-square btn-large" style={{marginTop:"5%"}}>Sign In</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             )
         }else{
             return(
@@ -207,7 +233,8 @@ const mapStateToProps=state=>{
       id: state.auth.id,
       email: state.auth.email,
       errPass:state.auth.errPass,
-      errUser:state.auth.errUser
+      errUser:state.auth.errUser,
+      errVerify:state.auth.errVerify
     }
 }
 

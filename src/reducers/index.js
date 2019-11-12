@@ -8,31 +8,35 @@ const init = {
     plan:"",
     dateEnd:"",
     errPass:false,
-    errUser:false
+    errUser:false,
+    errVerify:false
 }
 
 const AuthReducer=(state=init, action)=>{
     switch (action.type) {
         case 'LOGIN_SUCCESS':
             // Akan menyalin property di state untuk kemudian di ubah id dan usernamenya 
-            return {...state, id: action.payload.id, email: action.payload.email, role:action.payload.role, plan:action.payload.plan, dateEnd: action.payload.dateEnd}
+        return {...state, id: action.payload.id, email: action.payload.email, role:action.payload.role, plan:action.payload.plan, dateEnd: action.payload.dateEnd}
         
-            case 'REFRESH':
-            // Akan menyalin property di state untuk kemudian di ubah id dan usernamenya 
-            return {id: action.payload.id, email: action.payload.email, role:action.payload.role, plan:action.payload.plan, dateEnd: action.payload.dateEnd}
+        case 'REFRESH':
+        // Akan menyalin property di state untuk kemudian di ubah id dan usernamenya 
+        return {id: action.payload.id, email: action.payload.email, role:action.payload.role, plan:action.payload.plan, dateEnd: action.payload.dateEnd}
 
         case 'LOGIN_ERROR_WRONG_PASS':
-            return {...state, errPass:true,errUser:false}
+            return {...state, errPass:true,errUser:false,errVerify:false}
 
         case 'LOGIN_ERROR_NOT_FOUND':
-            return {...state, errUser:true,errPass:false}
+            return {...state, errUser:true,errPass:false,errVerify:false}
+            
+        case 'LOGIN_ERROR_NOT_VERIFY':
+            return {...state,errVerify:true, errUser:false, errPass:false}
             
         // Hilangkan id dan username
         case "LOGOUT_SUCCESS":
             return {...state, id:"", email:""}
 
         case "LOGIN_CLICK":
-            return {...state, errPass:false, errUser:false}
+            return {...state, errPass:false, errUser:false, errVerify:false}
 
         case "PREMIUM_USER":
             return {...state, plan:'premium'}

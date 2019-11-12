@@ -111,7 +111,7 @@ class Login extends Component{
                     </div>
                 </div>
             )
-        }if(this.props.errPass){
+        }else if(this.props.errPass){
             return (
                 <div>
                     <div className="container row">
@@ -139,7 +139,7 @@ class Login extends Component{
                     </div>
                 </div>
             )
-        }if(this.props.errUser){
+        }else if(this.props.errUser){
             return (
                 <div>
                     <div className="container row">
@@ -151,6 +151,34 @@ class Login extends Component{
                                 <h5  className="center" style={{marginTop:"0px"}}>Sign In</h5>
                                 <div className="red-text text-darken-3" style={{marginTop:"10%",marginBottom:"5%"}}> 
                                     <b>USER NOT FOUND</b> <i className="material-icons left">cancel</i>
+                                </div>
+                                <div className="">
+                                    {this.checkEmail()}
+                                    {this.checkPassword()}
+                                </div>
+                                <div className="center">
+                                    <button onClick={this.onLogin} className="waves-effect waves-light btn black not-square btn-large" style={{marginTop:"5%"}}>Sign In</button>
+                                </div>
+                                <div className="center-align">
+                                    <p>Don't have an account? <Link className="teal-text text-darken-1" to="/register">Register</Link></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )
+        }else if(this.props.errVerify){
+            return (
+                <div>
+                    <div className="container row">
+                        <div className="center-align">
+                            <Link className="center-align" to="/"><img className="logo" src={Bogo} alt="LABS"/></Link>
+                        </div>
+                        <div className="border col s4 offset-s4">
+                            <div>
+                                <h5  className="center" style={{marginTop:"0px"}}>Sign In</h5>
+                                <div className="red-text text-darken-3" style={{marginTop:"10%",marginBottom:"5%"}}> 
+                                    <b>ACCOUNT HAS NOT VERIFIED</b> <i className="material-icons left">cancel</i>
                                 </div>
                                 <div className="">
                                     {this.checkEmail()}
@@ -214,7 +242,8 @@ const mapStateToProps=state=>{
       id: state.auth.id,
       email: state.auth.email,
       errPass:state.auth.errPass,
-      errUser:state.auth.errUser
+      errUser:state.auth.errUser,
+      errVerify:state.auth.errVerify,
     }
 }
 
