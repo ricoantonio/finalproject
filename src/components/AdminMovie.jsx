@@ -126,8 +126,8 @@ export class AdminMovie extends Component {
             }
     
             fd.append('movpos', this.state.inPos, this.state.inPos.name)
-            fd2.append('movfile', this.state.inMov, this.state.inMov.name)
             fd.append('data', JSON.stringify(data))
+            fd2.append('movfile', this.state.inMov, this.state.inMov.name)
             fd2.append('data', JSON.stringify(data))
             
             Axios.post(urlApi+'/movie/upmoviepos', fd)

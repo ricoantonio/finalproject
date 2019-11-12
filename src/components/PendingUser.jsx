@@ -46,7 +46,8 @@ export class PendingUser extends Component {
                         dateStart:moment().format('YYYY-MM-DD H:mm:ss'),
                         dateEnd:moment().add(1,'year').format('YYYY-MM-DD H:mm:ss'),
                         id:this.props.id,
-                        payId:id
+                        payId:id,
+                        currentplan:plan
 
                     }).then((res)=>{
                         this.getData()
@@ -61,7 +62,9 @@ export class PendingUser extends Component {
                         dateStart:moment().format('YYYY-MM-DD H:mm:ss'),
                         dateEnd:moment().add(1,'month').format('YYYY-MM-DD H:mm:ss'),
                         id:this.props.id,
-                        payId:id
+                        payId:id,
+                        currentplan:plan
+
                     }).then((res)=>{
                         this.getData()
                         console.log(res);
@@ -76,7 +79,8 @@ export class PendingUser extends Component {
                         dateStart:moment().format('YYYY-MM-DD H:mm:ss'),
                         dateEnd:moment().add(1,'year').format('YYYY-MM-DD H:mm:ss'),
                         id:this.props.id,
-                        payId:id
+                        payId:id,
+                        currentplan:plan
                     }).then((res)=>{
                         this.getData()
                         console.log(res);
@@ -90,7 +94,8 @@ export class PendingUser extends Component {
                         dateStart:moment().format('YYYY-MM-DD H:mm:ss'),
                         dateEnd:moment().add(1,'month').format('YYYY-MM-DD H:mm:ss'),
                         id:this.props.id,
-                        payId:id
+                        payId:id,
+                        currentplan:plan
                     }).then((res)=>{
                         this.getData()
                         console.log(res);

@@ -55,6 +55,7 @@ export class PaymentMethod extends Component {
     }
 
     onDone=()=>{
+        console.log(this.state.file);
         
         var fd = new FormData()
 

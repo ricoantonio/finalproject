@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Home from './Home';
 import moment from 'moment'
 import PaymentMethod from './PaymentMethod';
+import NotifPremium from './NotifPremium'
 export class SelectedPlan extends Component {
 
     state={
@@ -173,25 +174,33 @@ export class SelectedPlan extends Component {
     }
 
     render() {
-        if(this.props.email){
-            if(this.props.location.state){
-                if (this.state.done){
-                    return(
-                        this.renderSelPlan()
-                    )
+        if(this.props.plan !== 'premium'){
+            if(this.props.email){
+                if(this.props.location.state){
+                    if (this.state.done){
+                        return(
+                            this.renderSelPlan()
+                        )
+                    }else{
+                        return(
+                            <p>Loading</p>
+                        )
+                    } 
                 }else{
                     return(
-                        <p>Loading</p>
+                        <Redirect to='/subs' /> 
                     )
-                } 
+                }
             }else{
                 return(
-                    <Redirect to='/subs' /> 
+                    <Redirect to='/subregis' />
                 )
             }
         }else{
             return(
-                <Redirect to='/subregis' />
+                <>
+                    <Redirect to='/'/>
+                </>
             )
         }
     }
@@ -202,7 +211,8 @@ export class SelectedPlan extends Component {
 
 const mapStateToProps=state=>{
     return {
-      email: state.auth.email
+      email: state.auth.email,
+      plan: state.auth.plan
     }
 }
 

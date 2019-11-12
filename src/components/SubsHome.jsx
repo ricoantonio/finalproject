@@ -108,34 +108,41 @@ export class SubsHome extends Component {
     }
 
     render() {
-        if(this.state.done){
-            if(!this.state.month&&!this.state.year){
+       if(this.props.plan !== 'premium'){
+            if(this.state.done){
+                if(!this.state.month&&!this.state.year){
+                    return(
+                        this.renderSub()
+                    )
+                }if(this.state.month){
+                    return(
+                        <Redirect to={{pathname:'/plan',state:{plan:'month'}
+                        }}/>
+                    )
+                }if(this.state.year){
+                    return(
+                        <Redirect to={{pathname:'/plan',state:{plan:'year'}
+                        }}/>
+                    )
+                }
+            }else{
                 return(
-                    this.renderSub()
-                )
-            }if(this.state.month){
-                return(
-                    <Redirect to={{pathname:'/plan',state:{plan:'month'}
-                    }}/>
-                )
-            }if(this.state.year){
-                return(
-                    <Redirect to={{pathname:'/plan',state:{plan:'year'}
-                    }}/>
+                    <p>Loading</p>
                 )
             }
-        }else{
-            return(
-                <p>Loading</p>
-            )
-        }
+       }else{
+           return(
+               <Redirect to="/" />
+           )
+       }
     }
 }
 
 
 const mapStateToProps=state=>{
     return {
-      email: state.auth.email
+      email: state.auth.email,
+      plan: state.auth.plan
     }
 }
 

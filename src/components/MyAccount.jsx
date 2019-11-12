@@ -9,7 +9,7 @@ import Nav from './Nav'
 import urlApi from '../helpers'
 import NotifPromo from './NotifPromo'
 import NotifPromoRed from './NotifPromoRed'
-
+import NotifPromoRedAlreadyUsed from './NotifPromoRedAlreadyUsed'
 export class MyAccount extends Component {
     
   state={
@@ -43,40 +43,90 @@ export class MyAccount extends Component {
   promoInput=(promo)=>{
     promo.preventDefault();
     // console.log(promo);
-    
+
+
     Axios.get(urlApi+'/payment/promo',{
       params:{
         promo:promo.target[0].value
       }
-    }).then((res)=>{
+    }).then((res1)=>{
       
-      if(res.data.length>0){
-        if (res.data[0].promo === '7-DAYSFREETRIAL' ){
-          
-          Axios.post(urlApi+'/payment/userpromo',{
-            email:this.props.email,
-            promo:res.data[0].promo,
-            dateStart:moment().format('YYYYY-MM-DD, H:mm:ss'),
-            dateEnd:moment().add(7, 'days').format('YYYYY-MM-DD, H:mm:ss')
-          }).then((res)=>{
-            this.getData()
-            this.setState({promo:1})
-            this.props.onRefresh(this.props.email)
-            // setInterval(()=>{window.location.reload()}, 1000);
+      if(res1.data.length>0){
+        console.log(res1.data[0]);
+        
+        if (res1.data[0].promo === '7-DAYSFREETRIAL' ){
+         
+          Axios.get(urlApi+'/payment/checkpromouser',{
+            params:{
+              iduser:this.props.id,
+              idpromo:res1.data[0].idpromo
+            }
+          }).then((res2)=>{
+            console.log(res2.data);
             
+            if(res2.data.length===0){
+              Axios.post(urlApi+'/payment/insertuserpromo',{
+                iduser:this.props.id,
+                idpromo:res1.data[0].idpromo
+              }).then((res3)=>{
+                if(this.props.plan==='premium'){
+                  // console.log(this.props.date);  
+                  
+                  Axios.post(urlApi+'/payment/userpromoplus',{
+                    email:this.props.email,
+                    promo:res1.data[0].promo,
+                    dateEnd:moment(this.props.dateEnd).add(7, 'days').format('YYYYY-MM-DD, H:mm:ss')
+      
+                  }).then((res)=>{
+                    this.getData()
+                    this.setState({promo:1})
+                    this.props.onRefresh(this.props.email)
+                    // setInterval(()=>{window.location.reload()}, 1000);
+                    
+                  }).catch((err)=>{
+                    
+                  })
+                }else{
+                  // console.log('else');
+                  Axios.post(urlApi+'/payment/userpromo',{
+                    email:this.props.email,
+                    promo:res1.data[0].promo,
+                    dateStart:moment().format('YYYYY-MM-DD, H:mm:ss'),
+                    dateEnd:moment().add(7, 'days').format('YYYYY-MM-DD, H:mm:ss')
+      
+                  }).then((res)=>{
+                    this.getData()
+                    this.setState({promo:1})
+                    this.props.onRefresh(this.props.email)
+                    // setInterval(()=>{window.location.reload()}, 1000);
+                    
+                  }).catch((err)=>{
+                    console.log(err);
+                  })
+                }
+              }).catch((err)=>{
+                console.log(err);
+              })
+            }else{
+              console.log('eh kamu udah punya');
+              this.setState({promo:3})
+            }
           }).catch((err)=>{
+            console.log(err);
             
           })
+         
         }
-        
-        
       }else{
         // console.log('b');
         this.setState({promo:2})
       }
     }).catch((err)=>{
-
+      console.log(err);
+      
     })
+
+    
     this.setState({promo:0})
   }
 
@@ -96,7 +146,12 @@ export class MyAccount extends Component {
           <>
             <Nav/>
             <NotifPromoRed/>
-          </>  : 
+          </> :
+          this.state.promo === 3 ?
+          <>
+            <Nav/>
+            <NotifPromoRedAlreadyUsed/>
+          </> :
           <Nav/>
         }
         <div className="container">
@@ -152,7 +207,10 @@ export class MyAccount extends Component {
 
 const mapStateToProps=state=>{
   return {
-    email: state.auth.email
+    id:state.auth.id,
+    email: state.auth.email,
+    plan:state.auth.plan,
+    dateEnd:state.auth.dateEnd
   }
 }
 

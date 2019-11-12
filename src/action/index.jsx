@@ -91,7 +91,7 @@ export const onRefresh=(EMAIL)=>{
             
                 //success
                 // console.log(res.data.result);
-                console.log('s');
+                // console.log('s');
                 console.log(res.data);
                 
                 let {id,email,role,plan,dateEnd}=res.data[0]
