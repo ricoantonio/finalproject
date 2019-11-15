@@ -9,7 +9,8 @@ export class AdminUser extends Component {
     state={
         dataPremium:[],
         dataFree:[],
-        check:false
+        check:false,
+        gross:null
     }
 
     componentDidMount() {
@@ -19,13 +20,26 @@ export class AdminUser extends Component {
 
             Axios.get(urlApi+'/auth/getdatafree')
             .then((res)=>{
-
+                this.setState({check:true})
                 this.setState({dataFree:res.data})
 
-                this.setState({check:true})
+                Axios.get(urlApi+'/payment/grossincome',{
+                    params:{
+                        month:moment().format('MM')
+                    }
+                }).then((res)=>{
+                    this.setState({gross:res.data[0].gross})
+                    console.log(this.state.gross);
+                    
+                    
+                }).catch((err)=>{
+                    console.log(err);
+                    
+                })
                 
             }).catch((err)=>{
                 console.log(err);
+                
             })
         }).catch((err)=>{
             console.log(err);
@@ -102,6 +116,8 @@ export class AdminUser extends Component {
             return (
                 <>
                    <div className="container" style={{marginBottom:"6%"}}>
+                        {/* <h4 className="center" style={{marginBottom:"5%"}}>THIS MONTH GROSS INCOME:{this.state.gross} </h4> */}
+
                         <h5 style={{marginBottom:'5%'}}>Premium User <span className='circle black white-text' style={{padding:10, marginLeft:'2%'}}>{this.state.dataPremium.length} </span></h5>
                         <div className="row center">
                             <div className="col s2"><b>Name</b></div>

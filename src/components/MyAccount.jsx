@@ -43,18 +43,22 @@ export class MyAccount extends Component {
   promoInput=(promo)=>{
     promo.preventDefault();
     // console.log(promo);
-
+    console.log('a');
+    
 
     Axios.get(urlApi+'/payment/promo',{
       params:{
         promo:promo.target[0].value
       }
     }).then((res1)=>{
+      console.log('b');
+      
       
       if(res1.data.length>0){
         console.log(res1.data[0]);
         
         if (res1.data[0].promo === '7-DAYSFREETRIAL' ){
+         console.log('c');
          
           Axios.get(urlApi+'/payment/checkpromouser',{
             params:{
@@ -84,6 +88,7 @@ export class MyAccount extends Component {
                     // setInterval(()=>{window.location.reload()}, 1000);
                     
                   }).catch((err)=>{
+                    console.log(err);
                     
                   })
                 }else{
@@ -95,6 +100,8 @@ export class MyAccount extends Component {
                     dateEnd:moment().add(7, 'days').format('YYYYY-MM-DD, H:mm:ss')
       
                   }).then((res)=>{
+                    console.log('apa');
+                    
                     this.getData()
                     this.setState({promo:1})
                     this.props.onRefresh(this.props.email)
