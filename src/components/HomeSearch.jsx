@@ -243,11 +243,11 @@ class HomeSearch extends Component {
                 </div>
             </div>
                     }
-                    <div className='container'>
+                    <div className='container' style={{marginTop:"2%"}} >
                         <div className="row">
                             <div className="col s10 offset-s1 input-field">
                                 <form onSubmit={this.onSearchChange}>
-                                    <input className="center teal-text text-darken-1" onChange={e=>this.setState({search:e.target.value})} type="text" style={{width:'100%', fontSize:"30px"}} value={this.state.search} />
+                                    <input className="center teal-text text-darken-1" placeholder='Search by Title' onChange={e=>this.setState({search:e.target.value})} type="text" style={{width:'100%', fontSize:"30px"}} value={this.state.search} />
                                 </form>
                                 <div className="col s10 offset-s1">
                                     {this.renderData()}

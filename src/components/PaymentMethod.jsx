@@ -109,7 +109,7 @@ export class PaymentMethod extends Component {
                     <span>OVO phone number:</span>
                     <input className="center teal-text text-darken-1" onChange={(e)=>{this.angka(e.target.value)}} 
                         value={this.state.phone} style={{marginTop:"5%", fontSize:'25px'}} 
-                        type="number" placeholder="OVO phone number" />
+                        type="text" placeholder="OVO phone number" />
                     <img style={{width:"60%", marginTop:"1%"}} src={this.state.file} alt=""/>
                     <div className="input-field file-field">
                         <div class="btn black white-text">
@@ -140,7 +140,7 @@ export class PaymentMethod extends Component {
                     <span>DANA phone number:</span>
                     <input className="center teal-text text-darken-1" onChange={(e)=>{this.angka(e.target.value)}} 
                         value={this.state.phone} style={{marginTop:"5%", fontSize:'25px'}} 
-                        type="number" placeholder="DANA phone number"/>
+                        type="text" placeholder="DANA phone number"/>
                     <img style={{width:"60%", marginTop:"1%"}} src={this.state.file} alt=""/>
                     <div className="input-field file-field">
                         <div class="btn black white-text">
