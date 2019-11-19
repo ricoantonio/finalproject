@@ -9,6 +9,7 @@ import { Paper } from '@material-ui/core';
 import Nav from './Nav';
 import AdminMovie from './AdminMovie';
 import AdminUser from './AdminUser';
+import AdminOverview from './AdminOverview';
 
 
 function TabPanel(props) {
@@ -66,26 +67,27 @@ export default function AdminDashboard() {
             indicatorColor='secondary'
             centered
             >
-            {/* <Tab style={{backgroundColor:'white'}} label="Drama List" {...a11yProps(0)} />
-            <Tab style={{backgroundColor:'white'}} label="Variety List" {...a11yProps(1)} /> */}
-            <Tab style={{backgroundColor:'white'}} label="Movie List" {...a11yProps(0)} />
-            {/* <Tab style={{backgroundColor:'white'}} label="Anime List" {...a11yProps(3)} /> */}
+            <Tab style={{backgroundColor:'white'}} label="Overview" {...a11yProps(0)} />
+            {/* <Tab style={{backgroundColor:'white'}} label="Drama List" {...a11yProps(0)} /> */}
+            {/* <Tab style={{backgroundColor:'white'}} label="Variety List" {...a11yProps(1)} />  */}
+            <Tab style={{backgroundColor:'white'}} label="Movie List" {...a11yProps(1)} />
+            {/* <Tab style={{backgroundColor:'white'}} label="Anime List" {...a11yProps(3)} />  */}
             <Tab style={{backgroundColor:'white'}} label="User List" {...a11yProps(1)} />
             </Tabs>
         </Paper>
-        {/* <TabPanel value={value} index={0}>
-            Item One
+        <TabPanel value={value} style={{backgroundColor:'white'}} index={0}>
+            <AdminOverview/>
         </TabPanel>
-        <TabPanel value={value} index={1}>
+        {/* <TabPanel value={value} index={1}>
             Item Two
         </TabPanel> */}
-        <TabPanel value={value} style={{backgroundColor:'white'}} index={0}>
+        <TabPanel value={value} style={{backgroundColor:'white'}} index={1}>
             <AdminMovie/>
         </TabPanel>
         {/* <TabPanel value={value} index={3}>
             Item Four
         </TabPanel> */}
-        <TabPanel value={value} style={{backgroundColor:'white'}} index={1}>
+        <TabPanel value={value} style={{backgroundColor:'white'}} index={2}>
             <AdminUser/>
         </TabPanel>
     </div>
