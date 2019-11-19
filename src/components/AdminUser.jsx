@@ -14,6 +14,7 @@ export class AdminUser extends Component {
     }
 
     componentDidMount() {
+        
         Axios.get(urlApi+'/auth/getdatapremium')
         .then((res)=>{
             this.setState({dataPremium:res.data})
@@ -77,17 +78,17 @@ export class AdminUser extends Component {
                         index%2===1 ?
                             <>
                                 <div className="row center " style={{fontSize:12, marginBottom:0, paddingTop:0}}>
-                                    <div className="col s2 offset-s3">{val.name}</div>
-                                    <div className="col s2">{val.email}</div>
-                                    <div className="col s2">{moment(val.lastActive).format('DD-MM-YYYY H:mm:ss')}</div>
+                                    <div className="col s2 offset-s2">{val.name}</div>
+                                    <div className="col s3">{val.email}</div>
+                                    <div className="col s3">{moment(val.lastActive).format('DD-MM-YYYY H:mm:ss')}</div>
                                 </div>
                             </>
                             :
                             <>
                                 <div className="row center blue-grey lighten-5" style={{fontSize:12, marginBottom:0, paddingTop:0}}>
-                                    <div className="col s2 offset-s3">{val.name}</div>
-                                    <div className="col s2">{val.email}</div>
-                                    <div className="col s2">{moment(val.lastActive).format('DD-MM-YYYY H:mm:ss')}</div>
+                                    <div className="col s2 offset-s2">{val.name}</div>
+                                    <div className="col s3">{val.email}</div>
+                                    <div className="col s3">{moment(val.lastActive).format('DD-MM-YYYY H:mm:ss')}</div>
                                 </div>
                             </>
                            
@@ -116,9 +117,9 @@ export class AdminUser extends Component {
                         {this.renderDataPremium()}
                         <h5 style={{marginTop:'5%', marginBottom:"5%"}}>Free User <span className='circle black white-text' style={{padding:10, marginLeft:'2%'}}>{this.state.dataFree.length}</span> </h5>
                         <div className="row center">
-                            <div className="col s2 offset-s3"><b>Name</b></div>
-                            <div className="col s2"><b>E-mail</b></div>
-                            <div className="col s2"><b>Last Active</b></div>
+                            <div className="col s2 offset-s2"><b>Name</b></div>
+                            <div className="col s3"><b>E-mail</b></div>
+                            <div className="col s3"><b>Last Active</b></div>
                         </div>
                         {this.renderDataFree()}
                    </div>
