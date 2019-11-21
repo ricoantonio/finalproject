@@ -8,8 +8,8 @@ export class AdminOverview extends Component {
 
     state={
         check:false,
-        gross:null,
-        grossLast:null,
+        gross:0,
+        grossLast:0,
         dataFree:[],
         dataPremium:[]
     }
