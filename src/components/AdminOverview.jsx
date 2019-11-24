@@ -66,8 +66,12 @@ export class AdminOverview extends Component {
             return (
                 <>
                     <div>
-                        <h4 className="center" style={{marginBottom:"5%", marginBottom:0}}>This month total gross income : Rp.{(this.state.gross).toLocaleString('id')} </h4>
-                        <h5 className="center" style={{marginBottom:"5%", marginTop:"2%"}}>Last month total gross income : Rp.{(this.state.grossLast).toLocaleString('id')} </h5>
+                        <h4 className="center" style={{marginBottom:"5%", marginBottom:0}}>This month total gross income : 
+                            {this.state.gross>=this.state.grossLast ? 
+                            <span className="green-text"> Rp. {(this.state.gross).toLocaleString('en')}</span>:
+                            <span className="red-text"> Rp. {(this.state.gross).toLocaleString('en')}</span>} 
+                        </h4>
+                        <h5 className="center grey-text" style={{marginBottom:"5%", marginTop:"2%"}}>Last month total gross income : Rp. {(this.state.grossLast).toLocaleString('en')} </h5>
                     </div>
                     <div className="container">
                         <div className="row center">
@@ -81,6 +85,11 @@ export class AdminOverview extends Component {
                                 Free users : <span className='circle blue white-text' style={{padding:10, marginLeft:'2%'}}>{this.state.dataFree.length}</span>
                             </h5>
                         </div>
+                    </div>
+                    <div>
+                        <h5>
+                            Total new users this month : 
+                        </h5>
                     </div>
                     <div className="containers" style={{marginTop:"4%"}}>
                         <h5>

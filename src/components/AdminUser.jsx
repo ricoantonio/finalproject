@@ -105,7 +105,7 @@ export class AdminUser extends Component {
                 <>
                    <div className="container" style={{marginBottom:"6%"}}>
 
-                        <h5 style={{marginBottom:'5%'}}>Premium User <span className='circle black white-text' style={{padding:10, marginLeft:'2%'}}>{this.state.dataPremium.length} </span></h5>
+                        <h5 style={{marginBottom:'5%'}}>Premium User <span className='circle blue white-text' style={{padding:10, marginLeft:'2%'}}>{this.state.dataPremium.length} </span></h5>
                         <div className="row center">
                             <div className="col s2"><b>Name</b></div>
                             <div className="col s2"><b>E-mail</b></div>
@@ -115,7 +115,7 @@ export class AdminUser extends Component {
                             <div className="col s2"><b>Expired Date</b></div>
                         </div>
                         {this.renderDataPremium()}
-                        <h5 style={{marginTop:'5%', marginBottom:"5%"}}>Free User <span className='circle black white-text' style={{padding:10, marginLeft:'2%'}}>{this.state.dataFree.length}</span> </h5>
+                        <h5 style={{marginTop:'5%', marginBottom:"5%"}}>Free User <span className='circle blue white-text' style={{padding:10, marginLeft:'2%'}}>{this.state.dataFree.length}</span> </h5>
                         <div className="row center">
                             <div className="col s2 offset-s2"><b>Name</b></div>
                             <div className="col s3"><b>E-mail</b></div>
