@@ -69,10 +69,10 @@ class App extends Component{
             if(moment(this.props.dateEnd)>=moment()){
                 Axios.post(urlApi+'/auth/lastactive',{
                     lastActive:moment().format('YYYY-MM-DD H:mm:ss'),
-                    email:this.props.email
+                    email:this.props.email 
                 }).then((res)=>{
                 }).catch((err)=>{
-                    
+                     
                 })
                 console.log('premium');
                 return (   
