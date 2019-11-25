@@ -73,7 +73,7 @@ export class AdminOverview extends Component {
                         </h4>
                         <h5 className="center grey-text" style={{marginBottom:"5%", marginTop:"2%"}}>Last month total gross income : Rp. {(this.state.grossLast).toLocaleString('en')} </h5>
                     </div>
-                    <div className="container">
+                    <div className="container" style={{marginBottom:"4%"}}>
                         <div className="row center">
                             <h5 className="col s4">
                                 Total users : <span className='circle green white-text' style={{padding:10, marginLeft:'2%'}}>{this.state.dataFree.length+this.state.dataPremium.length}</span>
@@ -91,7 +91,7 @@ export class AdminOverview extends Component {
                             Total new users this month : 
                         </h5>
                     </div>
-                    <div className="containers" style={{marginTop:"4%"}}>
+                    <div className="containers">
                         <h5>
                             Most viewed movie all time :
                         </h5>
