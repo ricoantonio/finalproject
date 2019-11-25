@@ -23,7 +23,7 @@ export class Plans extends Component {
                             </p>
                             <p style={{fontSize:"30px"}}>Rp.50.000/<span style={{fontSize:"20px"}}>month</span></p>
                             {
-                                this.props.plan === 'premium' ? 
+                                this.props.plan === 'premium' || this.props.plan == 'pending'  ? 
                                 <div className="btn-trial" style={{marginTop:"10%"}}>
                                 <button onClick={()=>this.setState({month:true})}  className="btn-large black disabled">select plan</button>
                                 </div>:
@@ -39,7 +39,7 @@ export class Plans extends Component {
                             </p>
                             <p style={{fontSize:"30px"}}>Rp.350.000/<span style={{fontSize:"20px"}}>year</span></p>
                             {
-                                this.props.plan === 'premium' ?
+                                this.props.plan === 'premium' || this.props.plan == 'pending'  ?
                                 <div className="btn-trial" style={{marginTop:"10%"}}>
                                 <button onClick={()=>this.setState({year:true})} className="btn-large black disabled">select plan</button>
                             </div>:

@@ -108,7 +108,7 @@ export class SubsHome extends Component {
     }
 
     render() {
-       if(this.props.plan !== 'premium'){
+       if(this.props.plan == 'free'){
             if(this.state.done){
                 if(!this.state.month&&!this.state.year){
                     return(
