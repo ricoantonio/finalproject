@@ -12,6 +12,7 @@ import moment from 'moment'
 
 import Axios from 'axios'
 
+import {onRefresh} from '../action/index'
 import urlApi from '../helpers'
 
 export class PaymentMethod extends Component {
@@ -78,6 +79,7 @@ export class PaymentMethod extends Component {
             Axios.post(urlApi+'/payment/pending',{
                 id:this.props.id
             }).then((res)=>{
+                this.props.onRefresh(this.props.email)
                 this.setState({done:true})
                 console.log(data);
                 console.log(this.state.rop);
@@ -212,4 +214,4 @@ const mapStateToProps=state=>{
 }
 
 
-export default connect(mapStateToProps)(PaymentMethod)
+export default connect(mapStateToProps,{onRefresh})(PaymentMethod)
