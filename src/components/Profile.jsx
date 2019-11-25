@@ -13,7 +13,8 @@ export class Profile extends Component {
   state={
     anchorEl:null,
     data:[],
-    loading:false
+    loading:false,
+    total:0
   }
 
   handleClick = event => {
@@ -43,6 +44,16 @@ export class Profile extends Component {
 
   renderProfile=()=>{
     if (this.state.data.role==='admin') {
+
+      Axios.get(urlApi+'/payment/getpending')
+      .then((res)=>{
+          this.setState({total:res.data.length})    
+          console.log(this.state.data);
+                  
+      }).catch((err)=>{
+          console.log(err);
+      })
+
       return(
         <div>
         {/* <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
@@ -69,7 +80,14 @@ export class Profile extends Component {
             </p>
           </div>
         </div>
-          <Link to='/admin-pendinguser'><MenuItem className="black-text">Pending User</MenuItem></Link>
+          <Link to='/admin-pendinguser'>
+            <MenuItem className="black-text">Pending User 
+              {
+                this.state.total > 0 ? <span className='circle green white-text center' style={{width:"10%", marginLeft:"3%", padding:3, fontSize:12}}>{this.state.total}</span> :
+                this.state.total > 10 ? <span className='circle green white-text center' style={{width:"10%", marginLeft:"3%", padding:3, fontSize:12}}>10+</span> : ''
+              } 
+            </MenuItem>
+          </Link>
           <Link to='/admin-dashboard'><MenuItem className="black-text">Admin Dashboard</MenuItem></Link>
           <MenuItem onClick={this.props.onLogoutUser} href="/">Log Out</MenuItem>
         </Menu>
