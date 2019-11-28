@@ -10,6 +10,7 @@ export class AdminOverview extends Component {
         check:false,
         gross:0,
         grossLast:0,
+        cate:[],
         dataFree:[],
         dataPremium:[]
     }
@@ -45,7 +46,19 @@ export class AdminOverview extends Component {
                     Axios.get(urlApi+'/auth/getdatafree')
                     .then((res)=>{
                         this.setState({dataFree:res.data})
-                        this.setState({check:true})
+                        // this.setState({
+                        //     check:true
+                        // })
+                        Axios.get(urlApi+'/movie/getmostviewcategories')
+                        .then((res1)=>{
+                            this.setState({
+                                check:true,
+                                cate:res1.data
+                            })
+                            
+                        }).catch((err)=>{
+                            console.log(err);
+                        })
                     }).catch((err)=>{
                         console.log(err);
                     })
@@ -59,6 +72,17 @@ export class AdminOverview extends Component {
         }).catch((err)=>{
             console.log(err);
         })
+    }
+
+    renderMostViewCategories=()=>{
+        let list=this.state.cate.map((val)=>{
+            console.log(val);
+            
+            return(
+                <span className="black white-text not-square center" style={{marginRight:"2%", padding:10, margin:10,fontSize:14}}>{val.category}</span>
+            )
+        })
+        return list
     }
     
     render() {
@@ -99,7 +123,7 @@ export class AdminOverview extends Component {
                             Most viewed movie this month :
                         </h5>
                         <h5>
-                            Most viewed genre :
+                            Most viewed genre : {this.renderMostViewCategories()}
                         </h5>
                     </div>
                 </>
