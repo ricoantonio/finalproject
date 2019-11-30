@@ -37,7 +37,7 @@ export class AdminOverview extends Component {
                 this.setState({
                     grossLast:res.data[0].gross,
                     // check:true
-                })
+                }) 
                 // get data users premium
                 Axios.get(urlApi+'/auth/getdatapremium')
                 .then((res)=>{
