@@ -32,18 +32,9 @@ export class Profile extends Component {
       }
     }).then((res)=>{
       this.setState({data:res.data[0]})
-      
-      Axios.get(urlApi+'/payment/getpending')
-      .then((res)=>{
-          this.setState({total:res.data.length})    
-          // console.log(this.state.data);
-                  
-      }).catch((err)=>{
-          console.log(err);
-      })
-      // console.log(this.state.data.name);
-      
       this.setState({loading:true})
+        // console.log(this.state.data.name);
+        
     }).catch((err)=>{
 
     })
@@ -52,6 +43,14 @@ export class Profile extends Component {
 
   renderProfile=()=>{
     if (this.state.data.role==='admin') {
+      Axios.get(urlApi+'/payment/getpending')
+      .then((res)=>{
+          this.setState({total:res.data.length})    
+          // console.log(this.state.data);
+          
+        }).catch((err)=>{
+          console.log(err);
+        })
       return(
         <div>
         {/* <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>

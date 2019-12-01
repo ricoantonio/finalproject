@@ -85,8 +85,6 @@ export class AdminOverview extends Component {
 
     renderMostViewCategories=()=>{
         let list=this.state.cate.map((val)=>{
-            console.log(val);
-            
             return(
                 <span className="black white-text not-square center" style={{marginRight:"2%", padding:10, margin:10,fontSize:14}}>{val.category}</span>
             )
@@ -96,11 +94,10 @@ export class AdminOverview extends Component {
 
     renderMostViewMovie=()=>{
         let list=this.state.mostViewMovie.map((val,index)=>{
-            console.log(val);
-            
             return(
-                <div>
-                    {index+1}
+                <div style={{fontSize:20}}>
+                    <span>{index+1}. </span>
+                    <span>{val.title}</span>
                 </div>
             )
         })
@@ -111,40 +108,45 @@ export class AdminOverview extends Component {
         if(this.state.check){
             return (
                 <>
-                    <div>
-                        <h4 className="center" style={{marginBottom:"5%", marginBottom:0}}>This month total gross income : 
-                           {!this.state.gross? ' Rp. 0' : this.state.gross>=this.state.grossLast ? 
-                            <span className="green-text"> Rp. {(this.state.gross).toLocaleString('en')}</span>:
-                            <span className="red-text"> Rp. {(this.state.gross).toLocaleString('en')}</span>}
-                        </h4>
-                        <h5 className="center grey-text" style={{marginBottom:"5%", marginTop:"2%"}}>Last month total gross income : Rp. {(this.state.grossLast).toLocaleString('en')} </h5>
-                    </div>
-                    <div className="container" style={{marginBottom:"4%"}}>
-                        <div className="row center">
-                            <h5 className="col s4">
-                                Total users : <span className='circle green white-text' style={{padding:10, marginLeft:'2%'}}>{this.state.dataFree.length+this.state.dataPremium.length}</span>
-                            </h5>
-                            <h5 className="col s4"> 
-                                Premium users : <span className='circle blue white-text' style={{padding:10, marginLeft:'2%'}}>{this.state.dataPremium.length}</span>
-                            </h5>
-                            <h5 className="col s4">
-                                Free users : <span className='circle blue white-text' style={{padding:10, marginLeft:'2%'}}>{this.state.dataFree.length}</span>
+                   <div style={{marginBottom:"5%"}}>
+                        <div>
+                            <h4 className="center" style={{marginBottom:"5%", marginBottom:0}}>This month total gross income : 
+                            {this.state.gross===null? <span className="red-text"> Rp. 0</span> : this.state.gross>=this.state.grossLast ? 
+                                <span className="green-text"> Rp. {(this.state.gross).toLocaleString('en')}</span>:
+                                <span className="red-text"> Rp. {(this.state.gross).toLocaleString('en')}</span>}
+                            </h4>
+                            <h5 className="center grey-text" style={{marginBottom:"5%", marginTop:"2%"}}>Last month total gross income : Rp. {(this.state.grossLast).toLocaleString('en')} </h5>
+                        </div>
+                        <div className="container" style={{marginBottom:"4%"}}>
+                            <div className="row center">
+                                <h5 className="col s4">
+                                    Total users : <span className='circle green white-text' style={{padding:10, marginLeft:'2%'}}>{this.state.dataFree.length+this.state.dataPremium.length}</span>
+                                </h5>
+                                <h5 className="col s4"> 
+                                    Premium users : <span className='circle blue white-text' style={{padding:10, marginLeft:'2%'}}>{this.state.dataPremium.length}</span>
+                                </h5>
+                                <h5 className="col s4">
+                                    Free users : <span className='circle blue white-text' style={{padding:10, marginLeft:'2%'}}>{this.state.dataFree.length}</span>
+                                </h5>
+                            </div>
+                        </div>
+                        <div>
+                            <h5>
+                                Total new users this month : 
                             </h5>
                         </div>
-                    </div>
-                    <div>
-                        <h5>
-                            Total new users this month : 
-                        </h5>
-                    </div>
-                    <div className="containers">
-                        <h5>
-                            Most viewed movie all time : {this.renderMostViewMovie()}
-                        </h5>
-                        <h5>
-                            Most viewed genre : {this.renderMostViewCategories()}
-                        </h5>
-                    </div>
+                        <div className="containers">
+                            <h5>
+                                Most viewed movie : 
+                                <div style={{marginTop:"1%"}}>
+                                    {this.renderMostViewMovie()}
+                                </div>
+                            </h5>
+                            <h5>
+                                Most viewed genre : {this.renderMostViewCategories()}
+                            </h5>
+                        </div>
+                   </div>
                 </>
             )
         }else{
