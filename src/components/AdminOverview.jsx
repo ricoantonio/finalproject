@@ -12,7 +12,8 @@ export class AdminOverview extends Component {
         grossLast:0,
         cate:[],
         dataFree:[],
-        dataPremium:[]
+        dataPremium:[],
+        mostViewMovie:[]
     }
 
     componentDidMount() {
@@ -52,10 +53,18 @@ export class AdminOverview extends Component {
                         Axios.get(urlApi+'/movie/getmostviewcategories')
                         .then((res1)=>{
                             this.setState({
-                                check:true,
                                 cate:res1.data
                             })
-                            
+                            Axios.get(urlApi+'/movie/mostview')
+                            .then((res2)=>{
+                                this.setState({
+                                    check:true,
+                                    mostViewMovie:res2.data})
+                                    console.log(this.state.mostViewMovie);
+                                    
+                            }).catch((err)=>{
+                                console.log(err);
+                            })
                         }).catch((err)=>{
                             console.log(err);
                         })
@@ -84,6 +93,19 @@ export class AdminOverview extends Component {
         })
         return list
     }
+
+    renderMostViewMovie=()=>{
+        let list=this.state.mostViewMovie.map((val,index)=>{
+            console.log(val);
+            
+            return(
+                <div>
+                    {index+1}
+                </div>
+            )
+        })
+        return list
+    }
     
     render() {
         if(this.state.check){
@@ -91,9 +113,9 @@ export class AdminOverview extends Component {
                 <>
                     <div>
                         <h4 className="center" style={{marginBottom:"5%", marginBottom:0}}>This month total gross income : 
-                            {this.state.gross>=this.state.grossLast ? 
+                           {!this.state.gross? ' Rp. 0' : this.state.gross>=this.state.grossLast ? 
                             <span className="green-text"> Rp. {(this.state.gross).toLocaleString('en')}</span>:
-                            <span className="red-text"> Rp. {(this.state.gross).toLocaleString('en')}</span>} 
+                            <span className="red-text"> Rp. {(this.state.gross).toLocaleString('en')}</span>}
                         </h4>
                         <h5 className="center grey-text" style={{marginBottom:"5%", marginTop:"2%"}}>Last month total gross income : Rp. {(this.state.grossLast).toLocaleString('en')} </h5>
                     </div>
@@ -117,10 +139,7 @@ export class AdminOverview extends Component {
                     </div>
                     <div className="containers">
                         <h5>
-                            Most viewed movie all time :
-                        </h5>
-                        <h5>
-                            Most viewed movie this month :
+                            Most viewed movie all time : {this.renderMostViewMovie()}
                         </h5>
                         <h5>
                             Most viewed genre : {this.renderMostViewCategories()}
