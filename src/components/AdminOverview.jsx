@@ -13,7 +13,8 @@ export class AdminOverview extends Component {
         cate:[],
         dataFree:[],
         dataPremium:[],
-        mostViewMovie:[]
+        mostViewMovie:[],
+        newUser:0
     }
 
     componentDidMount() {
@@ -47,21 +48,35 @@ export class AdminOverview extends Component {
                     Axios.get(urlApi+'/auth/getdatafree')
                     .then((res)=>{
                         this.setState({dataFree:res.data})
-                        // this.setState({
-                        //     check:true
-                        // })
                         Axios.get(urlApi+'/movie/getmostviewcategories')
                         .then((res1)=>{
                             this.setState({
                                 cate:res1.data
                             })
-                            Axios.get(urlApi+'/movie/mostview')
+                            Axios.get(urlApi+'/auth/userthismonth',{
+                                params:{
+                                    month:moment().format('MM')
+                                }
+                            })
                             .then((res2)=>{
                                 this.setState({
-                                    check:true,
-                                    mostViewMovie:res2.data})
-                                    console.log(this.state.mostViewMovie);
-                                    
+                                    newUser:res2.data.length
+                                })
+                                if(!res2.data){
+                                    this.setState({
+                                        newUser:0
+                                    })
+                                }
+                                Axios.get(urlApi+'/movie/mostview')
+                                .then((res3)=>{
+                                    this.setState({
+                                        check:true,
+                                        mostViewMovie:res3.data})
+                                        // console.log(this.state.mostViewMovie);
+                                        
+                                }).catch((err)=>{
+                                    console.log(err);
+                                })
                             }).catch((err)=>{
                                 console.log(err);
                             })
@@ -132,7 +147,7 @@ export class AdminOverview extends Component {
                         </div>
                         <div>
                             <h5>
-                                Total new users this month : 
+                                Total new users this month : {this.state.newUser}
                             </h5>
                         </div>
                         <div className="containers">
