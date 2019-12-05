@@ -123,7 +123,7 @@ export class AdminOverview extends Component {
         if(this.state.check){
             return (
                 <>
-                   <div style={{marginBottom:"5%"}}>
+                   <div style={{marginBottom:"8%"}}>
                         <div>
                             <h4 className="center" style={{marginBottom:"5%", marginBottom:0}}>This month total gross income : 
                             {this.state.gross===null? <span className="red-text"> Rp. 0</span> : this.state.gross>=this.state.grossLast ? 
